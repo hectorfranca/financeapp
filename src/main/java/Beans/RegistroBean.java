@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
@@ -23,7 +24,7 @@ public class RegistroBean {
     private long id;
     
     @OneToMany(mappedBy = "Categoria")
-    private CategoriaBean categoria;
+    private Set<CategoriaBean> categorias;
     
     @Column(nullable = false, length = 60)
     private String nome;
@@ -42,12 +43,12 @@ public class RegistroBean {
         this.id = id;
     }
 
-    public CategoriaBean getCategoria() {
-        return categoria;
+    public Set<CategoriaBean> getCategorias() {
+        return categorias;
     }
 
-    public void setCategoria(CategoriaBean categoria) {
-        this.categoria = categoria;
+    public void setCategorias(Set<CategoriaBean> categorias) {
+        this.categorias = categorias;
     }
 
     public String getNome() {
@@ -76,7 +77,7 @@ public class RegistroBean {
 
     @Override
     public String toString() {
-        return "RegistroBean{" + "id=" + id + ", categoria=" + categoria + ", nome=" + nome + ", data=" + data + ", valor=" + valor + '}';
+        return "RegistroBean{" + "id=" + id + ", categorias=" + categorias + ", nome=" + nome + ", data=" + data + ", valor=" + valor + '}';
     }
     
 }

@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.Set;
 
 /**
  *
@@ -24,8 +23,8 @@ public class CategoriaBean {
     private long id;
     
     @ManyToOne
-    @JoinColumn(name = "categoria", insertable = false, updatable = false, nullable = false)
-    private Set<RegistroBean> registros;
+    @JoinColumn(name = "categorias", insertable = false, updatable = false, nullable = false)
+    private RegistroBean registro;
     
     @Column(nullable = false, length = 40)
     private String nome;
@@ -41,12 +40,12 @@ public class CategoriaBean {
         this.id = id;
     }
 
-    public Set<RegistroBean> getRegistros() {
-        return registros;
+    public RegistroBean getRegistro() {
+        return registro;
     }
 
-    public void setRegistros(Set<RegistroBean> registros) {
-        this.registros = registros;
+    public void setRegistro(RegistroBean registro) {
+        this.registro = registro;
     }
 
     public String getNome() {
@@ -67,7 +66,7 @@ public class CategoriaBean {
 
     @Override
     public String toString() {
-        return "CategoriaBean{" + "id=" + id + ", registros=" + registros + ", nome=" + nome + ", tipo=" + tipo + '}';
+        return "CategoriaBean{" + "id=" + id + ", registro=" + registro + ", nome=" + nome + ", tipo=" + tipo + '}';
     }
-    
+
 }
