@@ -12,7 +12,7 @@ import java.util.Set;
 
 /**
  *
- * @author Hector
+ * @author Héctor França
  */
 
 @Entity

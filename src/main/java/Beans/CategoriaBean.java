@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Hector
+ * @author Héctor França
  */
 
 @Entity
