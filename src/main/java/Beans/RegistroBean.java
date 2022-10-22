@@ -5,10 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Date;
-import java.util.Set;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -19,20 +19,21 @@ import java.util.Set;
 @Table(name = "Registro")
 public class RegistroBean {
     @Id
-    @Column
+    @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
-    @OneToMany(mappedBy = "Categoria")
-    private Set<CategoriaBean> categorias;
+    @ManyToOne
+    @JoinColumn(name = "registros", insertable = false, updatable = false, nullable = false)
+    private CategoriaBean categoria;
     
-    @Column(nullable = false, length = 60)
+    @Column(name = "Nome", nullable = false, length = 60)
     private String nome;
     
-    @Column(nullable = false)
+    @Column(name = "Data", nullable = false)
     private Date data;
     
-    @Column(nullable = false)
+    @Column(name = "Valor", nullable = false)
     private double valor;
 
     public long getId() {
@@ -43,12 +44,12 @@ public class RegistroBean {
         this.id = id;
     }
 
-    public Set<CategoriaBean> getCategorias() {
-        return categorias;
+    public CategoriaBean getCategoria() {
+        return categoria;
     }
 
-    public void setCategorias(Set<CategoriaBean> categorias) {
-        this.categorias = categorias;
+    public void setCategoria(CategoriaBean categoria) {
+        this.categoria = categoria;
     }
 
     public String getNome() {
@@ -77,7 +78,7 @@ public class RegistroBean {
 
     @Override
     public String toString() {
-        return "RegistroBean{" + "id=" + id + ", categorias=" + categorias + ", nome=" + nome + ", data=" + data + ", valor=" + valor + '}';
+        return "RegistroBean{" + "id=" + id + ", categoria=" + categoria + ", nome=" + nome + ", data=" + data + ", valor=" + valor + '}';
     }
     
 }
