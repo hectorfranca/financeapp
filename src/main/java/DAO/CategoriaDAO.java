@@ -59,11 +59,7 @@ public class CategoriaDAO {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
-<<<<<<< HEAD
             Query query = entityManager.createQuery("SELECT categoria FROM CategoriaBean categoria");
-=======
-            Query query = entityManager.createQuery("from Registro");
->>>>>>> 61b161ea09572a12218733897032eac80fa3d81d
             return query.getResultList();
         } finally {
             entityManager.close();
