@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
-  `Id` int(11) NOT NULL,
+  `Id` int(11) AUTO_INCREMENT NOT NULL,
   `Nome` varchar(40) COLLATE latin1_bin NOT NULL,
   `Tipo` char(1) COLLATE latin1_bin NOT NULL,
   PRIMARY KEY (`Id`)
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 
 DROP TABLE IF EXISTS `registro`;
 CREATE TABLE IF NOT EXISTS `registro` (
-  `Id` int(11) NOT NULL,
+  `Id` int(11) AUTO_INCREMENT NOT NULL,
   `Categoria_id` int(11) NOT NULL,
   `Nome` varchar(60) COLLATE latin1_bin NOT NULL,
   `Data` date NOT NULL,

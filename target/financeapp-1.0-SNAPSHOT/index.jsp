@@ -11,6 +11,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
         <%= new CategoriaDAO().getAll() %>
     </body>
 </html>
