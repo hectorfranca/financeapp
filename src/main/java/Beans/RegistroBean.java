@@ -5,10 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
 import javax.persistence.Table;
 import java.util.Date;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+=======
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.Date;
+import java.util.Set;
+>>>>>>> 61b161ea09572a12218733897032eac80fa3d81d
 
 /**
  *
@@ -19,6 +26,7 @@ import javax.persistence.ManyToOne;
 @Table(name = "Registro")
 public class RegistroBean {
     @Id
+<<<<<<< HEAD
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -34,6 +42,22 @@ public class RegistroBean {
     private Date data;
     
     @Column(name = "Valor", nullable = false)
+=======
+    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    
+    @OneToMany(mappedBy = "Categoria")
+    private Set<CategoriaBean> categorias;
+    
+    @Column(nullable = false, length = 60)
+    private String nome;
+    
+    @Column(nullable = false)
+    private Date data;
+    
+    @Column(nullable = false)
+>>>>>>> 61b161ea09572a12218733897032eac80fa3d81d
     private double valor;
 
     public long getId() {
@@ -44,12 +68,21 @@ public class RegistroBean {
         this.id = id;
     }
 
+<<<<<<< HEAD
     public CategoriaBean getCategoria() {
         return categoria;
     }
 
     public void setCategoria(CategoriaBean categoria) {
         this.categoria = categoria;
+=======
+    public Set<CategoriaBean> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(Set<CategoriaBean> categorias) {
+        this.categorias = categorias;
+>>>>>>> 61b161ea09572a12218733897032eac80fa3d81d
     }
 
     public String getNome() {
@@ -78,7 +111,14 @@ public class RegistroBean {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return "RegistroBean{" + "id=" + id + ", categoria=" + categoria + ", nome=" + nome + ", data=" + data + ", valor=" + valor + '}';
     }
     
 }
+=======
+        return "RegistroBean{" + "id=" + id + ", categorias=" + categorias + ", nome=" + nome + ", data=" + data + ", valor=" + valor + '}';
+    }
+    
+}
+>>>>>>> 61b161ea09572a12218733897032eac80fa3d81d
