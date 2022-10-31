@@ -1,6 +1,4 @@
-<%-- 
     Author     : Hector
---%>
 
 <%@page import="DAO.CategoriaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

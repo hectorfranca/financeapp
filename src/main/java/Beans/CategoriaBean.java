@@ -9,13 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *
- * @author Héctor França
- */
-
 @Entity
-@Table(name = "Categoria")
+@Table(name = "categoria")
 public class CategoriaBean {
     @Id
     @Column(name = "Id")

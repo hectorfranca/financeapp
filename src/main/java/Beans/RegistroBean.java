@@ -12,11 +12,11 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Héctor França
+ * @author Hï¿½ctor Franï¿½a
  */
 
 @Entity
-@Table(name = "Registro")
+@Table(name = "registro")
 public class RegistroBean {
     @Id
     @Column(name = "Id")

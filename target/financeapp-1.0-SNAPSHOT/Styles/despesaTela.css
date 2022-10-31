@@ -1,0 +1,106 @@
+*{
+    margin: 0 ;
+    padding: 0;
+}
+.containerr{
+
+    background-color: #FFFFE0 !important;
+}
+
+.header{
+    width:100%;
+/*    margin-top: 25px !important;*/
+    margin-bottom: 25px !important;
+    height: 150px !important;
+    background-color:#ffc000;
+}
+.titulo{
+    font-family: 'Roboto', sans-serif;
+    color:white;
+    margin-top: 1%;
+}
+.carousel{
+    color:white;
+    margin-top:21%;
+}
+.carousel-item{
+    background-color:#ffc000 !important;
+}
+.carousel-inner{
+    width: auto !important;
+    height: auto !important;
+}
+.listaDespesas{
+    width: 100%;
+    height: auto;
+    /*    background-color:#FFFACD;*/
+}
+
+.itemDespesas{
+    width: 100%;
+    height: 100px;
+    background-color:#FFFACD;
+    display:grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    /*    text-align: center;*/
+}
+
+.itemDespesas:hover{
+    
+}
+.itemDespesass{
+    width: 100%;
+    height: 100px;
+    background-color:#FFDAB9;
+    display:grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+.iconeDia{
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+    background-color:#FFA500;
+    color:white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+    margin:auto;
+    padding:5px;
+    position: relative;
+}
+.conteudoDespesas{
+    display:flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin:auto;
+    padding:auto;
+    position: relative;
+}
+.precoDespesas{
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin:auto;
+    padding:auto;
+    position: relative;
+}
+/*.btnsEditarExcluir{
+    display: flex;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 3vh;
+}
+.btnEditar{
+    margin: 1vh !important;
+    padding: auto !important;
+}
+.btnExcluir{
+    margin: 1vh !important;
+    padding: auto !important;
+}*/
