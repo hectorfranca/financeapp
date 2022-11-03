@@ -2,13 +2,43 @@
     margin: 0 ;
     padding: 0;
 }
+
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
     background-color: #FFFFE0 !important;
+}
+.menu{
+    width: 150px;
+    height: 70px !important;
+    padding-top: 10px !important;
+    margin-left: 10px;
+}
+
+.menu ul{
+    list-style-type: none !important;
+    padding:0;
+    text-align: left;
+}
+.menu ul li{
+    font-size:25px;
+    display: inline;
+    position:relative;
+}
+
+.menu ul li a{
+    display: inline-block;
+    text-decoration: none !important;
+    color: white;
+}
+.menu ul ul{
+    display:none;
+}
+.menu ul li:hover ul{
+    display:block;
+
 }
 .header{
     width:100%;
-    /*    margin-top: 25px !important;*/
     height: 100px !important;
     background-color:#ffc000;
     display:block;
@@ -25,7 +55,8 @@ body{
 }
 .carousel{
     color:white;
-    margin-top:10%;
+    margin-top:0%;
+    position: relative;
 }
 .carousel-item{
     background-color:#ffc000 !important;
@@ -37,8 +68,10 @@ body{
 .listaDespesas{
     width: 100%;
     height: auto;
-    display:block;
-    overflow-y:auto;
+    overflow:hidden;
+    margin-top:100px;
+    margin-bottom:50px;
+
 }
 .itemDespesas{
     width: 100%;
@@ -115,7 +148,8 @@ body{
     text-align: center;
 }
 .show-menu{
-    visibility: visible
+    visibility: visible;
+
 }
 .hidden-menu{
     visibility: hidden;
