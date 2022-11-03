@@ -2,26 +2,30 @@
     margin: 0 ;
     padding: 0;
 }
-.containerr{
-
+body{
+    font-family: 'Roboto', sans-serif;
     background-color: #FFFFE0 !important;
 }
-
 .header{
     width:100%;
-/*    margin-top: 25px !important;*/
-    margin-bottom: 25px !important;
-    height: 150px !important;
+    /*    margin-top: 25px !important;*/
+    height: 100px !important;
     background-color:#ffc000;
+    display:block;
+}
+.btn{
+    background-color: #ffc000 !important;
+    border: none !important;
+    color: white !important;
 }
 .titulo{
-    font-family: 'Roboto', sans-serif;
     color:white;
-    margin-top: 1%;
+    padding-top:5% !important;
+    margin-left: 5% !important;
 }
 .carousel{
     color:white;
-    margin-top:21%;
+    margin-top:10%;
 }
 .carousel-item{
     background-color:#ffc000 !important;
@@ -33,33 +37,25 @@
 .listaDespesas{
     width: 100%;
     height: auto;
-    /*    background-color:#FFFACD;*/
+    display:block;
+    overflow-y:auto;
 }
-
 .itemDespesas{
     width: 100%;
     height: 100px;
     background-color:#FFFACD;
     display:grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
-    /*    text-align: center;*/
+}
+.itemDespesas:hover{
+    background-color:#FFDAB9;
+    transform: scale(1.05);
 }
 
-.itemDespesas:hover{
-    
-}
-.itemDespesass{
-    width: 100%;
-    height: 100px;
-    background-color:#FFDAB9;
-    display:grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
-}
 .iconeDia{
     width: 50px !important;
     height: 50px !important;
     font-size: 25px;
-    font-family: 'Roboto', sans-serif;
     background-color:#FFA500;
     color:white;
     font-weight: bold;
@@ -70,37 +66,108 @@
     position: relative;
 }
 .conteudoDespesas{
+    width:100%;
     display:flex;
     flex-direction: column;
+    justify-content:flex-start;
+    align-items:flex-start;
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     margin:auto;
     padding:auto;
     position: relative;
 }
+.spanTipo{
+    color: #A9A9A9;
+}
 .precoDespesas{
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    color: red;
     text-align: center;
     margin:auto;
     padding:auto;
     position: relative;
 }
-/*.btnsEditarExcluir{
+.containerFooter{
+    width:100%;
+    height: 50px;
+    background-color:#ffc000;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tituloFooter{
+    font-size: 14px;
+    /*    color: white;*/
+    padding: 4%;
+    margin: auto;
+    position:relative;
+    text-align: left;
+}
+
+.tituloFooterSpan{
+    font-size: 14px;
+    /*    color: white;*/
+    margin: auto;
+    padding: 4%;
+    text-align: center;
+}
+.show-menu{
+    visibility: visible
+}
+.hidden-menu{
+    visibility: hidden;
+}
+.seletorDespesas{
+    width: 100%;
+    height: 50px;
+    background-color:#DEB887;
+    display:grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    margin-bottom: 13%;
+}
+.selecionaDespesas,.seletorConteudoDespesas{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    text-align: center;
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    border: 1px solid black;
-    padding: 3vh;
+    margin:auto;
+    padding:auto;
+    position: relative;
 }
-.btnEditar{
-    margin: 1vh !important;
-    padding: auto !important;
+
+.btnSeletor{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    text-align: center;
+    margin:auto;
+    padding:auto;
+    position: relative;
 }
+
+.btnEditar, .btnExcluir{
+    width: 32px !important;
+    height: 32px !important;
+    margin-right: 5px !important;
+    border: none !important;
+    border-radius:50% !important;
+    background-color: orange !important;
+}
+.btnEditar:active{
+    transform: scale(0.95);
+}
+
 .btnExcluir{
-    margin: 1vh !important;
-    padding: auto !important;
-}*/
+    margin-right: 0 !important;
+    margin-left: 5px;
+}
+.btnExcluir:active{
+    transform: scale(0.95);
+}
+
