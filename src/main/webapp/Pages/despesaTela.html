@@ -21,17 +21,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </head>
     <body>
         <header class="header fixed-top">
-            <nav class="menu">
-                <ul>
-                    <li><a href="#">Despesas</a>
-                        <img src="../img/seta-para-baixo.png">
-                        <ul>
-                            <li><a href="#">Receitas</a></li>
-                        </ul>
-                    </li>
-                    
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger">Menu</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Receitas</a></li>
+                    <li><a class="dropdown-item" href="#">Despesas</a></li>
+
                 </ul>
-            </nav>
+            </div>
             <div id="carouselExampleControls" class="carousel slide bg-primary w-25 mx-auto" data-bs-ride="false" data-bs-interval="false">
                 <div id="carousel" class="carousel-inner text-center">
                     <div class="carousel-item active">

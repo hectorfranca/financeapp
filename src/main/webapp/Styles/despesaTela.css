@@ -7,36 +7,6 @@ body{
     font-family: 'Roboto', sans-serif !important;
     background-color: #FFFFE0 !important;
 }
-.menu{
-    width: 150px;
-    height: 70px !important;
-    padding-top: 10px !important;
-    margin-left: 10px;
-}
-
-.menu ul{
-    list-style-type: none !important;
-    padding:0;
-    text-align: left;
-}
-.menu ul li{
-    font-size:25px;
-    display: inline;
-    position:relative;
-}
-
-.menu ul li a{
-    display: inline-block;
-    text-decoration: none !important;
-    color: white;
-}
-.menu ul ul{
-    display:none;
-}
-.menu ul li:hover ul{
-    display:block;
-
-}
 .header{
     width:100%;
     height: 100px !important;
@@ -44,8 +14,16 @@ body{
     display:block;
 }
 .btn{
+    font-size: 25px !important;
     background-color: #ffc000 !important;
     border: none !important;
+    color: white !important;
+}
+.dropdown-menu{
+    background-color: #ffc000 !important;
+}
+
+.dropdown-item{
     color: white !important;
 }
 .titulo{
@@ -55,7 +33,7 @@ body{
 }
 .carousel{
     color:white;
-    margin-top:0%;
+    margin-top: 6%;
     position: relative;
 }
 .carousel-item{
