@@ -1,0 +1,30 @@
+
+Reunião online dia 18/10/22
+Héctor, Lúcio e Gustavo
+
+DEFINIR:
+
+--> Regras de gerenciamento e gestão da "empresa"
+	Questões executivas de adm da empresa
+
+
+--> Projeto-piloto
+	Nome: Finance App
+	Propósito: Facilitar anotações da vida financeira das pessoas.
+	Diferencial: dicas de gestão e ferramentas de análise.
+
+
+--> Regras de negócio do projeto
+	CRUD de movimentações financeiras pessoais e tabela de categorias de receitas/despesas.
+	Usuário pode criar/ alterar categorias de receitas e despesas. Inicia com categorias padrões.
+
+
+--> Ferramentas de gestão de atividades
+	Trello
+
+
+--> Divisão de tarefas
+	Concenso
+
+--> Ferramenta de reunião:
+	Definida pelo grupo de whatsapp: Zoom, Discord ou Google Meet.

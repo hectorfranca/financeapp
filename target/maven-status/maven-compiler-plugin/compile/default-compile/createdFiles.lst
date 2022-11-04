@@ -1,4 +1,6 @@
+Servlets\CategoriaServlet.class
 Beans\CategoriaBean.class
+DAO\CategoriaDAO.class
 Beans\RegistroBean.class
 Beans\CategoriaBean_.class
 Beans\RegistroBean_.class
