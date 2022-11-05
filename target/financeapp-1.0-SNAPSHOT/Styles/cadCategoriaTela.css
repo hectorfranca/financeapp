@@ -1,0 +1,115 @@
+*{
+    margin:  0;
+    padding: 0;
+}
+body{
+    background-color: #FFFACD !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+.container{
+    width:100% !important;
+    height: 100% !important;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8rem;
+}
+.header{
+    width:100% !important;
+    height: 100px !important;
+    background-color:#ffc000;
+}
+.containerTitulo{
+    margin-bottom: 15%;
+    font-weight: bold;
+    /*color: #A9A9A9;*/
+    text-align: center !important;
+}
+.containerForm{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10% 0 10%;
+    font-weight: bold;
+    border: 3px solid #FFE4B5;
+    border-radius: 3%;
+}
+.btnMenu{
+    font-size: 25px !important;
+    background-color: #ffc000 !important;
+    border: none !important;
+    color: white !important;
+    margin: 5px 0 0 10px !important;
+    padding: 6px 12px;
+}
+input[type="radio"]{
+    -webkit-appearance: none;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+}
+.form-control{
+    border: none !important;
+}
+input[type="radio"]:checked{
+    background-color: #ffc000;
+}
+.btn{
+    font-size: 15px !important;
+    background-color: #ffc000 !important;
+    border: none !important;
+    color: white !important;
+}
+.btn-CadCan{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10% 0 3% 0;
+    position:relative;
+}
+.btnCadastrar{
+    margin: 0 5px 0 0 !important;
+}
+
+.btnCadastrar:active{
+    transform: scale(0.95);
+}
+.btnCancelar{
+    margin: 0 0 0 5px !important;
+}
+.btnCancelar:active{
+    transform: scale(0.95);
+}
+.dropdown-menu{
+    background-color: #ffc000 !important;
+}
+
+.dropdown-item{
+    color: white !important;
+}
+.containerFooter{
+    width:100%;
+    height: 50px;
+    background-color:#ffc000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tituloFooter{
+    font-size: 14px;
+    /*    color: white;*/
+    padding: 4%;
+    margin: auto;
+    position:relative;
+    text-align: left;
+}
+
+.tituloFooterSpan{
+    font-size: 14px;
+    /*    color: white;*/
+    margin: auto;
+    padding: 4%;
+    text-align: center;
+}
