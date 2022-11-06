@@ -20,6 +20,22 @@ body{
     color: white !important;
     margin: 5px 0 0 10px !important;
     padding: 6px 12px;
+
+}
+.containerBtnAdd{
+    width: auto;
+    height: auto;
+    border: none;
+    right:0;
+    top:0;
+    position:absolute;
+}
+.btnAdd{ 
+    background-color: #ffc000 !important;
+    border: none !important;
+}
+.btnAdd:active{
+    transform: scale(0.95)!important;
 }
 .dropdown-menu{
     background-color: #ffc000 !important;
@@ -54,6 +70,7 @@ body{
     background-color:#FFFACD;
     display:grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
+       margin-top: 10px;
 }
 .itemDespesas:hover{
     background-color:#FFDAB9;
