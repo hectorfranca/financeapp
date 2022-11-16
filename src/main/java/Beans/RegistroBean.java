@@ -20,15 +20,18 @@ import javax.persistence.ManyToOne;
 public class RegistroBean {
     @Id
     @Column(name = "Id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
     @ManyToOne
-    @JoinColumn(name = "registros", insertable = false, updatable = false, nullable = false)
+    @JoinColumn(name = "Categoria_id", insertable = false, updatable = false, nullable = false)
     private CategoriaBean categoria;
     
     @Column(name = "Nome", nullable = false, length = 60)
     private String nome;
+    
+    @Column(name = "Tipo", nullable = false, length = 1)
+    private char tipo;
     
     @Column(name = "Data", nullable = false)
     private Date data;
@@ -59,6 +62,14 @@ public class RegistroBean {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public char getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
+    }
 
     public Date getData() {
         return data;
@@ -78,7 +89,7 @@ public class RegistroBean {
 
     @Override
     public String toString() {
-        return "RegistroBean{" + "id=" + id + ", categoria=" + categoria + ", nome=" + nome + ", data=" + data + ", valor=" + valor + '}';
+        return "RegistroBean{" + "id=" + id + ", categoria=" + categoria + ", nome=" + nome + ", tipo=" + tipo + ", data=" + data + ", valor=" + valor + '}';
     }
     
 }

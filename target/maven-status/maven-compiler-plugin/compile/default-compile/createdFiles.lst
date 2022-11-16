@@ -1,6 +1,11 @@
-Servlets\CategoriaServlet.class
+Beans\ColecaoCategoriaBean.class
 Beans\CategoriaBean.class
 DAO\CategoriaDAO.class
+Servlets\Categoria\DeleteCategoriaServlet.class
+Servlets\Categoria\ListCategoriaServlet.class
+Beans\RegistroBean_.class
 Beans\RegistroBean.class
 Beans\CategoriaBean_.class
-Beans\RegistroBean_.class
+Servlets\Categoria\EditCategoriaServlet.class
+Servlets\Categoria\SaveCategoriaServlet.class
+Servlets\Categoria\UpdateCategoriaServlet.class

@@ -1,0 +1,83 @@
+.titulo {
+    color: blue;
+    font-weight: 100;
+    font-family: roboto, Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #ffc000;
+    height: 140px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 500px;
+    margin-top: 40%;
+    margin-bottom: 40%;    
+}
+
+.caixaButton {
+    background-color: #ffc000;
+    color: white;
+    font-size: 15px;
+    font-weight: 200;
+    font-family: roboto, Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.Logo {
+    width: 100px;
+    height: 120px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.subTitulo{
+    border: 1px solid #ffc000;
+    position: absolute;
+    left: 120px;
+    bottom: 20px;
+    display: flex;
+    text-align: center;
+    font-size: 18px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+html{
+    height: auto;
+    width: 100%;
+}
+
+.containerFooter{
+    width:100%;
+    height: 50px;
+    background-color:#ffc000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tituloFooter{
+    font-size: 14px;
+    padding: 4%;
+    margin: auto;
+    position:relative;
+    text-align: left;
+}
+
+.tituloFooterSpan{
+    font-size: 14px;
+    margin: auto;
+    padding: 4%;
+    text-align: center;
+}

@@ -1,6 +1,6 @@
-package Servlets;
+package Servlets.Registro;
 
-import DAO.CategoriaDAO;
+import DAO.RegistroDAO;
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -13,17 +13,26 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Hector
  */
-@WebServlet(name = "CategoriaServlet", urlPatterns = {"/CategoriaServlet"})
-public class CategoriaServlet extends HttpServlet {
+@WebServlet(name = "DeleteRegistroServlet", urlPatterns = {"/DeleteRegistroServlet"})
+public class DeleteRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // CategoriaDAO categoriaDAO = new CategoriaDAO();
+        RegistroDAO registroDAO = new RegistroDAO();
+        RequestDispatcher requestDispatcher = null;
+        long id;       
         
-        // request.setAttribute("categoria", categoriaDAO.getAll());
-        
-        // RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-        // requestDispatcher.forward(request, response);
+        try {            
+            requestDispatcher = request.getRequestDispatcher("ListRegistroServlet");
+            id = Long.parseLong(request.getParameter("id"));
+
+            registroDAO.delete(id);   
+            requestDispatcher.forward(request, response);
+        } catch(Exception exception) {
+            throw new ServletException("Não foi possível excluir o registro: " 
+                    + exception.getMessage());
+        }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
