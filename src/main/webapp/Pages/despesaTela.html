@@ -11,7 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <title>TODO supply a title</title>
 
         <link rel="stylesheet" href="../Styles/despesaTela.css"/>
- 
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,182 +20,72 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
     </head>
     <body>
-        <header class="header fixed-top">
+        <header class="fixed-top">
             <div class="btn-group">
-                <button type="button" class="btn btn-danger">Despesas</button>
-                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropdown</span>
+                <img class="logo" src="../img/sacola128.png" alt="FotoDinheiro"/>
+                <button type="button" class="btn btn-danger">
+                    <a class="tituloHeader" href="pagInicialTela.html">Pagina Inicial</a>
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="receitaTela.html">Receitas</a></li>
-                    <li><a class="dropdown-item" href="cadCategoriaTela.html">Categorias</a></li>
-                </ul>
-
-            </div>
-            <a  href="cadRegistroTela.html" class="containerBtnAdd">
-                <button type="submit" class="btnAdd"><img src="../img/add64.png"></button>
-            </a>
-<!--            <div class="containerBtnAdd">
-                <button type="submit" class="btnAdd"><img src="../img/add64.png"></button>
-            </div>-->
-                
-
-            <div id="carouselExampleControls" class="carousel slide bg-primary w-25 mx-auto" data-bs-ride="false" data-bs-interval="false">
-                <div id="carousel" class="carousel-inner text-center">
-                    <div class="carousel-item active">
-                        <span>Janeiro</span>
-                    </div>
-                    <div class="carousel-item">
-                        <span>Fevereiro</span>
-                    </div>
-                    <div class="carousel-item">
-                        <span>Março</span>
-                    </div>
-                    <div class="carousel-item">
-                        <span>Abril</span>
-                    </div>
-                    <div class="carousel-item">
-                        <span>Maio</span>
-                    </div>
-                    <div class="carousel-item">
-                        <span>Junho</span>
-                    </div>
-                    <div class="carousel-item">
-                        <span>Julho</span>
-                    </div> 
-                    <div class="carousel-item">
-                        <span>Agosto</span>
-                    </div> 
-                    <div class="carousel-item">
-                        <span>Setembro</span>
-                    </div> 
-                    <div class="carousel-item">
-                        <span>outubro</span>
-                    </div> 
-                    <div class="carousel-item">
-                        <span>Novembro</span>
-                    </div> 
-                    <div class="carousel-item">
-                        <span>Dezembro</span>
-                    </div> 
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
         </header>
-        <div id="listaDespesas" class="listaDespesas">
-            <div class="itemDespesas">
-                <div class="iconeDia">
-                    <span class="iconeDiaSpan">22</span> 
+        <div class="container">
+            <div class="containerPrincipal">
+                <div  class="titulo">
+                    <a>
+                        Relatório de Despesas </br>
+                        Lista Completa
+                    </a>  
                 </div>
-                <div class="conteudoDespesas">
-                    <span>Água</span>
-                    <span class="spanTipo">Residencial</span>
-                </div>
+                <div id="listaDespesas" class="listaDespesas">
+                    <div class="itemDespesas">
+                        <div class="containerData">data</div>
+                        <div class="containerConteudo">
+                            <div class="containerNome">
+                                Giassi
+                            </div>
+                            <div class="containerCategoria">
+                                Supermercado
+                            </div>
+                        </div>
+                        <div class="containerValor">valor</div>
+                    </div>   
+                    <div class="itemDespesas">
 
-                <div class="precoDespesas">
-                    <span>R$ 130 </span>
-                </div>
-            </div>
-            <div class="itemDespesas">
-                <div class="iconeDia">
-                    <span class="iconeDiaSpan">16</span> 
-                </div>
-                <div class="conteudoDespesas">
-                    <span>Supermercado</span>
-                    <span class="spanTipo">Comercio</span>
-                </div>
+                    </div>  
+                    <div class="itemDespesas">
 
-                <div class="precoDespesas">
-                    <span>R$ 2200 </span>
-                </div>
-            </div>
-            <div  class="itemDespesas">
-                <div class="iconeDia">
-                    <span class="iconeDiaSpan">05</span> 
-                </div>
-                <div class="conteudoDespesas">
-                    <span>Remedio</span>
-                    <span class="spanTipo">Comercio</span>
-                </div>
+                    </div>  
+                    <div class="itemDespesas">
 
-                <div class="precoDespesas">
-                    <span>R$ 350,53 </span>
-                </div>
-            </div>
-            <div class="itemDespesas">
-                <div class="iconeDia">
-                    <span class="iconeDiaSpan">30</span> 
-                </div>
-                <div class="conteudoDespesas">
-                    <span>gasolina</span>
-                    <span class="spanTipo">Carro</span>
-                </div>
+                    </div>  
+                    <div class="itemDespesas">
 
-                <div class="precoDespesas">
-                    <span>R$ 2200 </span>
-                </div>
-            </div>
-            <div class="itemDespesas">
-                <div class="iconeDia">
-                    <span class="iconeDiaSpan">28</span> 
-                </div>
-                <div class="conteudoDespesas">
-                    <span>Steam</span>
-                    <span class="spanTipo">Lazer</span>
-                </div>
+                    </div>  
+                    <div class="itemDespesas">
 
-                <div class="precoDespesas">
-                    <span>R$ 250 </span>
-                </div>
-            </div>
-            <div class="itemDespesas">
-                <div class="iconeDia">
-                    <span class="iconeDiaSpan">15</span> 
-                </div>
-                <div class="conteudoDespesas">
-                    <span>futebol</span>
-                    <span class="spanTipo">Lazer</span>
-                </div>
+                    </div>  
+                    <div class="itemDespesas">
 
-                <div class="precoDespesas">
-                    <span>R$ 250 </span>
-                </div>
-            </div>
-            <div class="itemDespesas">
-                <div class="iconeDia">
-                    <span class="iconeDiaSpan">02</span> 
-                </div>
-                <div class="conteudoDespesas">
-                    <span>Academia</span>
-                    <span class="spanTipo">Lazer</span>
-                </div>
+                    </div>  
+                    <div class="itemDespesas">
 
-                <div class="precoDespesas">
-                    <span>R$ 90 </span>
+                    </div>  
+                </div>  
+                <div id="seletorDespesas" class="seletorDespesas fixed-bottom hidden-menu">
+                    <div class="selecionaDespesas">
+                        <span>Selecionado:</span>
+                    </div> 
+                    <div class="seletorConteudoDespesas">
+                        <span>Supermercado</span>
+                    </div> 
+                    <div  class="btnSeletor">
+                        <button id="btnEditar" type="submit" class="btnEditar active">
+                            <img src="../img/editar.png">    
+                        </button>
+                        <button id="btnExcluir" class="btnExcluir active">
+                            <img src="../img/excluir.png">    
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </div>  
-        <div id="seletorDespesas" class="seletorDespesas fixed-bottom hidden-menu">
-            <div class="selecionaDespesas">
-                <span>Selecionado:</span>
-            </div> 
-            <div class="seletorConteudoDespesas">
-                <span>Supermercado</span>
-            </div> 
-            <div  class="btnSeletor">
-                <button id="btnEditar" type="submit" class="btnEditar active">
-                    <img src="../img/editar.png">    
-                </button>
-                <button id="btnExcluir" class="btnExcluir active">
-                    <img src="../img/excluir.png">    
-                </button>
             </div>
         </div>
 

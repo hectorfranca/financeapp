@@ -5,13 +5,131 @@
 
 body{
     font-family: 'Roboto', sans-serif !important;
-    background-color: #FFFFE0 !important;
 }
-.header{
+header{
     width:100%;
     height: 100px !important;
     background-color:#ffc000;
-    display:block;
+    display:flex;
+    flex-direction: row;
+    border: 5px solid #F4A460;
+    border-bottom-right-radius: 40px;
+}
+.tituloHeader{
+    text-decoration: none !important;
+    color: white ;
+}
+
+.logo {
+    width: 115px;
+    height: 115px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.filtro {
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.container{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.containerPrincipal{
+    width: 400px;
+    height: auto;
+    margin-top:150px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.titulo{
+    width: 100%;
+    height: 50px;
+    text-align:center;
+    color: black !important;
+
+}
+.titulo a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.listaDespesas{
+    width: 80%;
+    height: 550px;
+    border-radius: 10px;
+    background-color:#FFFFE0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y:scroll;
+
+
+}
+
+.itemDespesas{
+    width: 90%;
+    height: 70px;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+    box-shadow: 2px 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.itemDespesas:active{
+    background-color:#FFDAB9;
+    transform: scale(1.05);
+}
+.itemDespesas .containerData,
+.containerConteudo,
+.containerValor{
+    width: 100%;
+    height: 100%;
+    text-align:center;
+    border:1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerConteudo{
+    display: flex;
+    flex-direction: column;
+    
+}
+.itemDespesas, .containerData{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.itemDespesas .containerConteudo{
+    width: 100%;
+    height: 100%;
+    text-align:center;
+}
+.itemDespesas .containerValor{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+.containerConteudo .containerNome{
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+.containerConteudo .containerCategoria{
+    padding: 3px;
 }
 .btn{
     cursor: pointer;
@@ -39,83 +157,7 @@ body{
 .btnAdd:active{
     transform: scale(0.95)!important;
 }
-.dropdown-menu{
-    background-color: #ffc000 !important;
-}
 
-.dropdown-item{
-    color: white !important;
-}
-.carousel{
-    color:white;
-    margin-top: 5%;
-    position: relative;
-}
-.carousel-item{
-    background-color:#ffc000 !important;
-}
-.carousel-inner{
-    width: auto !important;
-    height: auto !important;
-}
-.listaDespesas{
-    width: 100%;
-    height: auto;
-    overflow:hidden;
-    margin-top:100px;
-    margin-bottom:50px;
-
-}
-.itemDespesas{
-    width: 100%;
-    height: 100px;
-    background-color:#FFFACD;
-    display:grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
-    cursor: pointer;
-}
-.itemDespesas:hover{
-    background-color:#FFDAB9;
-    transform: scale(1.05);
-}
-
-.iconeDia{
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 25px;
-    background-color:#FFA500;
-    color:white;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 50%;
-    margin:auto;
-    padding:5px;
-    position: relative;
-}
-.conteudoDespesas{
-    width:100%;
-    display:flex;
-    flex-direction: column;
-    justify-content:flex-start;
-    align-items:flex-start;
-    font-size: 15px;
-    font-weight: bold;
-    margin:auto;
-    padding:auto;
-    position: relative;
-}
-.spanTipo{
-    color: #A9A9A9;
-}
-.precoDespesas{
-    font-size: 15px;
-    font-weight: bold;
-    color: red;
-    text-align: center;
-    margin:auto;
-    padding:auto;
-    position: relative;
-}
 .containerFooter{
     width:100%;
     height: 50px;
@@ -187,14 +229,11 @@ body{
     border-radius:50% !important;
     background-color: orange !important;
 }
-.btnEditar:active{
+.btnEditar:active,.btnExcluir:active{
     transform: scale(0.95);
 }
 
 .btnExcluir{
     margin-right: 0 !important;
     margin-left: 5px;
-}
-.btnExcluir:active{
-    transform: scale(0.95);
 }

@@ -18,6 +18,7 @@ body{
     width:100% !important;
     height: 100px !important;
     background-color:#ffc000;
+    border-bottom-right-radius: 40px;
 }
 .containerTitulo{
     margin-bottom: 15%;
