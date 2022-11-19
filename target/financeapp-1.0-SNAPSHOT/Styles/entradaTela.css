@@ -75,10 +75,8 @@ header{
     align-items: center;
     justify-content: flex-start;
     overflow-y:scroll;
-
-
+        box-shadow: 1px 1px;
 }
-
 .itemEntradas{
     width: 90%;
     height: 70px;
@@ -160,29 +158,34 @@ header{
     transform: scale(0.95)!important;
 }
 
-.containerFooter{
+footer{
     width:100%;
     height: 50px;
     background-color:#ffc000;
+    text-align: center;
+    bottom: 0;
+    position:fixed;
+    font-size: 14px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.containerFooter{
+    width: 100%;
+    height: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-}
-.tituloFooter{
-    font-size: 14px;
-    /*    color: white;*/
-    padding: 4%;
-    margin: auto;
-    position:relative;
-    text-align: left;
-}
+    align-items: center;
+    justify-content:space-around;
 
-.tituloFooterSpan{
-    font-size: 14px;
-    /*    color: white;*/
-    margin: auto;
-    padding: 4%;
-    text-align: center;
+}
+.tituloFooter, .copyrightFooter{
+    width: auto;
+    height: auto;
+}
+.ancoraTituloFooter{
+    color:black !important;
 }
 .show-menu{
     visibility: visible;

@@ -3,8 +3,14 @@
     padding:0;
 }
 body{
+
     font-family: 'Roboto', sans-serif !important;
-    background-color:#FFFFE0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 header{
@@ -42,23 +48,22 @@ h3{
     justify-content: center;
     align-items: center;
     font-size: 30px !important;
-/*    font-weight: bold;*/
+    /*    font-weight: bold;*/
     text-align: center;
     color: white !important;
-    margin-top: 30px;
-    margin-left: 70px;
+    margin-top: 25px;
+    margin-left: 50px;
 }
 
 .containerPrincipal{
-    width: 412px !important;
-    height: 100%;
+    width: 70% !important;
+    height: auto;
     margin-top: 140px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*border: 1px solid black;*/
 }
 .subTitulo{
     width: 100%;
@@ -75,25 +80,24 @@ h3{
     align-items: center;
 }
 .containerSuporte{
-    width: 90%;
+    width: 412px;
     height: auto;
     background-color:#FFFFE0;
-    /*border: 1px solid orange;*/
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 1px 1px;
 }
 .containerConteudo{
     width: 90%;
     height: 550px;
     border-radius: 10px;
-        /*border: 1px solid black;*/
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-content: center;
+    align-items: center;
 }
 .btn{
     width: 325px !important;
@@ -137,7 +141,6 @@ h3{
 .caixaBtn{
     width: 400px;
     height: 30px;
-    background-color: #FFE4B5;
     border: 3px solid orange !important;
     background-color: #ffc000;
     color: black;
@@ -182,7 +185,6 @@ h3{
     /*    background-color: #FFE4B5;*/
     background-color: #EEE8AA !important;
     border: 3px solid orange !important;
-    background-color: #ffc000;
     color: black;
     font-size: 15px;
     text-align: center !important;

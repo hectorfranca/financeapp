@@ -23,58 +23,69 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <button type="button" class="btnMenu btn-danger">
                         <a href="pagInicialTela.html">Pagina Inicial</a>
                     </button>
-                    <!--                    <button type="button" class="btnMenu btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span class="visually-hidden">Toggle Dropdown</span>
-                                        </button>-->
-<!--                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="pagInicialTela.html">Tela Inicial</a></li>
-                                                <li><a class="dropdown-item" href="receitaTela.html">Receitas</a></li>
-                                                <li><a class="dropdown-item" href="despesaTela.html">Despesas</a></li>
-                                                <li><a class="dropdown-item" href="cadCategoriaTela.html">Categoria</a></li>
-                    </ul>-->
                 </div>
             </header>
 
             <div class="containerForm">
-                <div class="containerTitulo">
-                    <label for="inputname" class="col-sm-2 col-form-label">Cadastro de Despesas</label>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputname" class="col-sm-2 col-form-label">Nome</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="input">
+                <div class="containerPrincipal">
+                    <div class="containerConteudo">
+                        <div class="containerTitulo">
+                            <label for="inputname" class="titulo">Cadastro de Despesas</label>
+                        </div>
+                        <div class="row mb-3">
+                            <div>
+                                <label for="inputname" class="labelNome">Nome</label>
+                            </div>                   
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="input">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div>
+                                <label for="inputname" class="labelCategoria">Categoria</label>
+                            </div>
+
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">Residencial</option>
+                                <option value="2">Comercio</option>
+                                <option value="3">Lazer</option>
+                            </select>
+                        </div>
+                        <div class="divPrincipalValor row mb-3">
+                            <div class="divValor">
+                                <label for="inputname" class="labelValor">Valor em R$</label>
+                            </div>          
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="input">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div>
+                                <label for="inputname" class="labelData">Data</label>
+                            </div>
+
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="input">
+                            </div>
+                        </div>
+                        <div class="btn-CadCan">
+                            <button type="submit" class="btnn btnCadastrar btn-efeito"><a class="aBtnCadastrar" href="entradaTela.html">Cadastrar</a></button>
+                            <button type="reset" class="btnn btnCancelar btn-efeito">Cancelar</button>
+                        </div>
                     </div>
+
                 </div>
-                <div class="row mb-3">
-                    <label for="inputname" class="col-sm-2 col-form-label">Categoria</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1">Residencial</option>
-                        <option value="2">Comercio</option>
-                        <option value="3">Lazer</option>
-                    </select>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputname" class="col-sm-2 col-form-label">Valor em R$</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="input">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label for="inputname" class="col-sm-2 col-form-label">Data</label>
-                    <div class="col-sm-10">
-                        <input type="date" class="form-control" id="input">
-                    </div>
-                </div>
-                <div class="btn-CadCan">
-                    <button type="submit" class="btnn btnCadastrar btn-efeito">Cadastrar</button>
-                    <button type="reset" class="btnn btnCancelar btn-efeito">Cancelar</button>
-                </div>
+
             </div>
         </div>
         <footer class="fixed-bottom">
             <div class="containerFooter">
-                <h4 class="tituloFooter">Financeapp</h4>
-                <span class="tituloFooterSpan">&#169;All rigths reserved</span>
+                <div class="tituloFooter">
+                    <a class="ancoraTituloFooter">Financeapp</a>
+                </div>
+                <div class="copyrightFooter">
+                    <span >&#169;All rigths reserved</span>
+                </div> 
             </div>  
         </footer>
         <script src="../Javascript/cadRegistro.js"></script>

@@ -13,65 +13,69 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
-        <div class="containerPrincipal">
-            <header class="">
-                <div class="btn-group">
-                    <img class="logo" src="../img/sacola128.png" alt="FotoDinheiro"/>
-                    <button type="button" class="btnMenu btn-danger">
-                        <a class="tituloHeader" href="pagInicialTela.html">Página Inicial</a>
-                    </button>
-                </div>
-            </header>
-            <div class="containerConteudo">
-                <div class="containerTitulo">
-                    <h4>Relatório de Entradas</h4>
-                </div>
-                <div class="containerDef">
-                    <h5 class="tituloDef">Defina suas opções de consulta</h5>
-                    <div class="calendarios">
-                        <div class="calInicial">
-                            <div>
-                                <p class="calTitulo">Data Inicial</p>  
+
+        <header class="">
+            <div class="btn-group">
+                <img class="logo" src="../img/sacola128.png" alt="FotoDinheiro"/>
+                <button type="button" class="btnMenu btn-danger">
+                    <a class="tituloHeader" href="pagInicialTela.html">Página Inicial</a>
+                </button>
+            </div>
+        </header>
+        <div class="container">
+            <div class="containerPrincipal">
+                <div class="containerConteudo">
+                    <div class="containerTitulo">
+                        <h4>Relatório de Entradas</h4>
+                    </div>
+                    <div class="containerDef">
+                        <h5 class="tituloDef">Defina suas opções de consulta</h5>
+                        <div class="calendarios">
+                            <div class="calInicial">
+                                <div>
+                                    <p class="calTitulo">Data Inicial</p>  
+                                </div>
+                                <div class="calData">
+                                    <input class="date" type="date"/> 
+                                </div>
                             </div>
-                            <div class="calData">
-                                <input class="date" type="date"/> 
-                            </div>
-                        </div>
-                        <div class="calFinal">
-                            <div>
-                                <p class="calTitulo">Data Final</p>
-                                <div class="calData">          
-                                    <input class="date" type="date"/>  
+                            <div class="calFinal">
+                                <div>
+                                    <p class="calTitulo">Data Final</p>
+                                    <div class="calData">          
+                                        <input class="date" type="date"/>  
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="containerOp">
-                        <div class="divTituloOp">
-                            <a class="tituloOp">Opções</a> 
-                        </div>    
-                        <div class="containerListaCompleta">
-                            <div class="check1">
-                                <input name="nameRadio" type="radio" class="checkbox1">
+                        <div class="containerOp">
+                            <div class="divTituloOp">
+                                <a class="tituloOp">Opções</a> 
+                            </div>    
+                            <div class="containerListaCompleta">
+                                <div class="check1">
+                                    <input name="nameRadio" type="radio" class="checkbox1">
+                                </div>
+                                <div id="pCheckListaC" class="listaCompleta">
+                                    <label class="labelLista">Lista completa </label>
+                                </div>  
                             </div>
-                            <div id="pCheckListaC" class="listaCompleta">
-                                <label class="labelLista">Lista completa </label>
-                            </div>  
+                            <div class="containerListaResumida">
+                                <div class="check2">
+                                    <input name="nameRadio" type="radio" class=" checkbox2">
+                                </div>
+                                <div id="pCheckListaR" class="listaResumida">
+                                    <label class="labelLista">Lista resumida</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="containerListaResumida">
-                            <div class="check2">
-                                <input name="nameRadio" type="radio" class=" checkbox2">
-                            </div>
-                            <div id="pCheckListaR" class="listaResumida">
-                                <label class="labelLista">Lista resumida</label>
-                            </div>
+                        <div>
+                            <button type="submit" class="btnConsultar btn-efeito"><a class="btnConsultarTxt" href="entradaTelaDuas.html">Consultar</a></button>
                         </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btnConsultar btn-efeito"><a class="btnConsultarTxt" href="entradaTelaDuas.html">Consultar</a></button>
                     </div>
                 </div>
             </div>
+
             <footer class="">
                 <div class="containerFooter">
                     <div class="tituloFooter">

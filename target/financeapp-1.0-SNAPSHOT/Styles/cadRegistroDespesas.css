@@ -37,21 +37,6 @@ a{
     margin-top: 5px;
     margin-bottom: 5px;
 }
-.containerTitulo{
-    font-weight: bold;
-    margin: 20px 0 0 0;
-    text-align: center !important;
-}
-.containerForm{
-    height: auto;
-    display: flex;
-    background-color:#FFFFE0;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 10% 0 10%;
-    font-weight: bold;
-    border-radius: 3%;
-}
 .btnMenu{
     cursor: pointer;
     font-size: 25px !important;
@@ -61,17 +46,73 @@ a{
     margin: 5px 0 0 10px !important;
     padding: 6px 12px;
 }
+.containerTitulo{
+    font-weight: bold;
+    margin: 20px 0 0 0;
+    text-align: center !important;
+}
+.containerForm{
+    width: 412px;
+    height: auto;
+    display: flex;
+    background-color:#FFFFE0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 3%;
+    box-shadow: 1px 1px;
+}
+.containerPrincipal{
+    width: 90%;
+    height: auto;
+    background-color:#FFFFE0;
+    /*border: 1px solid orange;*/
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.containerConteudo{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-control,.form-select{
     border: none !important;
     background-color: #FFEBCD !important;
+    box-shadow: 1px 1px;
+    width: 300px !important;
 }
+.form-select{
+    border: none !important;
+    width: 295px !important;
+    margin-left: 15px !important;
+    margin-right:4% !important;
+}
+
+.divValor{
+    width: 100%;
+}
+
+.labelNome,
+.labelCategoria,
+.labelValor,
+.labelData{
+    width: 300px;
+}
+
 .btnn{
     font-size: 15px !important;
     background-color: #ffc000 !important;
-    border: 5px solid orange !important;
     color: white !important;
     padding: 10px;
     border-radius: 0px !important;
+    border: none;
 }
 .btn-efeito {
     overflow:hidden;
@@ -122,6 +163,9 @@ a{
 .btnCadastrar:active{
     transform: scale(0.95);
 }
+.aBtnCadastrar{
+    color:black !important;
+}
 .btnCancelar{
     border-radius: 10px !important;
     box-shadow: 1px 1px;
@@ -132,32 +176,32 @@ a{
 .btnCancelar:active{
     transform: scale(0.95);
 }
-.form-select{
-    border: none !important;
-    width: 91% !important;
-    margin-left: 4% !important;
-    margin-right:4% !important;
-}
-.containerFooter{
+footer{
     width:100%;
     height: 50px;
     background-color:#ffc000;
+    text-align: center;
+    bottom: 0;
+    position:fixed;
+    font-size: 14px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.containerFooter{
+    width: 100%;
+    height: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-}
+    align-items: center;
+    justify-content:space-around;
 
-.tituloFooter{
-    font-size: 14px;
-    padding: 4%;
-    margin: auto;
-    position:relative;
-    text-align: left;
 }
-
-.tituloFooterSpan{
-    font-size: 14px;
-    margin: auto;
-    padding: 4%;
-    text-align: center;
+.tituloFooter, .copyrightFooter{
+    width: auto;
+    height: auto;
+}
+.ancoraTituloFooter{
+    color:black !important;
 }

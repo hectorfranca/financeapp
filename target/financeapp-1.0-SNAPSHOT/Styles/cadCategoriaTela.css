@@ -3,8 +3,14 @@
     padding: 0;
 }
 body{
-    background-color: #FFFACD !important;
+
     font-family: 'Roboto', sans-serif !important;
+}
+a{
+    text-decoration: none !important;
+}
+.tituloHeader{
+    color: white;
 }
 .container{
     width:100% !important;
@@ -12,29 +18,52 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 8rem;
+    margin-top: 150px;
 }
 .header{
     width:100% !important;
     height: 100px !important;
+    border: 5px solid #F4A460;
+    border-bottom-right-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffc000;
     background-color:#ffc000;
     border-bottom-right-radius: 40px;
 }
-.containerTitulo{
-    margin-bottom: 15%;
-    font-weight: bold;
-    /*color: #A9A9A9;*/
-    text-align: center !important;
+.logo {
+    width: 115px;
+    height: 115px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
+.containerTitulo{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+.titulo{
+    width: 100%;
+    color:black;
+    text-align: center;
+}
+
 .containerForm{
     height: auto;
     display: flex;
+    background-color:#FFFFE0;
     flex-direction: column;
     justify-content: center;
     padding: 0 10% 0 10%;
     font-weight: bold;
-    border: 3px solid #FFE4B5;
-    border-radius: 3%;
+    border-radius: 10px;
+    box-shadow: 1px 1px
+    
 }
 .btnMenu{
     cursor: pointer;
@@ -45,6 +74,9 @@ body{
     margin: 5px 0 0 10px !important;
     padding: 6px 12px;
 }
+.tipoRegistro{
+    margin-bottom: 10px;
+}
 input[type="radio"]{
     -webkit-appearance: none;
     background-color: white;
@@ -52,67 +84,108 @@ input[type="radio"]{
     height: 20px;
 }
 .form-control{
+    background-color: #FFEBCD !important;
     border: none !important;
+    box-shadow: 1px 1px
 }
 input[type="radio"]:checked{
     background-color: #ffc000;
 }
-.btn{
+.conteudo-form-check{
+    padding: 3px 0 0 2px;
+    color:black;
+}
+.btnn{
     font-size: 15px !important;
     background-color: #ffc000 !important;
-    border: none !important;
     color: white !important;
+    padding: 10px;
+    border-radius: 10px !important;
+    border: none;
+}
+.btn-efeito {
+    overflow:hidden;
+    position:relative;
+    background-color:#ffc000;
+}
+.btn-efeito:hover {
+    background-color:#ffc000;
+}
+.btn-efeito span {
+    z-index: 20;
+}
+.btn-efeito:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: -85px;
+    opacity:.4;
+    position: absolute;
+    top: -60px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+    -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 70px;
+    z-index:1;
+}
+.btn-efeito:hover:after {
+    left: 130%;
+    -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .btn-CadCan{
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin: 10% 0 3% 0;
     position:relative;
-    cursor: pointer;
 }
 .btnCadastrar{
+    border-radius: 10px !important;
+    box-shadow: 1px 1px;
+    color: black !important;
+    font-weight: bold !important;
     margin: 0 5px 0 0 !important;
 }
-
 .btnCadastrar:active{
     transform: scale(0.95);
 }
+.aBtnCadastrar{
+    color:black;
+}
 .btnCancelar{
+    border-radius: 10px !important;
+    box-shadow: 1px 1px;
+    font-weight: bold !important;
+    color: black !important;
     margin: 0 0 0 5px !important;
 }
 .btnCancelar:active{
     transform: scale(0.95);
 }
-.dropdown-menu{
-    background-color: #ffc000 !important;
-}
-
-.dropdown-item{
-    color: white !important;
-}
-.containerFooter{
+footer{
     width:100%;
     height: 50px;
     background-color:#ffc000;
+    text-align: center;
+    font-size: 14px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.containerFooter{
+    width: 100%;
+    height: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-}
+    align-items: center;
+    justify-content:space-around;
 
-.tituloFooter{
-    font-size: 14px;
-    /*    color: white;*/
-    padding: 4%;
-    margin: auto;
-    position:relative;
-    text-align: left;
 }
-
-.tituloFooterSpan{
-    font-size: 14px;
-    /*    color: white;*/
-    margin: auto;
-    padding: 4%;
-    text-align: center;
+.tituloFooter, .copyrightFooter{
+    width: auto;
+    height: auto;
 }
