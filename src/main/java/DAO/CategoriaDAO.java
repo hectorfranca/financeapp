@@ -54,7 +54,7 @@ public class CategoriaDAO {
         return null;
     }
     
-    public List<CategoriaBean> getAll() {
+    public java.util.List getAll() {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
