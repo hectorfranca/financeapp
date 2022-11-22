@@ -2,10 +2,6 @@ package Beans;
 
 import java.util.List;
 
-/**
- *
- * @author Hector
- */
 public class ColecaoCategoriaBean {
     private List<CategoriaBean> categorias;
     

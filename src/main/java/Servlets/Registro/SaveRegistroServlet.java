@@ -13,10 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 
-/**
- *
- * @author Hector
- */
 @WebServlet(name = "SaveRegistroServlet", urlPatterns = {"/SaveRegistroServlet"})
 public class SaveRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -28,18 +24,21 @@ public class SaveRegistroServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = null;
         
         try {
-            requestDispatcher = request.getRequestDispatcher("ListRegistroServlet");
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                    
+            requestDispatcher = request.getRequestDispatcher("/index.jsp");
+            SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
+                
             registro.setNome(request.getParameter("nome"));
             registro.setTipo(request.getParameter("tipo").charAt(0));
-            registro.setData(dateFormat.parse(request.getParameter("data")));
+            registro.setData(dateFormatUS.parse(request.getParameter("data")));            
             registro.setValor(Double.parseDouble(request.getParameter("valor")));
+            registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
             
-            CategoriaBean categoria = categoriaDAO.getCategoria(Integer.parseInt(request.getParameter("categoria")));
-            registro.setCategoria(categoria);
-
-            registroDAO.save(registro);
+            if (request.getParameter("id") != null) {
+                registro.setId(Long.parseLong(request.getParameter("id")));                                   
+                registroDAO.update(registro);
+            } else {
+                registroDAO.save(registro);
+            }
 
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {

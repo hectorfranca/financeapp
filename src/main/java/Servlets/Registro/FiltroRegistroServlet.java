@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets.Registro;
 
-import Beans.RegistroBean;
+import Beans.ColecaoRegistroBean;
+import DAO.RegistroDAO;
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -15,35 +11,36 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 
-/**
- *
- * @author Hector
- */
-@WebServlet(name = "EditRegistroServlet", urlPatterns = {"/EditRegistroServlet"})
-public class EditRegistroServlet extends HttpServlet {
+@WebServlet(name = "FiltroRegistroServlet", urlPatterns = {"/FiltroRegistroServlet"})
+public class FiltroRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        RegistroBean registro = new RegistroBean();
-        RequestDispatcher requestDispatcher = null;
+        
+        RegistroDAO registroDAO = new RegistroDAO();
+        ColecaoRegistroBean colecaoRegistro = new ColecaoRegistroBean();
+        RequestDispatcher requestDispatcher = null;  
         
         try {            
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            requestDispatcher = request.getRequestDispatcher("editarRegistro.jsp");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            requestDispatcher = request.getRequestDispatcher("/Pages/listaCompletaRegistro.jsp");
+
+            if (request.getParameter("tipo").equals("R")) {
+                colecaoRegistro.setRegistros(registroDAO.filtroDataListaReceitas (
+                    dateFormat.parse(request.getParameter("dataInicial")),
+                    dateFormat.parse(request.getParameter("dataFinal")))); 
+            } else {
+                colecaoRegistro.setRegistros(registroDAO.filtroDataListaDespesas (
+                    dateFormat.parse(request.getParameter("dataInicial")), 
+                    dateFormat.parse(request.getParameter("dataFinal")))); 
+            }
             
-            registro.setId(Long.parseLong(request.getParameter("id")));
-            registro.setNome(request.getParameter("nome"));
-            registro.setTipo(request.getParameter("tipo").charAt(0));
-            registro.setData(dateFormat.parse(request.getParameter("data")));
-            registro.setValor(Double.parseDouble(request.getParameter("valor")));
-            
-            request.setAttribute("registro", registro);
-   
+            request.setAttribute("colecaoRegistro", colecaoRegistro);              
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {
-            throw new jakarta.servlet.ServletException("Não foi possível passar os dados do registro: " 
+            throw new ServletException("Não foi possível listar os registros: " 
                     + exception.getMessage());
         }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -13,10 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 
-/**
- *
- * @author Hector
- */
 @WebServlet(name = "UpdateRegistroServlet", urlPatterns = {"/UpdateRegistroServlet"})
 public class UpdateRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -37,7 +33,7 @@ public class UpdateRegistroServlet extends HttpServlet {
             registro.setData(dateFormat.parse(request.getParameter("data")));
             registro.setValor(Double.parseDouble(request.getParameter("valor")));
             
-            CategoriaBean categoria = categoriaDAO.getCategoria(Integer.parseInt(request.getParameter("categoria")));
+            CategoriaBean categoria = categoriaDAO.find(Integer.parseInt(request.getParameter("categoria")));
             registro.setCategoria(categoria);
          
             registroDAO.update(registro);

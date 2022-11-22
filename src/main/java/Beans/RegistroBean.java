@@ -10,21 +10,16 @@ import java.util.Date;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-/**
- *
- * @author Héctor França
- */
-
 @Entity
 @Table(name = "Registro")
 public class RegistroBean {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     
     @ManyToOne
-    @JoinColumn(name = "Categoria_id", insertable = false, updatable = false, nullable = false)
+    @JoinColumn(name = "Categoria_id", nullable = false)
     private CategoriaBean categoria;
     
     @Column(name = "Nome", nullable = false, length = 60)
@@ -39,11 +34,11 @@ public class RegistroBean {
     @Column(name = "Valor", nullable = false)
     private double valor;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

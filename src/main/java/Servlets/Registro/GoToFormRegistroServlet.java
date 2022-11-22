@@ -1,7 +1,8 @@
 package Servlets.Registro;
 
-import Beans.ColecaoRegistroBean;
-import DAO.RegistroDAO;
+import Beans.ColecaoCategoriaBean;
+import Beans.RegistroBean;
+import DAO.CategoriaDAO;
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -9,39 +10,44 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
 
-/**
- *
- * @author Hector
- */
-@WebServlet(name = "ListRegistroServlet", urlPatterns = {"/ListRegistroServlet"})
-public class ListRegistroServlet extends HttpServlet {
+@WebServlet(name = "GoToFormRegistroServlet", urlPatterns = {"/GoToFormRegistroServlet"})
+public class GoToFormRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
+        ColecaoCategoriaBean colecaoCategoriaBean = new ColecaoCategoriaBean();
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
+        RequestDispatcher requestDispatcher;
         
-        RegistroDAO registroDAO = new RegistroDAO();
-        ColecaoRegistroBean colecaoRegistro = new ColecaoRegistroBean();
-        RequestDispatcher requestDispatcher = null;
-        
-        try {            
-            requestDispatcher = request.getRequestDispatcher("/Pages/listarRegistros.jsp");
-            
-            if (request.getParameter("tipo").equals("R")) {
-                colecaoRegistro.setRegistros(registroDAO.getAllReceitas());
-                request.setAttribute("tipo", "R");
+        try {    
+            requestDispatcher = request.getRequestDispatcher("/Pages/cadastroRegistro.jsp");           
+            colecaoCategoriaBean.setCategorias(categoriaDAO.getAll());         
+
+            if (request.getParameter("id") != null) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                RegistroBean registro = new RegistroBean();
+                
+                registro.setId(Long.parseLong(request.getParameter("id")));
+                registro.setNome(request.getParameter("nome"));
+                registro.setTipo(request.getParameter("tipo").charAt(0));
+                registro.setData(dateFormat.parse(request.getParameter("data")));            
+                registro.setValor(Double.parseDouble(request.getParameter("valor")));
+                registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
+                               
+                request.setAttribute("registro", registro);
             } else {
-                colecaoRegistro.setRegistros(registroDAO.getAllDespesas());
-                request.setAttribute("tipo", "D");
+                request.setAttribute("tipo", request.getParameter("tipo"));
             }
-         
-            request.setAttribute("colecaoRegistro", colecaoRegistro);
- 
+
+            request.setAttribute("colecaoCategoria", colecaoCategoriaBean);
+            
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {
-            throw new ServletException("Não foi possível listar os registros: " 
+            throw new jakarta.servlet.ServletException("Não foi possível prosseguir com o registro: " 
                     + exception.getMessage());
         }
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

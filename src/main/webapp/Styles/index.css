@@ -1,83 +1,152 @@
-.titulo {
-    color: blue;
-    font-weight: 100;
-    font-family: roboto, Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #ffc000;
-    height: 140px;
+* {
+    margin: 0;
+    padding: 0;
 }
-
-.container{
+body {
+    font-family: 'Roboto', sans-serif !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+a {
+    text-decoration: none !important;
+}
+h3 {
+    color: black !important;
+}
+.containerPrincipal {
+    width: 90%;
+    height: 600px;
+    background-color:#FFFFE0;
+    border-radius: 10px;
+    margin-top: 140px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.subTitulo {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: black !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn {
+    width: 325px !important;
+    text-align: center;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: flex-start;
+}
+.btn-efeito {
+    overflow: hidden;
+    position: relative;
+    background-color: #ffc000;
+}
+.btn-efeito:hover {
+    background-color: #ffc000;
+}
+.btn-efeito span {
+    z-index: 20;
+}
+.btn-efeito:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: -85px;
+    opacity:.4;
+    position: absolute;
+    top: -60px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+    -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 70px;
+    z-index: 1;
+}
+.btn-efeito:hover:after {
+    left: 130%;
+    -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.caixaBtn {
+    width: 400px;
+    height: 30px;
+    border: 3px solid orange !important;
+    background-color: #ffc000;
+    color: black;
+    font-size: 15px;
+    text-align: center !important;
+    border:none !important;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none !important;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    height: 500px;
-    margin-top: 40%;
-    margin-bottom: 40%;    
+    justify-content: center;
+    box-shadow: 1px 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-
-.caixaButton {
+.caixaBtnConfig {
+    width: 400px;
+    height: 30px;
+    background-color: #FFE4B5;
+    border: 3px solid orange !important;
     background-color: #ffc000;
-    color: white;
+    color: black;
     font-size: 15px;
-    font-weight: 200;
-    font-family: roboto, Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 300px;
+    text-align: center !important;
+    border:none !important;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 1px 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-
-.Logo {
-    width: 100px;
-    height: 120px;
-    margin-left: 10px;
+.subCaixaBtn {
+    width: 330px;
+    height: 30px;
+    background-color: #EEE8AA !important;
+    border: 3px solid orange !important;
+    color: black;
+    font-size: 15px;
+    text-align: center !important;
+    border:none !important;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 5px;
     margin-bottom: 5px;
+    box-shadow: 1px 1px;
 }
-
-.subTitulo{
-    border: 1px solid #ffc000;
-    position: absolute;
-    left: 120px;
-    bottom: 20px;
-    display: flex;
+.subCaixaBtn:active {
+    transform: scale(0.95);
+}
+.contBtnTitulo {
+    margin-top: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: bold;
 }
-
-body{
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+.show {
+    visibility: visible;
 }
-
-html{
-    height: auto;
-    width: 100%;
-}
-
-.containerFooter{
-    width:100%;
-    height: 50px;
-    background-color:#ffc000;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.tituloFooter{
-    font-size: 14px;
-    padding: 4%;
-    margin: auto;
-    position:relative;
-    text-align: left;
-}
-
-.tituloFooterSpan{
-    font-size: 14px;
-    margin: auto;
-    padding: 4%;
-    text-align: center;
+.hidden {
+    visibility: hidden;
 }

@@ -9,10 +9,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Hector
- */
 @WebServlet(name = "DeleteCategoriaServlet", urlPatterns = {"/DeleteCategoriaServlet"})
 public class DeleteCategoriaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

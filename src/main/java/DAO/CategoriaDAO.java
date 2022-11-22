@@ -28,13 +28,10 @@ public class CategoriaDAO {
     public void update(CategoriaBean categoria) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        
-        Query query = entityManager.createQuery("UPDATE CategoriaBean c SET c.nome = '" + categoria.getNome()
-            + "', c.tipo = '" + "' WHERE c.id = '" + categoria.getId() + "'");
 
         try {
             entityManager.getTransaction().begin();
-            query.executeUpdate();
+            entityManager.merge(categoria);
             entityManager.getTransaction().commit();
         } catch (Exception exception) {
             System.out.println("Erro ao atualizar a categoria: " + exception.getMessage());
@@ -65,7 +62,7 @@ public class CategoriaDAO {
         return null;
     }
     
-        public CategoriaBean getCategoria(int id) {
+        public CategoriaBean find(long id) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 

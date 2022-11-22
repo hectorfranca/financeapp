@@ -9,18 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *
- * @author Héctor França
- */
-
 @Entity
 @Table(name = "Categoria")
 public class CategoriaBean {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     
     @OneToMany(mappedBy = "categoria")
     private Set<RegistroBean> registros;
@@ -28,11 +23,11 @@ public class CategoriaBean {
     @Column(name = "Nome", nullable = false, length = 40)
     private String nome;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

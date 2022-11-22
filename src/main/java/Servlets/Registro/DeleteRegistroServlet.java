@@ -9,10 +9,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Hector
- */
 @WebServlet(name = "DeleteRegistroServlet", urlPatterns = {"/DeleteRegistroServlet"})
 public class DeleteRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -23,7 +19,7 @@ public class DeleteRegistroServlet extends HttpServlet {
         long id;       
         
         try {            
-            requestDispatcher = request.getRequestDispatcher("ListRegistroServlet");
+            requestDispatcher = request.getRequestDispatcher("/index.jsp");
             id = Long.parseLong(request.getParameter("id"));
 
             registroDAO.delete(id);   
