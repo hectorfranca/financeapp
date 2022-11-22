@@ -28,13 +28,12 @@
             </div>
             <div class="collapse" id="collapseExample">
                 <div class="btn">
-                    <a class=" subCaixaBtn btn-efeito" 
-                        href="GoToFormRegistroServlet?tipo=R">
+                    <a class=" subCaixaBtn btn-efeito" href="GoToFormRegistroServlet?tipo=R">
                         <h3 class="contBtnTitulo">Cadastro</h3>  
                     </a> 
                 </div>
                 <div class="btn">
-                    <a class="subCaixaBtn btn-efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp">
+                    <a class="subCaixaBtn btn-efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=R">
                         <h3 class="contBtnTitulo">Relatório</h3>   
                     </a>
                 </div>
@@ -46,30 +45,30 @@
             </div>
             <div class="collapse" id="collapseExample2">
                 <div class="btn entrada-item">
-                    <a class=" subCaixaBtn btn-efeito" href="cadRegistroDespesas.html">
-                        <h3 class="contBtnTitulo">Cadastro</h3>  
+                    <a class=" subCaixaBtn btn-efeito" href="GoToFormRegistroServlet?tipo=D"">
+                        <h3 class="contBtnTitulo">Cadastro</h3>
                     </a> 
                 </div>
                 <div class="btn">
-                    <a class="subCaixaBtn btn-efeito" href="filtroDespesasTela.html">
-                        <h3 class="contBtnTitulo">Relatório</h3>   
+                    <a class="subCaixaBtn btn-efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=D">
+                        <h3 class="contBtnTitulo">Relatório</h3>
                     </a>
                 </div>
             </div>
             <div class="btn btnConfig">
                 <a class="caixaBtn btn-efeito" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h3 class="contBtnTitulo">Sistemas</h3>   
+                    <h3 class="contBtnTitulo">Sistema</h3>   
                 </a>
             </div>
             <div class="collapse" id="collapseExample3">
                 <div class="btn">
-                    <a class="subCaixaBtn btn-efeito" href="listaCategoria.html">
-                        <h3 class="contBtnTitulo">Categorias Cadastradas</h3>  
+                    <a class="subCaixaBtn btn-efeito" href="${pageContext.request.contextPath}/ListCategoriaServlet">
+                        <h3 class="contBtnTitulo">Categorias</h3>  
                     </a> 
                 </div>
                 <div class="btn">
                     <a class="subCaixaBtn btn-efeito" href="#">
-                        <h3 class="contBtnTitulo">Contate-nos</h3>   
+                        <h3 class="contBtnTitulo">Contato</h3>   
                     </a>
                 </div>
             </div>              

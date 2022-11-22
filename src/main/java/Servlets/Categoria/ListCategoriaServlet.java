@@ -20,7 +20,7 @@ public class ListCategoriaServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = null;
         
         try {            
-            requestDispatcher = request.getRequestDispatcher("/Pages/listarCategorias.jsp");
+            requestDispatcher = request.getRequestDispatcher("/Pages/listaCategoria.jsp");
             colecaoCategoria.setCategorias(categoriaDAO.getAll());
          
             request.setAttribute("colecaoCategoria", colecaoCategoria);

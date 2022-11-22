@@ -33,7 +33,6 @@
                         <input type="text" class="form-control" id="inputname" name="nome" 
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
                     </div>
-
                     <div class="form-item">
                         <label for="inputname" class="labelCategoria">Categoria</label>             
                         <select class="form-select" aria-label="Default select example" name="categoria" required>                           
@@ -48,7 +47,6 @@
                         %>
                         </select>
                     </div>
-
                     <div class="form-item">
                         <div class="divPrincipalValor">
                             <div class="divValor">
@@ -58,20 +56,17 @@
                                    value="<%= registro.getValor() != 0 ? registro.getValor() : "" %>" required>    
                         </div>
                     </div>
-
                     <div class="form-item">
                         <label for="inputname" class="labelData">Data</label>       
                         <input type="date" class="form-control" id="input" name="data" 
                                value="<%= registro.getData() != null ? dateFormatUS.format(registro.getData()) : "" %>" required>
-                    </div>
-                        
+                    </div>                       
                     <input type="hidden" name="tipo" 
                            value="<%= registro.getTipo() != '\u0000' ? registro.getTipo() : request.getParameter("tipo") %>">
                     
                     <% if (registro.getId() != null) { %>                        
                     <input type="hidden" name="id" value="<%= registro.getId() %>">
-                    <% } %>
-                    
+                    <% } %>                    
                     <div>
                         <div class="btn-CadCan">
                             <input type="submit" class="btnn btnCadastrar btn-efeito" value="Cadastrar">

@@ -1,4 +1,4 @@
-<header class="fixed-top">
+<header>
     <div class="containerLogo">
         <img class="logo" src="${pageContext.request.contextPath}/img/logo.png" alt="logo.png"/>
     </div>

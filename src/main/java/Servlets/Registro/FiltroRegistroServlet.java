@@ -22,7 +22,12 @@ public class FiltroRegistroServlet extends HttpServlet {
         
         try {            
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            requestDispatcher = request.getRequestDispatcher("/Pages/listaCompletaRegistro.jsp");
+            
+            if (request.getParameter("tipoLista").equals("completa")) {
+                requestDispatcher = request.getRequestDispatcher("/Pages/listaCompletaRegistro.jsp");
+            } else {
+                requestDispatcher = request.getRequestDispatcher("/Pages/listaResumidaRegistro.jsp");
+            }
 
             if (request.getParameter("tipo").equals("R")) {
                 colecaoRegistro.setRegistros(registroDAO.filtroDataListaReceitas (

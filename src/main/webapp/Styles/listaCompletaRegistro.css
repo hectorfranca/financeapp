@@ -106,7 +106,7 @@ body {
 .containerConteudo .containerNome {
     border-bottom: 1px solid black
 }
-.itemEntradas .containerValor{
+.itemEntradas .containerValor {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }

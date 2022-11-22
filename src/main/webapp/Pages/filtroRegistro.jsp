@@ -48,7 +48,7 @@
                         </div>    
                         <div class="containerListaCompleta">
                             <div class="check1">
-                                <input name="tipoLista" type="radio" class="checkbox1" required>
+                                <input name="tipoLista" type="radio" value="completa" class="checkbox1" required>
                             </div>
                             <div id="pCheckListaC" class="listaCompleta">
                                 <label class="labelLista">Lista completa</label>
@@ -56,14 +56,14 @@
                         </div>
                         <div class="containerListaResumida">
                             <div class="check2">
-                                <input name="tipoLista" type="radio" class="checkbox2">
+                                <input name="tipoLista" type="radio" value="resumida" class="checkbox2">
                             </div>
                             <div id="pCheckListaR" class="listaResumida">
                                 <label class="labelLista">Lista resumida</label>
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="tipo" value="R"/>
+                    <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>"/>
                     <div>
                         <input type="submit" class="btnConsultar btn-efeito" value="Consultar"/>
                     </div>

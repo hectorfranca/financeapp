@@ -1,6 +1,5 @@
 package Servlets.Registro;
 
-import Beans.CategoriaBean;
 import Beans.RegistroBean;
 import DAO.CategoriaDAO;
 import DAO.RegistroDAO;

@@ -20,11 +20,16 @@ public class SaveCategoriaServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = null;
         
         try {
-            requestDispatcher = request.getRequestDispatcher("ListCategoriaServlet");
+            requestDispatcher = request.getRequestDispatcher("/index.jsp");
                     
             categoria.setNome(request.getParameter("nome"));
-
-            categoriaDAO.save(categoria);
+            
+            if (request.getParameter("id") != null) {            
+                categoria.setId(Long.parseLong(request.getParameter("id")));                                   
+                categoriaDAO.update(categoria);
+            } else {
+                categoriaDAO.save(categoria);
+            }
 
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {

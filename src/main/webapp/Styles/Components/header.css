@@ -6,7 +6,7 @@ header {
     border-bottom-right-radius: 40px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #ffc000;
     height: 100px;
     position: fixed;
@@ -15,8 +15,6 @@ header {
 .logo {
     width: 100px;
     height: 100px;
-    position: absolute;
-    left: 0;
 }
 .conteudoTitulo {
     align-self: center;
@@ -29,4 +27,5 @@ header {
     font-size: 30px !important;
     color: white !important;
     text-decoration: none;
+    margin-left: 20px;
 }

@@ -1,0 +1,73 @@
+* {
+    margin: 0 ;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.containerPrincipal {
+    width: 400px;
+    height: auto;
+    margin-top: 120px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.titulo {
+    text-align: center;
+}
+.paginaTitulo {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.paginaSubtitulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+.listaEntradas {
+    width: 90%;
+    border-radius: 10px;
+    background-color: #FFFFE0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px;
+}
+.itemEntradas {
+    width: 90%;
+    height: 70px;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.containerNome, .containerValor {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerNome {
+    border-right: 1px solid black;
+}
+.itemEntradas, .containerValor {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}

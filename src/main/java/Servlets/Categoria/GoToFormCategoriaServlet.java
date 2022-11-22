@@ -1,9 +1,6 @@
-package Servlets.Registro;
+package Servlets.Categoria;
 
 import Beans.CategoriaBean;
-import Beans.RegistroBean;
-import DAO.CategoriaDAO;
-import DAO.RegistroDAO;
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -11,39 +8,31 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.text.SimpleDateFormat;
 
-@WebServlet(name = "UpdateRegistroServlet", urlPatterns = {"/UpdateRegistroServlet"})
-public class UpdateRegistroServlet extends HttpServlet {
+@WebServlet(name = "GoToFormCategoriaServlet", urlPatterns = {"/GoToFormCategoriaServlet"})
+public class GoToFormCategoriaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
+        RequestDispatcher requestDispatcher;
         
-        RegistroDAO registroDAO = new RegistroDAO();
-        CategoriaDAO categoriaDAO = new CategoriaDAO();
-        RegistroBean registro = new RegistroBean();
-        RequestDispatcher requestDispatcher = null;
-        
-        try {            
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            requestDispatcher = request.getRequestDispatcher("ListRegistroServlet");
+        try {    
+            requestDispatcher = request.getRequestDispatcher("/Pages/cadastroCategoria.jsp");                 
+
+            if (request.getParameter("id") != null) {
+                CategoriaBean categoria = new CategoriaBean();
+                
+                categoria.setId(Long.parseLong(request.getParameter("id")));
+                categoria.setNome(request.getParameter("nome"));
+                               
+                request.setAttribute("categoria", categoria);
+            }
             
-            registro.setId(Long.parseLong(request.getParameter("id")));
-            registro.setNome(request.getParameter("nome"));
-            registro.setTipo(request.getParameter("tipo").charAt(0));
-            registro.setData(dateFormat.parse(request.getParameter("data")));
-            registro.setValor(Double.parseDouble(request.getParameter("valor")));
-            
-            CategoriaBean categoria = categoriaDAO.find(Integer.parseInt(request.getParameter("categoria")));
-            registro.setCategoria(categoria);
-         
-            registroDAO.update(registro);
-   
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {
-            throw new ServletException("Não foi possível editar a categoria: " 
+            throw new jakarta.servlet.ServletException("Não foi possível prosseguir com o registro: " 
                     + exception.getMessage());
         }
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

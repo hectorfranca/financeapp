@@ -19,7 +19,7 @@ public class DeleteCategoriaServlet extends HttpServlet {
         long id;       
         
         try {            
-            requestDispatcher = request.getRequestDispatcher("ListCategoriaServlet");
+            requestDispatcher = request.getRequestDispatcher("/index.jsp");
             id = Long.parseLong(request.getParameter("id"));
 
             categoriaDAO.delete(id);   
