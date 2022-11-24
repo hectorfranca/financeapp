@@ -1,8 +1,5 @@
 C:\Users\Hector\Documents\financeapp\src\main\java\Beans\ColecaoRegistroBean.java
-C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Categoria\UpdateCategoriaServlet.java
 C:\Users\Hector\Documents\financeapp\src\main\java\DAO\CategoriaDAO.java
-C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Categoria\EditCategoriaServlet.java
-C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Registro\UpdateRegistroServlet.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Beans\CategoriaBean.java
 C:\Users\Hector\Documents\financeapp\src\main\java\DAO\RegistroDAO.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Categoria\DeleteCategoriaServlet.java
@@ -13,4 +10,5 @@ C:\Users\Hector\Documents\financeapp\src\main\java\Beans\ColecaoCategoriaBean.ja
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Registro\FiltroRegistroServlet.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Registro\DeleteRegistroServlet.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Beans\RegistroBean.java
+C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Categoria\GoToFormCategoriaServlet.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Categoria\ListCategoriaServlet.java

@@ -10,9 +10,7 @@ Servlets\Registro\SaveRegistroServlet.class
 Servlets\Registro\FiltroRegistroServlet.class
 Beans\RegistroBean.class
 Beans\CategoriaBean_.class
-Servlets\Categoria\EditCategoriaServlet.class
 Servlets\Categoria\SaveCategoriaServlet.class
+Servlets\Categoria\GoToFormCategoriaServlet.class
 DAO\RegistroDAO.class
-Servlets\Categoria\UpdateCategoriaServlet.class
-Servlets\Registro\UpdateRegistroServlet.class
 Beans\ColecaoRegistroBean.class

@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FinanceApp</title>
+        <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/logo.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/header.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/footer.css"/>
@@ -14,66 +15,66 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
-    <body>        
+    <body>
         <jsp:include page="/Components/header.jsp"/>
         
-        <div class="containerPrincipal">
-            <div  class="subTitulo">
-                <a>O seu app de finanças totalmente descomplicado!</a>  
+        <div class="container">
+            <div  class="container__titulo">
+                <span>O seu app de finanças totalmente descomplicado!</span>  
             </div>
-            <div class="btn">
-                <a class=" caixaBtn btn-efeito " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h3 class="contBtnTitulo">Entradas</h3>  
-                </a> 
+            <div class="btn-primario">
+                <a class="btn-primario__caixa btn-primario--efeito " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h3 class="btn-primario__caixa__titulo">Entradas</h3>  
+                </a>
             </div>
             <div class="collapse" id="collapseExample">
-                <div class="btn">
-                    <a class=" subCaixaBtn btn-efeito" href="GoToFormRegistroServlet?tipo=R">
-                        <h3 class="contBtnTitulo">Cadastro</h3>  
+                <div class="btn-secundario">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="GoToFormRegistroServlet?tipo=R">
+                        <h3 class="btn-secundario__caixa__titulo">Cadastro</h3>  
                     </a> 
                 </div>
-                <div class="btn">
-                    <a class="subCaixaBtn btn-efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=R">
-                        <h3 class="contBtnTitulo">Relatório</h3>   
+                <div class="btn-secundario">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=R">
+                        <h3 class="btn-secundario__caixa__titulo">Relatório</h3>   
                     </a>
                 </div>
             </div>
-            <div class="btn entrada-item">
-                <a class="caixaBtn btn-efeito" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h3 class="contBtnTitulo">Despesas</h3>   
+            <div class="btn-primario">
+                <a class="btn-primario__caixa btn-primario--efeito" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h3 class="btn-primario__caixa__titulo">Despesas</h3>   
                 </a>
             </div>
             <div class="collapse" id="collapseExample2">
-                <div class="btn entrada-item">
-                    <a class=" subCaixaBtn btn-efeito" href="GoToFormRegistroServlet?tipo=D"">
-                        <h3 class="contBtnTitulo">Cadastro</h3>
+                <div class="btn-secundario entrada-item">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="GoToFormRegistroServlet?tipo=D"">
+                        <h3 class="btn-secundario__caixa__titulo">Cadastro</h3>
                     </a> 
                 </div>
-                <div class="btn">
-                    <a class="subCaixaBtn btn-efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=D">
-                        <h3 class="contBtnTitulo">Relatório</h3>
+                <div class="btn-secundario">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=D">
+                        <h3 class="btn-secundario__caixa__titulo">Relatório</h3>
                     </a>
                 </div>
             </div>
-            <div class="btn btnConfig">
-                <a class="caixaBtn btn-efeito" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h3 class="contBtnTitulo">Sistema</h3>   
+            <div class="btn-primario">
+                <a class="btn-primario__caixa btn-primario--efeito" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <h3 class="btn-primario__caixa__titulo">Sistema</h3>   
                 </a>
             </div>
             <div class="collapse" id="collapseExample3">
-                <div class="btn">
-                    <a class="subCaixaBtn btn-efeito" href="${pageContext.request.contextPath}/ListCategoriaServlet">
-                        <h3 class="contBtnTitulo">Categorias</h3>  
+                <div class="btn-secundario">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/ListCategoriaServlet">
+                        <h3 class="btn-secundario__caixa__titulo">Categorias</h3>  
                     </a> 
                 </div>
-                <div class="btn">
-                    <a class="subCaixaBtn btn-efeito" href="#">
-                        <h3 class="contBtnTitulo">Contato</h3>   
+                <div class="btn-secundario">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/Pages/contato.jsp">
+                        <h3 class="btn-secundario__caixa__titulo">Contato</h3>
                     </a>
                 </div>
             </div>              
         </div>
-
+                        
         <jsp:include page="/Components/footer.jsp"/>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
