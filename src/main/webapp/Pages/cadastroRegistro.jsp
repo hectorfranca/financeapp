@@ -24,18 +24,22 @@
         
         <jsp:include page="/Components/header.jsp"/>
         
-        <div class="container">
-            <div class="containerPrincipal"> 
-                <h2 class="paginaTitulo">Cadastro de Entradas</h2>
+        <div class="container-primario">
+            <div class="container-primario__container-secundario">
+                <% if (request.getAttribute("tipo").equals("R") || registro.getTipo() == 'R') { %>
+                <h1 class="container-primario__container-secundario__titulo">Cadastro de Receita</h1>             
+                <% } else { %>
+                <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
+                <% } %>
                 <form action="${pageContext.request.contextPath}/SaveRegistroServlet" method="POST">
                     <div class="form-item">     
-                        <label for="inputname" class="labelNome">Nome</label>            
-                        <input type="text" class="form-control" id="inputname" name="nome" 
+                        <label for="input-nome" class="form-nome__label">Nome</label>            
+                        <input type="text" class="form-control" id="input-nome" name="nome" 
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
                     </div>
                     <div class="form-item">
-                        <label for="inputname" class="labelCategoria">Categoria</label>             
-                        <select class="form-select" aria-label="Default select example" name="categoria" required>                           
+                        <label for="input-categoria" class="form-categoria__label">Categoria</label>             
+                        <select class="form-select" id="input-categoria" aria-label="Default select example" name="categoria" required>                           
                             
                         <% for (CategoriaBean categoria : colecaoCategoria.getCategorias()) {
                             if (registro.getId() != null && registro.getCategoria().getId() == categoria.getId()) { %>
@@ -48,31 +52,30 @@
                         </select>
                     </div>
                     <div class="form-item">
-                        <div class="divPrincipalValor">
-                            <div class="divValor">
-                                <label for="inputname" class="labelValor">Valor em R$</label>
-                            </div>          
-                            <input type="number" class="form-control" id="input" name="valor" 
-                                   value="<%= registro.getValor() != 0 ? registro.getValor() : "" %>" required>    
-                        </div>
+                        <label for="input-valor" class="form-valor__label">Valor em R$</label>
+                        <input type="number" class="form-control" id="input-valor" name="valor" 
+                               value="<%= registro.getValor() != 0 ? registro.getValor() : "" %>" required>    
                     </div>
                     <div class="form-item">
-                        <label for="inputname" class="labelData">Data</label>       
-                        <input type="date" class="form-control" id="input" name="data" 
+                        <label for="input-data" class="form-data__label">Data</label>      
+                        <input type="date" class="form-control" id="input-data" name="data" 
                                value="<%= registro.getData() != null ? dateFormatUS.format(registro.getData()) : "" %>" required>
-                    </div>                       
+                    </div>                      
                     <input type="hidden" name="tipo" 
                            value="<%= registro.getTipo() != '\u0000' ? registro.getTipo() : request.getParameter("tipo") %>">
                     
                     <% if (registro.getId() != null) { %>                        
                     <input type="hidden" name="id" value="<%= registro.getId() %>">
                     <% } %>                    
-                    <div>
-                        <div class="btn-CadCan">
-                            <input type="submit" class="btnn btnCadastrar btn-efeito" value="Cadastrar">
-                            <input type="button" class="btnn btnCancelar btn-efeito" 
-                                onclick="window.location.href='${pageContext.request.contextPath}/index.jsp'" value="Cancelar">
-                        </div>
+                    <div class="form-button">
+                        <a class="form-button__caixa form-button--efeito" 
+                                onclick="document.getElementsByTagName('form')[0].submit()">
+                            <span class="form-button__caixa__titulo">Registrar</span>
+                        </a>                    
+                        <a class="form-button__caixa form-button--efeito"
+                                href="${pageContext.request.contextPath}/index.jsp">
+                            <span class="form-button__caixa__titulo">Cancelar</span>
+                        </a>
                     </div>
                 </form>
             </div>      
@@ -80,6 +83,14 @@
             
         <jsp:include page="/Components/footer.jsp"/>
         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
     </body>
 </html>

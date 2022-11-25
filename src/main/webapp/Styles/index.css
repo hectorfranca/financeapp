@@ -25,13 +25,8 @@ a {
     justify-content: flex-start;
 }
 .container__titulo {
-    width: 100%;
-    height: 50px;
     text-align: center;
-    color: black !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 18px;
 }
 .btn-primario, .btn-secundario {
     width: 325px !important;
@@ -41,7 +36,7 @@ a {
     justify-content: center;
     align-items: flex-start;
 }
-.btn-primario__caixa, .btn-secundario__caixa{
+.btn-primario__caixa, .btn-secundario__caixa {
     width: 400px;
     height: 30px;
     border: 3px solid orange !important;
@@ -68,7 +63,6 @@ a {
     transform: scale(0.95);
 }
 .btn-primario__caixa__titulo, .btn-secundario__caixa__titulo {
-    margin-top: 10px;
     text-align: center;
     font-size: 15px;
     font-weight: bold;
@@ -83,7 +77,7 @@ a {
     content: "";
     height: 155px;
     left: -85px;
-    opacity:.4;
+    opacity: .4;
     position: absolute;
     top: -60px;
     -webkit-transform: rotate(30deg);

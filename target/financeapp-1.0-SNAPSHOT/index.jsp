@@ -19,57 +19,55 @@
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container">
-            <div  class="container__titulo">
-                <span>O seu app de finanças totalmente descomplicado!</span>  
-            </div>
+            <h1 class="container__titulo">O seu app de finanças totalmente descomplicado!</h1>  
             <div class="btn-primario">
                 <a class="btn-primario__caixa btn-primario--efeito " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h3 class="btn-primario__caixa__titulo">Entradas</h3>  
+                    <span class="btn-primario__caixa__titulo">Receitas</span>  
                 </a>
             </div>
             <div class="collapse" id="collapseExample">
                 <div class="btn-secundario">
                     <a class="btn-secundario__caixa btn-secundario--efeito" href="GoToFormRegistroServlet?tipo=R">
-                        <h3 class="btn-secundario__caixa__titulo">Cadastro</h3>  
+                        <span class="btn-secundario__caixa__titulo">Registrar</span>  
                     </a> 
                 </div>
                 <div class="btn-secundario">
                     <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=R">
-                        <h3 class="btn-secundario__caixa__titulo">Relatório</h3>   
+                        <span class="btn-secundario__caixa__titulo">Consultar</span>   
                     </a>
                 </div>
             </div>
             <div class="btn-primario">
                 <a class="btn-primario__caixa btn-primario--efeito" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h3 class="btn-primario__caixa__titulo">Despesas</h3>   
+                    <span class="btn-primario__caixa__titulo">Despesas</span>   
                 </a>
             </div>
             <div class="collapse" id="collapseExample2">
                 <div class="btn-secundario entrada-item">
                     <a class="btn-secundario__caixa btn-secundario--efeito" href="GoToFormRegistroServlet?tipo=D"">
-                        <h3 class="btn-secundario__caixa__titulo">Cadastro</h3>
+                        <span class="btn-secundario__caixa__titulo">Registrar</span>
                     </a> 
                 </div>
                 <div class="btn-secundario">
                     <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=D">
-                        <h3 class="btn-secundario__caixa__titulo">Relatório</h3>
+                        <span class="btn-secundario__caixa__titulo">Consultar</span>
                     </a>
                 </div>
             </div>
             <div class="btn-primario">
                 <a class="btn-primario__caixa btn-primario--efeito" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <h3 class="btn-primario__caixa__titulo">Sistema</h3>   
+                    <span class="btn-primario__caixa__titulo">Sistema</span>   
                 </a>
             </div>
             <div class="collapse" id="collapseExample3">
                 <div class="btn-secundario">
                     <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/ListCategoriaServlet">
-                        <h3 class="btn-secundario__caixa__titulo">Categorias</h3>  
+                        <span class="btn-secundario__caixa__titulo">Categorias</span>  
                     </a> 
                 </div>
                 <div class="btn-secundario">
                     <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/Pages/contato.jsp">
-                        <h3 class="btn-secundario__caixa__titulo">Contato</h3>
+                        <span class="btn-secundario__caixa__titulo">Contato</span>
                     </a>
                 </div>
             </div>              
