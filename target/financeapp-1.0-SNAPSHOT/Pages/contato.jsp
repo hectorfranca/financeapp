@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FinanceApp - Contato</title>
+        <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/logo.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/header.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/footer.css"/>
@@ -17,62 +18,55 @@
     <body>        
         <jsp:include page="/Components/header.jsp"/>
         
-        <div class="containerPrincipal">
-            <div class="containerSuporte">
-                <div class="subTitulo">
+        <div class="container-principal">
+            <div class="container-secundario">
+                <div class="container-secundario__titulo">
                     <a>Dúvidas? Contate-nos!</a>  
                 </div>
-                <div class="containerConteudo" >
-                    <div class="itemConteudo">
-                        <div class="itemGustavo">
-                            <div class="divNome">
-                                <label for="nomeGustavo">Nome:</label>
-                                <span id="nomeGustavo">Gustavo F. Vetter</span>
-                            </div>
-                            <div class="divEmail">
-                                <label for="emailGustavo">Email:</label>
-                                <a id="emailGustavo" href="mailto:vetter.gustavo@gmail.com">vetter.gustavo@gmail.com</a>
-                            </div>
-                            <div class="divRedeSocial">
-                                <label for="redeSocialGustavo">Linkedin:</label>
-                                <a id="redeSocialGustavo" href="https://www.linkedin.com/in/gustavo-f-vetter-012090225/">@gustavo-f-vetter-012090225</a>
-                            </div>
+                <div class="container-conteudo">
+                    <div class="container-conteudo__item">
+                        <div class="container-conteudo__item__nome">
+                            <label>Nome:</label>
+                            <span>Gustavo F. Vetter</span>
                         </div>
-                    </div> 
-                    <div class="itemConteudo">
-                        <div class="itemHector">
-                            <div class="divNome">
-                                <label for="nome">Nome:</label>
-                                <a>Héctor Júlio Martins de França</a>
-                            </div>
-                            <div class="divEmail">
-                                <label for="email">Email:</label>
-                                <a href="mailto:hectorjuliomartinsdefranca@hotmail.com">hectorjuliomartinsdefranca@hotmail.com</a>
-                            </div>
-                            <div class="divRedeSocial">
-                                <label for="redeSocial">Linkedin:</label>
-                                <a href="https://www.linkedin.com/in/hectorfranca/">@hectorfranca</a>
-                            </div>
+                        <div class="container-conteudo__item__email">
+                            <label>Email:</label>
+                            <a href="mailto:vetter.gustavo@gmail.com">vetter.gustavo@gmail.com</a>
                         </div>
-                    </div> 
-                    <div class="itemConteudo">
-                        <div class="itemLucio">
-                            <div class="divNome">
-                                <label for="nome">Nome:</label>
-                                <a>Lúcio de Freitas Pereira</a>
-                            </div>
-                            <div class="divEmail">
-                                <label for="email">Email:</label>
-                                <a href="mailto:luciodfp@gmail.com">luciodfp@gmail.com</a>
-                            </div>
-                            <div class="divRedeSocial">
-                                <label for="redeSocial">Linkedin:</label>
-                                <a href="https://www.linkedin.com/in/lucio-freitas/">@lucio-freitas</a>
-
-                            </div>
+                        <div class="container-conteudo__item__social">
+                            <label>Linkedin:</label>
+                            <a href="https://www.linkedin.com/in/gustavo-f-vetter-012090225/">@gustavo-f-vetter-012090225</a>
+                        </div>          
+                    </div>
+                    <div class="container-conteudo__item"> 
+                        <div class="container-conteudo__item__nome">
+                            <label>Nome:</label>
+                            <span>Héctor Júlio Martins de França</span>
                         </div>
+                        <div class="container-conteudo__item__email">
+                            <label>Email:</label>
+                            <a href="mailto:hectorjuliomartinsdefranca@hotmail.com">hectorjuliomartinsdefranca@hotmail.com</a>
+                        </div>
+                        <div class="container-conteudo__item__social">
+                            <label>Linkedin:</label>
+                            <a href="https://www.linkedin.com/in/hectorfranca/">@hectorfranca</a>
+                        </div>
+                    </div>
+                    <div class="container-conteudo__item">
+                        <div class="container-conteudo__item__nome">
+                            <label>Nome:</label>
+                            <span>Lúcio de Freitas Pereira</span>
+                        </div>
+                        <div class="container-conteudo__item__email">
+                            <label>Email:</label>
+                            <a href="mailto:luciodfp@gmail.com">luciodfp@gmail.com</a>
+                        </div>
+                        <div class="container-conteudo__item__social">
+                            <label>Linkedin:</label>
+                            <a href="https://www.linkedin.com/in/lucio-freitas/">@lucio-freitas</a>
+                        </div>             
                     </div> 
-                    <div class="tituloRodape">
+                    <div class="container-conteudo__item__mensagem">
                         <span>Agradecemos desde já sua colaboração!</span>  
                     </div>
                 </div>

@@ -5,6 +5,15 @@
 body {
     font-family: 'Roboto', sans-serif !important;
 }
+input[type=date] {
+    width: 100%;
+    background-color: #FFFACD !important;
+    border: none !important;
+    text-align: center;
+    font-size: 13px;
+    padding-top: 5px;
+    padding-left: 10%;
+}
 .container {
     width: 100% !important;
     height: 100% !important;
@@ -13,13 +22,7 @@ body {
     align-items: center;
     margin-top: 150px;
 }
-.paginaTitulo {
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 20px;
-    text-align: center !important;
-}
-.containerPrincipal {
+.container-principal {
     width: 350px;
     height: auto;
     padding: 10px 0;
@@ -31,23 +34,13 @@ body {
     align-items: center;
     justify-content: center;
 }
-.tituloOp {
-    text-decoration: none !important;
-    color: black !important;
-}
-.btnMenu {
-    cursor: pointer;
-    font-size: 25px !important;
-    background-color: #ffc000 !important;
-    border: none !important;
-    color: white !important;
-    margin: 5px 0 0 10px !important;
-    padding: 6px 12px;
-}
-.btnConsultar {
+.container-principal__titulo {
     font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center !important;
 }
-.containerDef {
+form {
     width: 80%;
     height: auto !important;
     text-align: center;
@@ -55,13 +48,10 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom:0 !important;
-}
-.tituloDef {
     font-size: 17px; 
     margin-top: 25px;
-    margin-bottm: 25px;
 }
-.calendarios {
+.form-calendario {
     width: 100%;
     height: auto;
     display: flex;
@@ -69,7 +59,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-.calInicial, .calFinal {
+.form-calendario__inicial, .form-calendario__final {
     width: 150px;
     height: 57px;
     border: 1px solid black;
@@ -79,41 +69,29 @@ body {
     background-color: #ffc000;
     box-shadow: 2px 2px;
 }
-.calInicial {
-    margin-top: 3rem;
-}
-.calFinal{
+.form-calendario__final {
     margin-top: 2rem;
 }
-.calTitulo {
+.form-calendario__inicial__titulo, .form-calendario__final__titulo {
     width: 100%;
     border-bottom: 1px solid black;
     margin-bottom: 0;
 }
-.calData {
-    height: 15px!important;
+.form-calendario__inicial__data, .form-calendario__final__data {
+    height: 15px !important;
 }
-.date {
-    width: 100%;
-    background-color: #FFFACD !important;
-    border: none !important;
-    text-align: center;
-    font-size: 13px;
-    padding-top: 5px;
-    padding-left: 10%;
+.form-option__caixa__titulo {
+    text-decoration: none !important;
+    color: black !important;
 }
-input:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
-}
-.containerOp {
+.form-option {
     width: 300px;
     height: auto;
     margin-top: 2rem;
     border-radius: 10px;  
     box-shadow: 1px 1px;
 }
-.divTituloOp {
+.form-option__caixa {
     width: 100% !important;
     padding-top: 3px !important;
     border-top: 1px solid black;
@@ -124,84 +102,82 @@ input:focus {
     font-weight: bold;
     background-color: #ffc000;
 }
-.containerListaCompleta, .containerListaResumida {
+.form-option__lista-completa, .form-option__lista-resumida {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    background-color: #FFFACD
+    background-color: #FFFACD;
 }
-.listaCompleta, .listaResumida {
-    width: 100%;
-    height: auto;
-    text-align: left;
-}
-.listaCompleta {
-    border-top:1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-}
-.listaResumida { 
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    border-bottom-right-radius: 10px;
-}
-.labelLista {
-    margin-left: 5px;
-    margin-top: 5px;
-}
-.check1, .check2{
+.form-option__lista-completa__caixa-radio, .form-option__lista-resumida__caixa-radio {
     width: 50px;
 }
-.check1 {
+.form-option__lista-completa__caixa-radio {
     height: 31px;
     padding: 1%;
     border: 1px solid black;
 }
-.check2 {
-    height: 30px;
+.form-option__lista-completa__caixa-label, .form-option__lista-resumida__caixa-label {
+    width: 100%;
+    height: auto;
+    text-align: left;
+}
+.form-option__lista-completa__caixa-label {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.form-option__lista-resumida__caixa-label { 
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-bottom-right-radius: 10px;
+}
+.form-option__lista-completa__caixa-label__label, .form-option__lista-resumida__caixa-label__label {
+    margin-left: 5px;
+    margin-top: 2px;
+}
+.form-option__lista-resumida__caixa-radio {
+    height: 31px;
     padding: 1%;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     border-left: 1px solid black;
     border-bottom-left-radius: 10px;
 }
-.btnConsultar {
-    width: 150px;
-    height: 40px;
-    border: none;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    box-shadow: 1px 1px;
-    border-radius: 15px;
-    background-color: #ffc000;
+.form-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10% 0 3% 0;
 }
-.btnConsultar:active {
+.form-button__caixa {
+    width: 120px;
+    height: 40px;
+    border: 3px solid orange !important;
+    background-color: #ffc000;
+    color: black;
+    font-size: 15px;
+    text-align: center !important;
+    border:none !important;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-button__caixa:active {
     transform: scale(0.95);
 }
-.btnConsultarTxt{
-    font-size: 18px;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-}
-.btnConsultarTxt:active {
-    color:black;
-    text-decoration: none;
-    font-weight: bold;
-}
-.btn-efeito {
+.form-button--efeito {
     overflow: hidden;
     position: relative;
-    background-color: #ffc000;
 }
-.btn-efeito:hover {
-    background-color: #ffc000;
-}
-.btn-efeito span {
-    z-index: 20;
-}
-.btn-efeito:after {
+.form-button--efeito:after {
     background: #fff;
     content: "";
     height: 155px;
@@ -216,8 +192,14 @@ input:focus {
     width: 70px;
     z-index: 1;
 }
-.btn-efeito:hover:after {
+.form-button--efeito:hover:after {
     left: 130%;
     -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
     transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.form-button__caixa__titulo {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
 }

@@ -8,6 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FinanceApp - Cadastro Registro</title>
+        <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/logo.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/header.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/footer.css"/>
@@ -33,12 +34,12 @@
                 <% } %>
                 <form action="${pageContext.request.contextPath}/SaveRegistroServlet" method="POST">
                     <div class="form-item">     
-                        <label for="input-nome" class="form-nome__label">Nome</label>            
+                        <label for="input-nome">Nome</label>            
                         <input type="text" class="form-control" id="input-nome" name="nome" 
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
                     </div>
                     <div class="form-item">
-                        <label for="input-categoria" class="form-categoria__label">Categoria</label>             
+                        <label for="input-categoria">Categoria</label>            
                         <select class="form-select" id="input-categoria" aria-label="Default select example" name="categoria" required>                           
                             
                         <% for (CategoriaBean categoria : colecaoCategoria.getCategorias()) {
@@ -52,12 +53,12 @@
                         </select>
                     </div>
                     <div class="form-item">
-                        <label for="input-valor" class="form-valor__label">Valor em R$</label>
+                        <label for="input-valor">Valor em R$</label>
                         <input type="number" class="form-control" id="input-valor" name="valor" 
                                value="<%= registro.getValor() != 0 ? registro.getValor() : "" %>" required>    
                     </div>
                     <div class="form-item">
-                        <label for="input-data" class="form-data__label">Data</label>      
+                        <label for="input-data">Data</label>      
                         <input type="date" class="form-control" id="input-data" name="data" 
                                value="<%= registro.getData() != null ? dateFormatUS.format(registro.getData()) : "" %>" required>
                     </div>                      
