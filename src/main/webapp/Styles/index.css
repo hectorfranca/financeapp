@@ -27,6 +27,7 @@ a {
 .container__titulo {
     text-align: center;
     font-size: 18px;
+    margin-bottom: 50px;
 }
 .btn-primario, .btn-secundario {
     width: 325px !important;
@@ -35,6 +36,7 @@ a {
     flex-direction: row !important;
     justify-content: center;
     align-items: flex-start;
+    margin-bottom: 20px;
 }
 .btn-primario__caixa, .btn-secundario__caixa {
     width: 400px;
@@ -53,8 +55,6 @@ a {
     align-items: center;
     justify-content: center;
     box-shadow: 1px 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 .btn-secundario__caixa {
     background-color: #EEE8AA !important;

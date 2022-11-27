@@ -167,8 +167,6 @@ form {
     align-items: center;
     justify-content: center;
     box-shadow: 1px 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 .form-button__caixa:active {
     transform: scale(0.95);

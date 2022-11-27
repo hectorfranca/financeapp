@@ -29,13 +29,13 @@
                         <div class="form-calendario__inicial">
                             <p class="form-calendario__inicial__titulo">Data Inicial</p>     
                             <div class="form-calendario__inicial__data">
-                                <input type="date" name="dataInicial" required/> 
+                                <input class="date-inicial" type="date" name="dataInicial" required/> 
                             </div>
                         </div>
                         <div class="form-calendario__final">   
                             <p class="form-calendario__final__titulo">Data Final</p>
                             <div class="form-calendario__final__data">          
-                                <input type="date" name="dataFinal" required/>  
+                                <input class="date-final" type="date" name="dataFinal" required/>  
                             </div>              
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         </div>    
                         <div class="form-option__lista-completa">
                             <div class="form-option__lista-completa__caixa-radio">
-                                <input name="tipoLista" type="radio" value="completa" required>
+                                <input class="radio-completa" name="tipoLista" type="radio" value="completa" required>
                             </div>
                             <div class="form-option__lista-completa__caixa-label">
                                 <label class="form-option__lista-completa__caixa-label__label">Lista completa</label>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-option__lista-resumida">
                             <div class="form-option__lista-resumida__caixa-radio">
-                                <input name="tipoLista" type="radio" value="resumida">
+                                <input class="radio-resumida" name="tipoLista" type="radio" value="resumida">
                             </div>
                             <div class="form-option__lista-resumida__caixa-label">
                                 <label class="form-option__lista-resumida__caixa-label__label">Lista resumida</label>
@@ -62,17 +62,17 @@
                     </div>
                     <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>"/>
                     <div class="form-button">
-                        <a class="form-button__caixa form-button--efeito" 
-                                onclick="document.getElementsByTagName('form')[0].submit()">
+                        <a class="form-button__caixa form-button--efeito">
                             <span class="form-button__caixa__titulo">Consultar</span>
-                        </a>               
+                        </a>              
                     </div>
                 </form>
             </div>
         </div>
             
         <jsp:include page="/Components/footer.jsp"/>
-        
+               
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="${pageContext.request.contextPath}/Javascript/filtroRegistro.js"></script>
     </body>
 </html>

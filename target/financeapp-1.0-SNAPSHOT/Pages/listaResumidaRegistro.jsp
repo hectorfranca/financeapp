@@ -25,7 +25,7 @@
             <div class="containerPrincipal">
                 <div class="titulo">
                     <h1 class="paginaTitulo">Relatório de Entradas</h1>  
-                    <h2 class="paginaSubtitulo">Lista Completa</h2>
+                    <h2 class="paginaSubtitulo">Lista Resumida</h2>
                 </div>
                 <div id="listaEntradas" class="listaEntradas">
                 <% if (colecaoRegistro.getRegistros().size() > 0) {
@@ -49,8 +49,8 @@
         </div>
 
         <jsp:include page="/Components/footer.jsp"/>
-        
-        <script src="${pageContext.request.contextPath}/Javascript/listaResumidaRegistro.js"></script>
+               
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>     
+        <script src="${pageContext.request.contextPath}/Javascript/listaResumidaRegistro.js"></script>
     </body>
 </html>
