@@ -122,7 +122,7 @@ public class RegistroDAO {
 
         try {
             Query query = entityManager.createQuery(
-                    "SELECT r FROM RegistroBean r WHERE r.tipo = 'D' AND r.data >= " + dataInicial.getTime() 
+                    "SELECT r FROM RegistroBean r WHERE r.tipo = 'D' AND r.data >= " + dataInicial.getTime()
                             + " AND r.data <= " + dataFinal.getTime());
             return query.getResultList();
         } catch (Exception exception) {

@@ -30,16 +30,16 @@ public class FiltroRegistroServlet extends HttpServlet {
             }
 
             if (request.getParameter("tipo").equals("R")) {
-                colecaoRegistro.setRegistros(registroDAO.filtroDataListaReceitas (
+                colecaoRegistro.setRegistros(registroDAO.filtroDataListaReceitas(
                     dateFormat.parse(request.getParameter("dataInicial")),
-                    dateFormat.parse(request.getParameter("dataFinal")))); 
+                    dateFormat.parse(request.getParameter("dataFinal"))));               
             } else {
-                colecaoRegistro.setRegistros(registroDAO.filtroDataListaDespesas (
-                    dateFormat.parse(request.getParameter("dataInicial")), 
-                    dateFormat.parse(request.getParameter("dataFinal")))); 
+                colecaoRegistro.setRegistros(registroDAO.filtroDataListaDespesas(
+                    dateFormat.parse(request.getParameter("dataInicial")),
+                    dateFormat.parse(request.getParameter("dataFinal"))));              
             }
-            
-            request.setAttribute("colecaoRegistro", colecaoRegistro);              
+                         
+            request.setAttribute("colecaoRegistro", colecaoRegistro);       
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {
             throw new ServletException("Não foi possível listar os registros: " 

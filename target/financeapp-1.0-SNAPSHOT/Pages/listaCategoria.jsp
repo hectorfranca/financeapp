@@ -17,26 +17,25 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>       
+        <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>  
+        
         <jsp:include page="/Components/header.jsp"/>
         
-        <button class="addButton" 
+        <button class="add-button" 
                 onclick="window.location.href='${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp'"></button> 
         
-        <div class="container">
-            <div class="containerPrincipal">
-                <div class="titulo">
-                    <h1 class="paginaTitulo">Categorias</h1>
-                </div>
-                <div id="listaEntradas" class="listaEntradas">
+        <div class="container-principal">
+            <div class="container-principal__container-secundario">
+                <h1 class="container-principal__container-secundario__titulo">Categorias</h1>
+                <div class="container-principal__container-secundario__lista">
                 <% if (colecaoCategoria.getCategorias().size() > 0) {               
                     for (CategoriaBean categoria : colecaoCategoria.getCategorias()) { %>
-                        <div class="itemEntradas">
-                            <div class="containerNome">
+                        <div class="item-lista">
+                            <div class="item-lista__nome">
                                 <span><%= categoria.getNome() %></span>
                             </div> 
-                            <input type="hidden" class="idCategoria" value="<%= categoria.getId() %>"/>                       
-                            <input type="hidden" class="nomeCategoria" value="<%= categoria.getNome() %>"/> 
+                            <input type="hidden" class="id-categoria" value="<%= categoria.getId() %>"/>                       
+                            <input type="hidden" class="nome-categoria" value="<%= categoria.getNome() %>"/> 
                         </div>                                        
                 <%  } 
                 }
@@ -45,20 +44,20 @@
             </div>
         </div>
                 
-        <div id="seletorEntradas" class="seletorEntradas fixed-bottom hidden-menu">
-            <div class="seletorItem">
+        <div class="seletor hidden">
+            <div class="seletor-item">
                 <span>Selecionado:</span>
             </div> 
-            <div class="seletorItem">
-                <span class="itemSelecionado">Supermercado</span>
+            <div class="seletor-item">
+                <span class="seletor-item__selecionado">Supermercado</span>
             </div> 
-            <div class="seletorItem">
-                <button id="btnEditar" type="submit" class="btnEditar active">
+            <div class="seletor-item">
+                <button id="editar-button" type="submit" class="editar-button ">
                     <img src="${pageContext.request.contextPath}/img/editar.png">    
                 </button>
             </div>
-            <div class="seletorItem">
-                <button id="btnExcluir" class="btnExcluir active">
+            <div class="seletor-item">
+                <button id="excluir-button" class="excluir-button active">
                     <img src="${pageContext.request.contextPath}/img/excluir.png">    
                 </button>
             </div>

@@ -30,13 +30,7 @@ if (typeof(tipo) != "undefined") {
 }
 
 // Cor dos itens intercaladas
-for (let c = 0; c < itemEntradas.length; c++) {
-    if ((c % 2) == 0) {
-        itemEntradas[c].style.backgroundColor = "white";
-    } else {
-        itemEntradas[c].style.backgroundColor = "#FFFACD";
-    }
-}
+intercalarFundoItem();
 
 // Exibir o menu de opcoes
 for (let item of itemEntradas) {
@@ -91,6 +85,8 @@ document.addEventListener("click", e => {
             item.style.backgroundColor = "white";
             item.style.transform = "scale(1)";
         }
+        
+        intercalarFundoItem();
     }
 }); 
 
@@ -105,3 +101,12 @@ btnExcluir.addEventListener("click", () => {
     window.location.href = "/financeapp/DeleteRegistroServlet?id=" + registroSelecionado.id;
 });
 
+function intercalarFundoItem() {
+    for (let c = 0; c < itemLista.length; c++) {
+        if ((c % 2) == 0) {
+            itemLista[c].style.backgroundColor = "white";
+        } else {
+            itemLista[c].style.backgroundColor = "#FFFACD";
+        }
+    }
+}

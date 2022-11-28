@@ -1,35 +1,29 @@
-const itemEntradas = document.getElementsByClassName('itemEntradas');
-const seletorEntradas = document.getElementsByClassName("seletorEntradas")[0];
-const listaEntradas = document.getElementsByClassName("listaEntradas")[0];
-const btnExcluir = document.getElementById("btnExcluir");
-const btnEditar = document.getElementById("btnEditar");
+const lista = document.getElementsByClassName("container-principal__container-secundario__lista")[0];
+const itemLista = document.getElementsByClassName('item-lista');
+const seletor = document.getElementsByClassName("seletor")[0];
+const excluirButton = document.getElementById("excluir-button");
+const editarButton = document.getElementById("editar-button");
 
-let categoriaSelecionada = {
+let itemSelecionado = {
     id: null,
     nome: null
 }
 
 // Cor dos itens intercaladas
-for (let c = 0; c < itemEntradas.length; c++) {
-    if ((c % 2) == 0) {
-        itemEntradas[c].style.backgroundColor = "white";
-    } else {
-        itemEntradas[c].style.backgroundColor = "#FFFACD";
-    }
-}
+intercalarFundoItem();
 
 // Exibir o menu de opcoes
-for (let item of itemEntradas) {
+for (let item of itemLista) {
     item.addEventListener("click", e => {
         if (e.target == item
             || e.target.parentNode == item
             || e.target.parentNode.parentNode == item) {
-            seletorEntradas.classList.add("show-menu");
-            seletorEntradas.classList.remove("hidden-menu");
-            listaEntradas.style.marginBottom = "50px";
+            seletor.classList.add("show");
+            seletor.classList.remove("hidden");
+            lista.style.marginBottom = "50px";
             
             // Realce de cor do item selecionado
-            for (let item of itemEntradas) {
+            for (let item of itemLista) {
                 item.style.backgroundColor = "white";
                 item.style.transform = "scale(1)";
             }
@@ -38,42 +32,53 @@ for (let item of itemEntradas) {
             item.style.transform = "scale(1.05)";
             
             // Dados da categoria selecionada
-            categoriaSelecionada.id = item.getElementsByClassName("idCategoria")[0].value;
-            categoriaSelecionada.nome = item.getElementsByClassName("nomeCategoria")[0].value; 
+            itemSelecionado.id = item.getElementsByClassName("id-categoria")[0].value;
+            itemSelecionado.nome = item.getElementsByClassName("nome-categoria")[0].value; 
             
-            seletorEntradas.getElementsByClassName("itemSelecionado")[0].textContent = categoriaSelecionada.nome;
+            seletor.getElementsByClassName("seletor-item__selecionado")[0].textContent = itemSelecionado.nome;
         }
     });
 }
 
 // Esconder o menu de opcoes 
 document.addEventListener("click", e => {
-    if (e.target.parentNode != listaEntradas
-        && e.target.parentNode.parentNode != listaEntradas
-        && e.target.parentNode.parentNode.parentNode != listaEntradas
+    if (e.target.parentNode != lista
+        && e.target.parentNode.parentNode != lista
+        && e.target.parentNode.parentNode.parentNode != lista
         
-        && e.target != seletorEntradas
-        && e.target.parentNode != seletorEntradas
-        && e.target.parentNode.parentNode != seletorEntradas
-        && e.target.parentNode.parentNode.parentNode != seletorEntradas) {
-        seletorEntradas.classList.add("hidden-menu");
-        seletorEntradas.classList.remove("show-menu");
-        listaEntradas.style.marginBottom = "0px";   
+        && e.target != seletor
+        && e.target.parentNode != seletor
+        && e.target.parentNode.parentNode != seletor
+        && e.target.parentNode.parentNode.parentNode != seletor) {
+        seletor.classList.add("hidden");
+        seletor.classList.remove("show");
+        lista.style.marginBottom = "0px";   
         
         // Realce de cor do item selecionado
-        for (let item of itemEntradas) {
+        for (let item of itemLista) {
             item.style.backgroundColor = "white";
             item.style.transform = "scale(1)";
         }
+        
+        intercalarFundoItem();
     }
 }); 
 
-btnEditar.addEventListener("click", () => { 
-    window.location.href = "/financeapp/GoToFormCategoriaServlet?id=" + categoriaSelecionada.id
-        + "&nome=" + categoriaSelecionada.nome;
+editarButton.addEventListener("click", () => { 
+    window.location.href = "/financeapp/GoToFormCategoriaServlet?id=" + itemSelecionado.id
+        + "&nome=" + itemSelecionado.nome;
 });
 
-btnExcluir.addEventListener("click", () => {
-    window.location.href = "/financeapp/DeleteCategoriaServlet?id=" + categoriaSelecionada.id;
+excluirButton.addEventListener("click", () => {
+    window.location.href = "/financeapp/DeleteCategoriaServlet?id=" + itemSelecionado.id;
 });
 
+function intercalarFundoItem() {
+    for (let c = 0; c < itemLista.length; c++) {
+        if ((c % 2) == 0) {
+            itemLista[c].style.backgroundColor = "white";
+        } else {
+            itemLista[c].style.backgroundColor = "#FFFACD";
+        }
+    }
+}

@@ -3,6 +3,7 @@ Beans\CategoriaBean.class
 DAO\CategoriaDAO.class
 Servlets\Registro\DeleteRegistroServlet.class
 Servlets\Registro\GoToFormRegistroServlet.class
+Servlets\Registro\GoToFiltroRegistroServlet.class
 Servlets\Categoria\DeleteCategoriaServlet.class
 Servlets\Categoria\ListCategoriaServlet.class
 Beans\RegistroBean_.class

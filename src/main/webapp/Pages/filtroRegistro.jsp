@@ -17,7 +17,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>       
+        <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>  
+        
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container">
@@ -41,7 +42,7 @@
                     </div>
                     <div class="form-option">
                         <div class="form-option__caixa">
-                            <a class="form-option__caixa__titulo">Opções</a> 
+                            <span class="form-option__caixa__titulo">Opções</span> 
                         </div>    
                         <div class="form-option__lista-completa">
                             <div class="form-option__lista-completa__caixa-radio">

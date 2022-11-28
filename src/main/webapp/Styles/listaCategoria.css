@@ -5,7 +5,7 @@
 body {
     font-family: 'Roboto', sans-serif !important;
 }
-.addButton {
+.add-button {
     width: 60px;
     height: 60px;
     position: absolute;
@@ -18,14 +18,14 @@ body {
     border: none;
     background-color: transparent;
 }
-.container {
+.container-principal {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-.containerPrincipal {
+.container-principal__container-secundario {
     width: 400px;
     height: auto;
     margin-top: 120px;
@@ -35,15 +35,13 @@ body {
     align-items: center;
     justify-content: center;
 }
-.titulo {
-    text-align: center;
-}
-.paginaTitulo {
-    margin-bottom: 20px;
-    font-size: 20px;
+.container-principal__container-secundario__titulo {
     font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center !important;
 }
-.listaEntradas {
+.container-principal__container-secundario__lista {
     width: 90%;
     border-radius: 10px;
     background-color: #FFFFE0;
@@ -53,7 +51,7 @@ body {
     justify-content: center;
     box-shadow: 1px 1px;
 }
-.itemEntradas {
+.item-lista {
     width: 90%;
     height: 70px;
     margin-top: 7.5px;
@@ -67,7 +65,7 @@ body {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.containerNome {
+.item-lista__nome {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -75,14 +73,9 @@ body {
     justify-content: center;
     align-items: center;
 }
-.show-menu {
-    visibility: visible;
-}
-.hidden-menu {
-    visibility: hidden;
-}
-.seletorEntradas {
+.seletor {
     position: fixed;
+    bottom: 0;
     width: 100%;
     height: 50px;
     background-color: #DEB887;
@@ -92,16 +85,22 @@ body {
     font-size: 15px;
     font-weight: bold;
 }
-.seletorItem {
+.seletor-item {
     margin: auto;
 }
-.btnEditar, .btnExcluir {
+.editar-button, .excluir-button {
     width: 32px !important;
     height: 32px !important;
     border: none !important;
     border-radius: 50% !important;
     background-color: orange !important;
 }
-.btnEditar:active, .btnExcluir:active {
+.editar-button:active, .excluir-button:active {
     transform: scale(0.95);
+}
+.show {
+    visibility: visible;
+}
+.hidden {
+    visibility: hidden;
 }

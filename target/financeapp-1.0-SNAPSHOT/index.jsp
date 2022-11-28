@@ -32,7 +32,7 @@
                     </a> 
                 </div>
                 <div class="btn-secundario">
-                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=R">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/GoToFiltroRegistroServlet?tipo=R">
                         <span class="btn-secundario__caixa__titulo">Consultar</span>   
                     </a>
                 </div>
@@ -49,7 +49,7 @@
                     </a> 
                 </div>
                 <div class="btn-secundario">
-                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/Pages/filtroRegistro.jsp?tipo=D">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/GoToFiltroRegistroServlet?tipo=D">
                         <span class="btn-secundario__caixa__titulo">Consultar</span>
                     </a>
                 </div>

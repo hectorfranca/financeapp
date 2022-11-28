@@ -80,10 +80,6 @@ form {
 .form-calendario__inicial__data, .form-calendario__final__data {
     height: 15px !important;
 }
-.form-option__caixa__titulo {
-    text-decoration: none !important;
-    color: black !important;
-}
 .form-option {
     width: 300px;
     height: auto;
@@ -101,6 +97,10 @@ form {
     border-top-right-radius: 10px;
     font-weight: bold;
     background-color: #ffc000;
+}
+.form-option__caixa__titulo {
+    text-decoration: none !important;
+    color: black;
 }
 .form-option__lista-completa, .form-option__lista-resumida {
     width: 100%;
@@ -200,4 +200,10 @@ form {
     font-size: 15px;
     font-weight: bold;
     color: black;
+}
+.required-field-titulo {
+    color: red;
+}
+.required-field-caixa {
+    border: 1px solid red;
 }

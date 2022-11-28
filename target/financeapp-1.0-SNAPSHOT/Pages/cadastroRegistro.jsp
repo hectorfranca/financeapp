@@ -1,4 +1,3 @@
-<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Beans.CategoriaBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,8 +20,6 @@
         <jsp:useBean id="registro" class="Beans.RegistroBean" scope="request"></jsp:useBean>
         <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>
         
-        <%! SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd"); %>
-        
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
@@ -34,7 +31,7 @@
                 <% } %>
                 <form action="${pageContext.request.contextPath}/SaveRegistroServlet" method="POST">
                     <div class="form-item">     
-                        <label for="input-nome">Nome</label>            
+                        <label class="label-nome" for="input-nome">Nome</label>            
                         <input type="text" class="form-control" id="input-nome" name="nome" 
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
                     </div>
@@ -53,15 +50,10 @@
                         </select>
                     </div>
                     <div class="form-item">
-                        <label for="input-valor">Valor em R$</label>
-                        <input type="number" class="form-control" id="input-valor" name="valor" 
+                        <label class="label-valor" for="input-valor">Valor em R$</label>
+                        <input type="number" class="form-control" id="input-valor" name="valor" min="0" 
                                value="<%= registro.getValor() != 0 ? registro.getValor() : "" %>" required>    
-                    </div>
-                    <div class="form-item">
-                        <label for="input-data">Data</label>      
-                        <input type="date" class="form-control" id="input-data" name="data" 
-                               value="<%= registro.getData() != null ? dateFormatUS.format(registro.getData()) : "" %>" required>
-                    </div>                      
+                    </div>                             
                     <input type="hidden" name="tipo" 
                            value="<%= registro.getTipo() != '\u0000' ? registro.getTipo() : request.getParameter("tipo") %>">
                     
@@ -69,8 +61,7 @@
                     <input type="hidden" name="id" value="<%= registro.getId() %>">
                     <% } %>                    
                     <div class="form-button">
-                        <a class="form-button__caixa form-button--efeito" 
-                                onclick="document.getElementsByTagName('form')[0].submit()">
+                        <a class="form-button__registrar form-button__caixa form-button--efeito">
                             <span class="form-button__caixa__titulo">Registrar</span>
                         </a>                    
                         <a class="form-button__caixa form-button--efeito"
@@ -93,5 +84,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous"></script>
+        <script src="${pageContext.request.contextPath}/Javascript/cadastroRegistro.js"></script>
     </body>
 </html>

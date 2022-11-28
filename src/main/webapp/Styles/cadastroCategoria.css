@@ -35,10 +35,10 @@ body {
     margin-top: 30px;
 }
 .form-control {
-    border: none !important;
-    background-color: #FFEBCD !important;
+    border: none;
+    background-color: #FFEBCD;
     box-shadow: 1px 1px;
-    width: 300px !important;
+    width: 300px;
 }
 .form-button {
     display: flex;
@@ -96,4 +96,10 @@ body {
     font-size: 15px;
     font-weight: bold;
     color: black;
+}
+.required-field-titulo {
+    color: red;
+}
+.required-field-caixa {
+    border: 1px solid red;
 }

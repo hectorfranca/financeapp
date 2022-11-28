@@ -16,7 +16,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <jsp:useBean id="categoria" class="Beans.CategoriaBean" scope="request"></jsp:useBean>     
+        <jsp:useBean id="categoria" class="Beans.CategoriaBean" scope="request"></jsp:useBean>
+        
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
@@ -24,7 +25,7 @@
                 <h2 class="container-secundario__titulo">Cadastro de Entradas</h2>
                 <form action="${pageContext.request.contextPath}/SaveCategoriaServlet" method="POST">
                     <div class="form-item">
-                        <label for="input-nome">Nome</label>         
+                        <label class="label-nome" for="input-nome">Nome</label>         
                         <input type="text" class="form-control" id="input-nome" name="nome" 
                                value="<%= categoria.getNome() != null ? categoria.getNome() : "" %>" required>
                         
@@ -33,8 +34,7 @@
                         <% } %>
                     </div>                                                                             
                      <div class="form-button">
-                        <a class="form-button__caixa form-button--efeito" 
-                                onclick="document.getElementsByTagName('form')[0].submit()">
+                        <a class="form-button__registrar form-button__caixa form-button--efeito">
                             <span class="form-button__caixa__titulo">Registrar</span>
                         </a>                    
                         <a class="form-button__caixa form-button--efeito"
@@ -49,5 +49,6 @@
         <jsp:include page="/Components/footer.jsp"/>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="${pageContext.request.contextPath}/Javascript/cadastroCategoria.js"></script>
     </body>
 </html>
