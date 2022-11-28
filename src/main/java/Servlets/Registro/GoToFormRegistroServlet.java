@@ -49,7 +49,7 @@ public class GoToFormRegistroServlet extends HttpServlet {
             
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {
-            throw new jakarta.servlet.ServletException("Não foi possível prosseguir com o registro: " 
+            throw new jakarta.servlet.ServletException("Não foi possível prosseguir para a pagina de registro: " 
                     + exception.getMessage());
         }
     }

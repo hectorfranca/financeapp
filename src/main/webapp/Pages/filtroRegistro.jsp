@@ -21,10 +21,10 @@
         
         <jsp:include page="/Components/header.jsp"/>
         
-        <div class="container">
-            <div class="container-principal">
-                <h2 class="container-principal__titulo">Relatório de Entradas</h2>
-                <h5 class="container-principal__subtitulo">Defina suas opções de consulta</h5>
+        <div class="container-primario">
+            <div class="container-secundario">
+                <h2 class="container-secundario__titulo">Relatório de Entradas</h2>
+                <h5 class="container-secundario__subtitulo">Defina suas opções de consulta</h5>
                 <form action="${pageContext.request.contextPath}/FiltroRegistroServlet" method="POST">               
                     <div class="form-calendario">
                         <div class="form-calendario__inicial">

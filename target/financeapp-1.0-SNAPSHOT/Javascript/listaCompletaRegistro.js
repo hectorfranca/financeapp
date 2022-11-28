@@ -1,13 +1,13 @@
-const itemEntradas = document.getElementsByClassName('itemEntradas');
-const valorRegistroSpan = document.getElementsByClassName("valorRegistroSpan");
-const seletorEntradas = document.getElementsByClassName("seletorEntradas")[0];
-const listaEntradas = document.getElementsByClassName("listaEntradas")[0];
-const btnExcluir = document.getElementById("btnExcluir");
-const btnEditar = document.getElementById("btnEditar");
+const itemLista = document.getElementsByClassName('item-lista');
+const conteudoValor = document.getElementsByClassName("item-lista__valor__conteudo");
+const seletor = document.getElementsByClassName("seletor")[0];
+const lista = document.getElementsByClassName("container-primario__container-secundario__lista")[0];
+const excluirButton = document.getElementById("excluir-button");
+const editarButton = document.getElementById("editar-button");
 
-let tipo = document.getElementsByClassName("tipoRegistro")[0];
+let tipo = document.getElementsByClassName("tipo-registro")[0];
 
-let registroSelecionado = {
+let itemSelecionado = {
     id: null,
     nome: null,
     categoria: null,
@@ -19,11 +19,11 @@ let registroSelecionado = {
 // Valor na cor verde para receitas e vermelho para despesas
 if (typeof(tipo) != "undefined") {
     if (tipo.value == "R") {
-        for (let valor of valorRegistroSpan) {
+        for (let valor of conteudoValor) {
             valor.style.color = "green";   
         }
     } else {
-        for (let valor of valorRegistroSpan) {
+        for (let valor of conteudoValor) {
             valor.style.color = "red";   
         }
     }
@@ -33,18 +33,18 @@ if (typeof(tipo) != "undefined") {
 intercalarFundoItem();
 
 // Exibir o menu de opcoes
-for (let item of itemEntradas) {
+for (let item of itemLista) {
     item.addEventListener("click", e => {
         if (e.target == item
             || e.target.parentNode == item
             || e.target.parentNode.parentNode == item
             || e.target.parentNode.parentNode.parentNode == item) {
-            seletorEntradas.classList.add("show-menu");
-            seletorEntradas.classList.remove("hidden-menu");
-            listaEntradas.style.marginBottom = "50px";
+            seletor.classList.add("show");
+            seletor.classList.remove("hidden");
+            lista.style.marginBottom = "50px";
             
             // Realce de cor do item selecionado
-            for (let item of itemEntradas) {
+            for (let item of itemLista) {
                 item.style.backgroundColor = "white";
                 item.style.transform = "scale(1)";
             }
@@ -53,35 +53,35 @@ for (let item of itemEntradas) {
             item.style.transform = "scale(1.05)";
             
             // Dados do registro selecionado
-            registroSelecionado.id = item.getElementsByClassName("idRegistro")[0].value;
-            registroSelecionado.nome = item.getElementsByClassName("nomeRegistro")[0].value;
-            registroSelecionado.categoria = item.getElementsByClassName("categoriaRegistro")[0].value;
-            registroSelecionado.data = item.getElementsByClassName("dataRegistro")[0].value;
-            registroSelecionado.valor = item.getElementsByClassName("valorRegistro")[0].value;
-            registroSelecionado.tipo = item.getElementsByClassName("tipoRegistro")[0].value;    
+            itemSelecionado.id = item.getElementsByClassName("id-registro")[0].value;
+            itemSelecionado.nome = item.getElementsByClassName("nome-registro")[0].value;
+            itemSelecionado.categoria = item.getElementsByClassName("categoria-registro")[0].value;
+            itemSelecionado.data = item.getElementsByClassName("data-registro")[0].value;
+            itemSelecionado.valor = item.getElementsByClassName("valor-registro")[0].value;
+            itemSelecionado.tipo = item.getElementsByClassName("tipo-registro")[0].value;    
               
-            seletorEntradas.getElementsByClassName("itemSelecionado")[0].textContent = registroSelecionado.nome;
+            seletor.getElementsByClassName("seletor-item__selecionado")[0].textContent = itemSelecionado.nome;
         }
     });
 }
 
 // Esconder o menu de opcoes 
 document.addEventListener("click", e => {
-    if (e.target.parentNode != listaEntradas
-        && e.target.parentNode.parentNode != listaEntradas
-        && e.target.parentNode.parentNode.parentNode != listaEntradas
-        && e.target.parentNode.parentNode.parentNode.parentNode != listaEntradas
+    if (e.target.parentNode != lista
+        && e.target.parentNode.parentNode != lista
+        && e.target.parentNode.parentNode.parentNode != lista
+        && e.target.parentNode.parentNode.parentNode.parentNode != lista
         
-        && e.target != seletorEntradas
-        && e.target.parentNode != seletorEntradas
-        && e.target.parentNode.parentNode != seletorEntradas
-        && e.target.parentNode.parentNode.parentNode != seletorEntradas) {
-        seletorEntradas.classList.add("hidden-menu");
-        seletorEntradas.classList.remove("show-menu");
-        listaEntradas.style.marginBottom = "0px";   
+        && e.target != seletor
+        && e.target.parentNode != seletor
+        && e.target.parentNode.parentNode != seletor
+        && e.target.parentNode.parentNode.parentNode != seletor) {
+        seletor.classList.add("hidden");
+        seletor.classList.remove("show");
+        lista.style.marginBottom = "0px";   
         
         // Realce de cor do item selecionado
-        for (let item of itemEntradas) {
+        for (let item of itemLista) {
             item.style.backgroundColor = "white";
             item.style.transform = "scale(1)";
         }
@@ -90,15 +90,15 @@ document.addEventListener("click", e => {
     }
 }); 
 
-btnEditar.addEventListener("click", () => { 
-    window.location.href = "/financeapp/GoToFormRegistroServlet?id=" + registroSelecionado.id
-        + "&nome=" + registroSelecionado.nome + "&categoria=" + registroSelecionado.categoria
-        + "&data=" + registroSelecionado.data + "&valor=" + registroSelecionado.valor
-        + "&tipo=" + registroSelecionado.tipo;
+editarButton.addEventListener("click", () => { 
+    window.location.href = "/financeapp/GoToFormRegistroServlet?id=" + itemSelecionado.id
+        + "&nome=" + itemSelecionado.nome + "&categoria=" + itemSelecionado.categoria
+        + "&data=" + itemSelecionado.data + "&valor=" + itemSelecionado.valor
+        + "&tipo=" + itemSelecionado.tipo;
 });
 
-btnExcluir.addEventListener("click", () => {
-    window.location.href = "/financeapp/DeleteRegistroServlet?id=" + registroSelecionado.id;
+excluirButton.addEventListener("click", () => {
+    window.location.href = "/financeapp/DeleteRegistroServlet?id=" + itemSelecionado.id;
 });
 
 function intercalarFundoItem() {

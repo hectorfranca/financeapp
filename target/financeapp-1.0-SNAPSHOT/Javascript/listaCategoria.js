@@ -1,4 +1,4 @@
-const lista = document.getElementsByClassName("container-principal__container-secundario__lista")[0];
+const lista = document.getElementsByClassName("container-primario__container-secundario__lista")[0];
 const itemLista = document.getElementsByClassName('item-lista');
 const seletor = document.getElementsByClassName("seletor")[0];
 const excluirButton = document.getElementById("excluir-button");

@@ -8,21 +8,14 @@ a {
 body {
     font-family: 'Roboto', sans-serif !important;
 }
-.filtro {
-    width: 32px;
-    height: 32px;
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.container {
+.container-primario {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-.containerPrincipal {
+.container-secundario {
     width: 400px;
     height: auto;
     margin-top: 120px;
@@ -32,19 +25,16 @@ body {
     align-items: center;
     justify-content: center;
 }
-.titulo {
-    text-align: center;
-}
-.paginaTitulo {
+.container-primario__container-secundario__titulo {
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: bold;
 }
-.paginaSubtitulo {
+.container-primario__container-secundario__subtitulo {
     font-size: 18px;
     font-weight: bold;
 }
-.listaEntradas {
+.container-primario__container-secundario__lista {
     width: 90%;
     border-radius: 10px;
     background-color: #FFFFE0;
@@ -54,7 +44,7 @@ body {
     justify-content: center;
     box-shadow: 1px 1px;
 }
-.itemEntradas {
+.item-lista {
     width: 90%;
     height: 70px;
     margin-top: 7.5px;
@@ -66,17 +56,21 @@ body {
     justify-content: center;
     align-items: center;
 }
-.itemEntradas:active {
+.item-lista:active {
     background-color: #FFDAB9 !important;
     transform: scale(1.05);
 }
-.itemEntradas:hover {
+.item-lista:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
-.itemEntradas .containerData,
-.containerConteudo,
-.containerValor {
+.item-lista, .item-lista__data {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.item-lista__data,
+.item-lista__nome-categoria,
+.item-lista__valor {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -85,64 +79,25 @@ body {
     justify-content: center;
     align-items: center;
 }
-.containerConteudo {
+.item-lista__nome-categoria {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.itemEntradas, .containerData {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-.itemEntradas .containerConteudo {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
-.containerNome, .containerCategoria {
+.item-lista__nome-categoria__nome, .item-lista__nome-categoria__categoria {
     width: 100%;
     padding: 5px 0;
 }
-.containerConteudo .containerNome {
+.item-lista__nome-categoria__nome {
     border-bottom: 1px solid black
 }
-.itemEntradas .containerValor {
+.item-lista__valor {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-.btn {
-    cursor: pointer;
-    font-size: 25px !important;
-    background-color: #ffc000 !important;
-    border: none !important;
-    color: white !important; 
-    margin: 5px 0 0 10px !important;
-    padding: 6px 12px;
-}
-.containerBtnAdd {
-    width: auto;
-    height: auto;
-    border: none;
-    right: 0;
-    top: 0;
-    position: absolute;
-}
-.btnAdd {
-    cursor: pointer;
-    background-color: #ffc000 !important;
-    border: none !important;
-}
-.btnAdd:active {
-    transform: scale(0.95)!important;
-}
-.show-menu {
-    visibility: visible;
-}
-.hidden-menu {
-    visibility: hidden;
-}
-.seletorEntradas {
+.seletor {
     position: fixed;
+    bottom: 0;
     width: 100%;
     height: 50px;
     background-color: #DEB887;
@@ -152,16 +107,22 @@ body {
     font-size: 15px;
     font-weight: bold;
 }
-.seletorItem {
+.seletor-item {
     margin: auto;
 }
-.btnEditar, .btnExcluir {
+.editar-button, .excluir-button {
     width: 32px !important;
     height: 32px !important;
     border: none !important;
     border-radius: 50% !important;
     background-color: orange !important;
 }
-.btnEditar:active, .btnExcluir:active {
+.editar-button:active, .excluir-button:active {
     transform: scale(0.95);
+}
+.show {
+    visibility: visible;
+}
+.hidden {
+    visibility: hidden;
 }

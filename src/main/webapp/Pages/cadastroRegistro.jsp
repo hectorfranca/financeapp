@@ -24,10 +24,16 @@
         
         <div class="container-primario">
             <div class="container-primario__container-secundario">
-                <% if (request.getAttribute("tipo").equals("R") || registro.getTipo() == 'R') { %>
-                <h1 class="container-primario__container-secundario__titulo">Cadastro de Receita</h1>             
+                <% if (request.getAttribute("tipo") != null) {
+                    if (request.getAttribute("tipo").equals("R")) { %>
+                        <h1 class="container-primario__container-secundario__titulo">Cadastro de Receita</h1>             
+                    <% } else { %>
+                        <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
+                    <% } 
+                } else if (registro.getTipo() == 'R') { %>
+                    <h1 class="container-primario__container-secundario__titulo">Cadastro de Receita</h1>
                 <% } else { %>
-                <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
+                    <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
                 <% } %>
                 <form action="${pageContext.request.contextPath}/SaveRegistroServlet" method="POST">
                     <div class="form-item">     

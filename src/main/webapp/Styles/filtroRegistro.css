@@ -14,7 +14,7 @@ input[type=date] {
     padding-top: 5px;
     padding-left: 10%;
 }
-.container {
+.container-primario {
     width: 100% !important;
     height: 100% !important;
     display: flex;
@@ -22,7 +22,7 @@ input[type=date] {
     align-items: center;
     margin-top: 150px;
 }
-.container-principal {
+.container-secundario {
     width: 350px;
     height: auto;
     padding: 10px 0;
@@ -34,7 +34,7 @@ input[type=date] {
     align-items: center;
     justify-content: center;
 }
-.container-principal__titulo {
+.container-secundario__titulo {
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 20px;

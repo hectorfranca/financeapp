@@ -23,69 +23,68 @@
         
         <jsp:include page="/Components/header.jsp"/>
         
-        <div class="container">
-            <div class="containerPrincipal">
-                <div class="titulo">
-                    <h1 class="paginaTitulo">Relatório de Entradas</h1>  
-                    <h2 class="paginaSubtitulo">Lista Completa</h2>
-                </div>
-                <div id="listaEntradas" class="listaEntradas">
-                <% if (colecaoRegistro.getRegistros().size() > 0) {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        <div class="container-primario">
+            <div class="container-secundario">
+                <h1 class="container-primario__container-secundario__titulo">Relatório de Entradas</h1>  
+                <h2 class="container-primario__container-secundario__subtitulo">Lista Completa</h2>
+                <% if (colecaoRegistro.getRegistros().size() > 0) { %>
+                    <div class="container-primario__container-secundario__lista">                   
+                    <% SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
                     DecimalFormat decimalFormat = new DecimalFormat("R$ #,##0.00");
                 
                     for (RegistroBean registro : colecaoRegistro.getRegistros()) { %>
-                        <div class="itemEntradas">
-                            <div class="containerData">
+                        <div class="item-lista">
+                            <div class="item-lista__data">
                                 <span><%= dateFormat.format(registro.getData()) %></span>
                             </div>
-                            <div class="containerConteudo">
-                                <div class="containerNome">
+                            <div class="item-lista__nome-categoria">
+                                <div class="item-lista__nome-categoria__nome">
                                     <span><%= registro.getNome() %></span>
                                 </div>
-                                <div class="containerCategoria">
+                                <div class="item-lista__nome-categoria__categoria">
                                     <span><%= registro.getCategoria().getNome() %></span> 
                                 </div>
                             </div>
-                            <div class="containerValor">
-                                <span class="valorRegistroSpan"><%= decimalFormat.format(registro.getValor()) %></span>
+                            <div class="item-lista__valor">
+                                <span class="item-lista__valor__conteudo"><%= decimalFormat.format(registro.getValor()) %></span>
                             </div>
                             
-                            <input type="hidden" class="idRegistro" value="<%= registro.getId() %>"/>
-                            <input type="hidden" class="dataRegistro" value="<%= dateFormatUS.format(registro.getData()) %>"/> 
-                            <input type="hidden" class="nomeRegistro" value="<%= registro.getNome() %>"/>                           
-                            <input type="hidden" class="categoriaRegistro" value="<%= registro.getCategoria().getId() %>"/>
-                            <input type="hidden" class="valorRegistro" value="<%= registro.getValor() %>"/>
-                            <input type="hidden" class="tipoRegistro" value="<%= registro.getTipo() %>"/>
+                            <input type="hidden" class="id-registro" value="<%= registro.getId() %>"/>
+                            <input type="hidden" class="data-registro" value="<%= dateFormatUS.format(registro.getData()) %>"/> 
+                            <input type="hidden" class="nome-registro" value="<%= registro.getNome() %>"/>                           
+                            <input type="hidden" class="categoria-registro" value="<%= registro.getCategoria().getId() %>"/>
+                            <input type="hidden" class="valor-registro" value="<%= registro.getValor() %>"/>
+                            <input type="hidden" class="tipo-registro" value="<%= registro.getTipo() %>"/>
                             
                         </div>                       
-                <%  } 
-                }
-                %>
-                </div>  
-            </div>
-                
-            <div id="seletorEntradas" class="seletorEntradas fixed-bottom hidden-menu">
-                <div class="seletorItem">
-                    <span>Selecionado:</span>
-                </div> 
-                <div class="seletorItem">
-                    <span class="itemSelecionado">Supermercado</span>
-                </div> 
-                <div class="seletorItem">
-                    <button id="btnEditar" type="submit" class="btnEditar active">
-                        <img src="${pageContext.request.contextPath}/img/editar.png">    
-                    </button>
-                </div>
-                <div class="seletorItem">
-                    <button id="btnExcluir" class="btnExcluir active">
-                        <img src="${pageContext.request.contextPath}/img/excluir.png">    
-                    </button>
-                </div>
-            </div>                    
+                    <% } %>
+                    </div> 
+                <% } else { %>
+                    <p>Nenhum registro cadastrado.</p>
+                <% } %>           
+            </div>               
         </div>
 
+         <div class="seletor hidden">
+            <div class="seletor-item">
+                <span>Selecionado:</span>
+            </div> 
+            <div class="seletor-item">
+                <span class="seletor-item__selecionado">Supermercado</span>
+            </div> 
+            <div class="seletor-item">
+                <button id="editar-button" type="submit" class="editar-button ">
+                    <img src="${pageContext.request.contextPath}/img/editar.png">    
+                </button>
+            </div>
+            <div class="seletor-item">
+                <button id="excluir-button" class="excluir-button active">
+                    <img src="${pageContext.request.contextPath}/img/excluir.png">    
+                </button>
+            </div>
+        </div>                   
+        
         <jsp:include page="/Components/footer.jsp"/>
              
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>     

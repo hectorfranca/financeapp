@@ -1,16 +1,16 @@
-const itemEntradas = document.getElementsByClassName('itemEntradas');
-const valorRegistroSpan = document.getElementsByClassName("valorRegistroSpan");
+const itemLista = document.getElementsByClassName('item-lista');
+const conteudoValor = document.getElementsByClassName("item-lista__valor__conteudo");
 
-let tipo = document.getElementsByClassName("tipoRegistro")[0];
+let tipo = document.getElementsByClassName("tipo-registro")[0];
 
 // Valor na cor verde para receitas e vermelho para despesas
 if (typeof(tipo) != "undefined") {
     if (tipo.value == "R") {
-        for (let valor of valorRegistroSpan) {
+        for (let valor of conteudoValor) {
             valor.style.color = "green";   
         }
     } else {
-        for (let valor of valorRegistroSpan) {
+        for (let valor of conteudoValor) {
             valor.style.color = "red";   
         }
     }

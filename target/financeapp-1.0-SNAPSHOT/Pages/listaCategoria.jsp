@@ -24,23 +24,24 @@
         <button class="add-button" 
                 onclick="window.location.href='${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp'"></button> 
         
-        <div class="container-principal">
-            <div class="container-principal__container-secundario">
-                <h1 class="container-principal__container-secundario__titulo">Categorias</h1>
-                <div class="container-principal__container-secundario__lista">
-                <% if (colecaoCategoria.getCategorias().size() > 0) {               
-                    for (CategoriaBean categoria : colecaoCategoria.getCategorias()) { %>
+        <div class="container-primario">
+            <div class="container-primario__container-secundario">
+                <h1 class="container-primario__container-secundario__titulo">Categorias</h1>
+                <% if (colecaoCategoria.getCategorias().size() > 0) { %>
+                    <div class="container-primario__container-secundario__lista">            
+                    <% for (CategoriaBean categoria : colecaoCategoria.getCategorias()) { %>
                         <div class="item-lista">
                             <div class="item-lista__nome">
                                 <span><%= categoria.getNome() %></span>
                             </div> 
                             <input type="hidden" class="id-categoria" value="<%= categoria.getId() %>"/>                       
                             <input type="hidden" class="nome-categoria" value="<%= categoria.getNome() %>"/> 
-                        </div>                                        
-                <%  } 
-                }
-                %>
-                </div>  
+                        </div> 
+                    <% } %>
+                    </div>
+                <% } else { %>
+                    <p>Nenhuma categoria cadastrada.</p>
+                <% } %>
             </div>
         </div>
                 

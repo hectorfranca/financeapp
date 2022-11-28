@@ -22,31 +22,31 @@
         
         <jsp:include page="/Components/header.jsp"/>
         
-        <div class="container">
-            <div class="containerPrincipal">
-                <div class="titulo">
-                    <h1 class="paginaTitulo">Relatório de Entradas</h1>  
-                    <h2 class="paginaSubtitulo">Lista Resumida</h2>
-                </div>
-                <div id="listaEntradas" class="listaEntradas">
-                <% if (colecaoRegistro.getRegistros().size() > 0) {
-                    DecimalFormat decimalFormat = new DecimalFormat("R$ #,##0.00");
+        <div class="container-primario">
+            <div class="container-primario__container-secundario">
+                <h1 class="container-primario__container-secundario__titulo">Relatório de Entradas</h1>  
+                <h2 class="container-primario__container-secundario__subtitulo">Lista Resumida</h2>
+                <% if (colecaoRegistro.getRegistros().size() > 0) { %>
+                    <div class="container-primario__container-secundario__lista">
+                
+                    <% DecimalFormat decimalFormat = new DecimalFormat("R$ #,##0.00");
                 
                     for (RegistroBean registro : colecaoRegistro.getRegistros()) { %>
-                        <div class="itemEntradas">
-                            <div class="containerNome">
+                        <div class="item-lista">
+                            <div class="item-lista__nome">
                                 <span><%= registro.getNome() %></span>
                             </div>                         
-                            <div class="containerValor">
-                                <span class="valorRegistroSpan"><%= decimalFormat.format(registro.getValor()) %></span>
+                            <div class="item-lista__valor">
+                                <span class="item-lista__valor__conteudo"><%= decimalFormat.format(registro.getValor()) %></span>
                             </div>                         
                         </div>                       
-                <%  } 
-                }
-                %>
-                </div>  
+                    <% } %> 
+                    </div> 
+                    <input type="hidden" class="tipo-registro" value="<%= colecaoRegistro.getRegistros().get(0).getTipo() %>"/>
+                <% } else { %>
+                    <p>Nenhum registro cadastrado.</p>
+                <% } %>
             </div>
-                <input type="hidden" class="tipoRegistro" value="<%= colecaoRegistro.getRegistros().get(0).getTipo() %>"/>
         </div>
 
         <jsp:include page="/Components/footer.jsp"/>

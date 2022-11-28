@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2022-11-28T13:59:18")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2022-11-28T18:58:20")
 @StaticMetamodel(RegistroBean.class)
 public class RegistroBean_ { 
 
