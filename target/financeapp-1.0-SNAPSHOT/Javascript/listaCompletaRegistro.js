@@ -67,7 +67,8 @@ for (let item of itemLista) {
 
 // Esconder o menu de opcoes 
 document.addEventListener("click", e => {
-    if (e.target.parentNode != lista
+    if (e.target.tagName == "HTML"
+        || (e.target.parentNode != lista
         && e.target.parentNode.parentNode != lista
         && e.target.parentNode.parentNode.parentNode != lista
         && e.target.parentNode.parentNode.parentNode.parentNode != lista
@@ -75,7 +76,7 @@ document.addEventListener("click", e => {
         && e.target != seletor
         && e.target.parentNode != seletor
         && e.target.parentNode.parentNode != seletor
-        && e.target.parentNode.parentNode.parentNode != seletor) {
+        && e.target.parentNode.parentNode.parentNode != seletor)) {
         seletor.classList.add("hidden");
         seletor.classList.remove("show");
         lista.style.marginBottom = "0px";   
