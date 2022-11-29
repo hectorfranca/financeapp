@@ -4,7 +4,6 @@ import Beans.RegistroBean;
 import DAO.CategoriaDAO;
 import DAO.RegistroDAO;
 import java.io.IOException;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,11 +19,8 @@ public class SaveRegistroServlet extends HttpServlet {
         RegistroDAO registroDAO = new RegistroDAO();
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         RegistroBean registro = new RegistroBean();
-        RequestDispatcher requestDispatcher = null;
         
-        try {
-            requestDispatcher = request.getRequestDispatcher("/index.jsp");
-                
+        try {     
             registro.setNome(request.getParameter("nome"));
             registro.setTipo(request.getParameter("tipo").charAt(0));
             registro.setData(new Date());          
@@ -37,8 +33,8 @@ public class SaveRegistroServlet extends HttpServlet {
             } else {
                 registroDAO.save(registro);
             }
-
-            requestDispatcher.forward(request, response);
+            
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
         } catch(Exception exception) {
             throw new ServletException("Não foi possível salvar o registro: " 
                     + exception.getMessage());

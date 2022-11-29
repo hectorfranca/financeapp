@@ -24,8 +24,12 @@
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
-            <div class="container-secundario">
-                <h1 class="container-primario__container-secundario__titulo">Relatório de Entradas</h1>  
+            <div class="container-primario__container-secundario">
+                <% if (request.getParameter("tipo").equals("R")) { %>
+                    <h1 class="container-primario__container-secundario__titulo">Relatório de Receitas</h1> 
+                <% } else { %>
+                    <h1 class="container-primario__container-secundario__titulo">Relatório de Despesas</h1>
+                <% } %>
                 <h2 class="container-primario__container-secundario__subtitulo">Lista Completa</h2>
                 <% if (colecaoRegistro.getRegistros().size() > 0) { %>
                     <div class="container-primario__container-secundario__lista">                   
@@ -49,17 +53,15 @@
                             <div class="item-lista__valor">
                                 <span class="item-lista__valor__conteudo"><%= decimalFormat.format(registro.getValor()) %></span>
                             </div>
-                            
                             <input type="hidden" class="id-registro" value="<%= registro.getId() %>"/>
                             <input type="hidden" class="data-registro" value="<%= dateFormatUS.format(registro.getData()) %>"/> 
                             <input type="hidden" class="nome-registro" value="<%= registro.getNome() %>"/>                           
                             <input type="hidden" class="categoria-registro" value="<%= registro.getCategoria().getId() %>"/>
                             <input type="hidden" class="valor-registro" value="<%= registro.getValor() %>"/>
-                            <input type="hidden" class="tipo-registro" value="<%= registro.getTipo() %>"/>
-                            
-                        </div>                       
+                            <input type="hidden" class="tipo-registro" value="<%= registro.getTipo() %>"/>                 
+                        </div>                     
                     <% } %>
-                    </div> 
+                    </div>
                 <% } else { %>
                     <p>Nenhum registro cadastrado.</p>
                 <% } %>           

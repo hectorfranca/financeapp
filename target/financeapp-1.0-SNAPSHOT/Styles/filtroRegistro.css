@@ -22,7 +22,7 @@ input[type=date] {
     align-items: center;
     margin-top: 150px;
 }
-.container-secundario {
+.container-primario__container-secundario {
     width: 350px;
     height: auto;
     padding: 10px 0;
@@ -34,11 +34,15 @@ input[type=date] {
     align-items: center;
     justify-content: center;
 }
-.container-secundario__titulo {
+.container-primario__container-secundario__titulo {
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 20px;
     text-align: center !important;
+}
+.container-primario__container-secundario__subtitulo {
+    font-size: 18px;
+    font-weight: bold;
 }
 form {
     width: 80%;

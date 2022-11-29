@@ -3,7 +3,6 @@ package Servlets.Categoria;
 import Beans.CategoriaBean;
 import DAO.CategoriaDAO;
 import java.io.IOException;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,11 +16,8 @@ public class SaveCategoriaServlet extends HttpServlet {
         
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         CategoriaBean categoria = new CategoriaBean();
-        RequestDispatcher requestDispatcher = null;
-        
-        try {
-            requestDispatcher = request.getRequestDispatcher("/index.jsp");
-                    
+     
+        try {              
             categoria.setNome(request.getParameter("nome"));
             
             if (request.getParameter("id") != null) {            
@@ -30,8 +26,8 @@ public class SaveCategoriaServlet extends HttpServlet {
             } else {
                 categoriaDAO.save(categoria);
             }
-
-            requestDispatcher.forward(request, response);
+            
+            response.sendRedirect(request.getContextPath() + "/ListCategoriaServlet");
         } catch(Exception exception) {
             throw new ServletException("Não foi possível salvar a categoria: " 
                     + exception.getMessage());

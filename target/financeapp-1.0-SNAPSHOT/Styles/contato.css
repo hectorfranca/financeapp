@@ -31,7 +31,7 @@ label {
     justify-content: center;
     align-items: center;
 }
-.container-secundario {
+.container-primario__container-secundario {
     width: 350px;
     height: auto;
     background-color:#FFFFE0;
@@ -42,7 +42,7 @@ label {
     justify-content: center;
     box-shadow: 1px 1px;
 }
-.container-secundario__titulo {
+.container-primario__container-secundario__titulo {
     width: 100%;
     height: 50px;
     font-size: 20px;

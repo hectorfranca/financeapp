@@ -2,7 +2,6 @@ package Servlets.Categoria;
 
 import DAO.CategoriaDAO;
 import java.io.IOException;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,15 +14,14 @@ public class DeleteCategoriaServlet extends HttpServlet {
             throws ServletException, IOException {
         
         CategoriaDAO categoriaDAO = new CategoriaDAO();
-        RequestDispatcher requestDispatcher = null;
         long id;       
         
         try {            
-            requestDispatcher = request.getRequestDispatcher("/index.jsp");
             id = Long.parseLong(request.getParameter("id"));
 
-            categoriaDAO.delete(id);   
-            requestDispatcher.forward(request, response);
+            categoriaDAO.delete(id);  
+            
+            response.sendRedirect(request.getContextPath() + "/ListCategoriaServlet");
         } catch(Exception exception) {
             throw new ServletException("Não foi possível excluir a categoria: " 
                     + exception.getMessage());

@@ -24,7 +24,11 @@
         
         <div class="container-primario">
             <div class="container-primario__container-secundario">
-                <h1 class="container-primario__container-secundario__titulo">Relatório de Entradas</h1>  
+                <% if (request.getParameter("tipo").equals("R")) { %>
+                    <h1 class="container-primario__container-secundario__titulo">Relatório de Receitas</h1> 
+                <% } else { %>
+                    <h1 class="container-primario__container-secundario__titulo">Relatório de Despesas</h1>
+                <% } %>  
                 <h2 class="container-primario__container-secundario__subtitulo">Lista Resumida</h2>
                 <% if (colecaoRegistro.getRegistros().size() > 0) { %>
                     <div class="container-primario__container-secundario__lista">

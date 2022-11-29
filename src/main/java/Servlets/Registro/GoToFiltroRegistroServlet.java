@@ -13,18 +13,16 @@ public class GoToFiltroRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        RequestDispatcher requestDispatcher;
+        RequestDispatcher requestDispatcher = null;
         
         try {            
             if (!request.getParameter("tipo").equals("R") 
-                    && !request.getParameter("tipo").equals("D")) {
-                
-                requestDispatcher = request.getRequestDispatcher("/index.jsp"); 
+                    && !request.getParameter("tipo").equals("D")) {          
+                response.sendRedirect(request.getContextPath() + "/index.jsp"); 
             } else {
-                requestDispatcher = request.getRequestDispatcher("/Pages/filtroRegistro.jsp"); 
+                requestDispatcher = request.getRequestDispatcher("/Pages/filtroRegistro.jsp");
+                requestDispatcher.forward(request, response); 
             }
-
-            requestDispatcher.forward(request, response);  
         } catch(Exception exception) {
             throw new jakarta.servlet.ServletException("Não foi possível prosseguir para a pagina de filtro: " 
                     + exception.getMessage());

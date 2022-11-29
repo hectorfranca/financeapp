@@ -22,9 +22,13 @@
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
-            <div class="container-secundario">
-                <h2 class="container-secundario__titulo">Relatório de Entradas</h2>
-                <h5 class="container-secundario__subtitulo">Defina suas opções de consulta</h5>
+            <div class="container-primario__container-secundario">
+                <% if (request.getParameter("tipo").equals("R")) { %>
+                    <h1 class="container-primario__container-secundario__titulo">Relatório de Receitas</h1> 
+                <% } else { %>
+                    <h1 class="container-primario__container-secundario__titulo">Relatório de Despesas</h1>
+                <% } %>
+                <h2 class="container-primario__container-secundario__subtitulo">Defina suas opções de consulta</h2>
                 <form action="${pageContext.request.contextPath}/FiltroRegistroServlet" method="POST">               
                     <div class="form-calendario">
                         <div class="form-calendario__inicial">

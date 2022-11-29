@@ -19,8 +19,8 @@
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
-            <div class="container-secundario">
-                <div class="container-secundario__titulo">
+            <div class="container-primario__container-secundario">
+                <div class="container-primario__container-secundario__titulo">
                     <a>Dúvidas? Contate-nos!</a>  
                 </div>
                 <div class="container-conteudo">

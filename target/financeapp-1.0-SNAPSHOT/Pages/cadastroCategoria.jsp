@@ -21,8 +21,8 @@
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
-            <div class="container-secundario"> 
-                <h2 class="container-secundario__titulo">Cadastro de Entradas</h2>
+            <div class="container-primario__container-secundario"> 
+                <h2 class="container-primario__container-secundario__titulo">Cadastro de Categoria</h2>
                 <form action="${pageContext.request.contextPath}/SaveCategoriaServlet" method="POST">
                     <div class="form-item">
                         <label class="label-nome" for="input-nome">Nome</label>         

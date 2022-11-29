@@ -18,36 +18,34 @@ public class GoToFormRegistroServlet extends HttpServlet {
        
         ColecaoCategoriaBean colecaoCategoriaBean = new ColecaoCategoriaBean();
         CategoriaDAO categoriaDAO = new CategoriaDAO();
-        RequestDispatcher requestDispatcher;
+        RequestDispatcher requestDispatcher = null;
         
         try {            
-            colecaoCategoriaBean.setCategorias(categoriaDAO.getAll());         
-
-            if (request.getParameter("id") != null) {
-                RegistroBean registro = new RegistroBean();
-                
-                registro.setId(Long.parseLong(request.getParameter("id")));
-                registro.setNome(request.getParameter("nome"));
-                registro.setTipo(request.getParameter("tipo").charAt(0));          
-                registro.setValor(Double.parseDouble(request.getParameter("valor")));
-                registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
-                               
-                request.setAttribute("registro", registro);
-                request.setAttribute("colecaoCategoria", colecaoCategoriaBean);
-                
-                requestDispatcher = request.getRequestDispatcher("/Pages/cadastroRegistro.jsp");   
+            if (!request.getParameter("tipo").equals("R") && !request.getParameter("tipo").equals("D")) {
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
-                if (!request.getParameter("tipo").equals("R") && !request.getParameter("tipo").equals("D")) {
-                    requestDispatcher = request.getRequestDispatcher("/index.jsp");       
+                requestDispatcher = request.getRequestDispatcher("/Pages/cadastroRegistro.jsp");
+                
+                colecaoCategoriaBean.setCategorias(categoriaDAO.getAll());         
+
+                if (request.getParameter("id") != null) {
+                    RegistroBean registro = new RegistroBean();
+
+                    registro.setId(Long.parseLong(request.getParameter("id")));
+                    registro.setNome(request.getParameter("nome"));
+                    registro.setTipo(request.getParameter("tipo").charAt(0));          
+                    registro.setValor(Double.parseDouble(request.getParameter("valor")));
+                    registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
+
+                    request.setAttribute("registro", registro);
                 } else {
                     request.setAttribute("tipo", request.getParameter("tipo"));
-                    request.setAttribute("colecaoCategoria", colecaoCategoriaBean);
-                              
-                    requestDispatcher = request.getRequestDispatcher("/Pages/cadastroRegistro.jsp");   
                 }
+
+                request.setAttribute("colecaoCategoria", colecaoCategoriaBean);
+
+                requestDispatcher.forward(request, response);
             }
-            
-            requestDispatcher.forward(request, response);
         } catch(Exception exception) {
             throw new jakarta.servlet.ServletException("Não foi possível prosseguir para a pagina de registro: " 
                     + exception.getMessage());
