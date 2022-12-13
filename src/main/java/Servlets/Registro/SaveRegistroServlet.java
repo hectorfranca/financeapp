@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 @WebServlet(name = "SaveRegistroServlet", urlPatterns = {"/SaveRegistroServlet"})
 public class SaveRegistroServlet extends HttpServlet {
@@ -19,11 +19,12 @@ public class SaveRegistroServlet extends HttpServlet {
         RegistroDAO registroDAO = new RegistroDAO();
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         RegistroBean registro = new RegistroBean();
+        SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
         
         try {     
             registro.setNome(request.getParameter("nome"));
             registro.setTipo(request.getParameter("tipo").charAt(0));
-            registro.setData(new Date());          
+            registro.setData(dateFormatUS.parse(request.getParameter("data")));         
             registro.setValor(Double.parseDouble(request.getParameter("valor")));
             registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
             

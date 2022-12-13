@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
 
 @WebServlet(name = "GoToFormRegistroServlet", urlPatterns = {"/GoToFormRegistroServlet"})
 public class GoToFormRegistroServlet extends HttpServlet {
@@ -19,6 +20,7 @@ public class GoToFormRegistroServlet extends HttpServlet {
         ColecaoCategoriaBean colecaoCategoriaBean = new ColecaoCategoriaBean();
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         RequestDispatcher requestDispatcher = null;
+        SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
         
         try {            
             if (!request.getParameter("tipo").equals("R") && !request.getParameter("tipo").equals("D")) {
@@ -33,7 +35,8 @@ public class GoToFormRegistroServlet extends HttpServlet {
 
                     registro.setId(Long.parseLong(request.getParameter("id")));
                     registro.setNome(request.getParameter("nome"));
-                    registro.setTipo(request.getParameter("tipo").charAt(0));          
+                    registro.setTipo(request.getParameter("tipo").charAt(0));   
+                    registro.setData(dateFormatUS.parse(request.getParameter("data")));
                     registro.setValor(Double.parseDouble(request.getParameter("valor")));
                     registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
 

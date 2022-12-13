@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Beans.CategoriaBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,6 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
+        <%! SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd"); %>
         <jsp:useBean id="registro" class="Beans.RegistroBean" scope="request"></jsp:useBean>
         <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>
         
@@ -54,7 +57,12 @@
                            } 
                         %>
                         </select>
-                    </div>
+                    </div>          
+                    <div class="form-item">     
+                        <label class="label-data" for="input-data">Data</label>            
+                        <input type="date" class="form-control" id="input-data" name="data" 
+                               value="<%= registro.getData() != null ? dateFormatUS.format(registro.getData()) : dateFormatUS.format(new Date()) %>" required>
+                    </div>               
                     <div class="form-item">
                         <label class="label-valor" for="input-valor">Valor em R$</label>
                         <input type="number" class="form-control" id="input-valor" name="valor" min="0" 
