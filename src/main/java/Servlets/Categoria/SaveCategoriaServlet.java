@@ -17,7 +17,7 @@ public class SaveCategoriaServlet extends HttpServlet {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         CategoriaBean categoria = new CategoriaBean();
      
-        try {              
+        try {
             categoria.setNome(request.getParameter("nome"));
             
             if (request.getParameter("id") != null) {            
@@ -27,7 +27,12 @@ public class SaveCategoriaServlet extends HttpServlet {
                 categoriaDAO.save(categoria);
             }
             
-            response.sendRedirect(request.getContextPath() + "/ListCategoriaServlet");
+            if (request.getParameter("isOnRegister").equals("1")) {
+                response.sendRedirect(request.getContextPath() + "/GoToFormRegistroServlet?tipo=" + 
+                        request.getParameter("tipo"));
+            } else {
+                response.sendRedirect(request.getContextPath() + "/ListCategoriaServlet");
+            }
         } catch(Exception exception) {
             throw new ServletException("Não foi possível salvar a categoria: " 
                     + exception.getMessage());

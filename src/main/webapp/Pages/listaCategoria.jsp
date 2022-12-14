@@ -21,8 +21,9 @@
         
         <jsp:include page="/Components/header.jsp"/>
         
-        <button class="add-button" 
-                onclick="window.location.href='${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp'"></button> 
+        <button class="add-button"
+                onclick="window.location.href='${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp'">
+        </button>
         
         <div class="container-primario">
             <div class="container-primario__container-secundario">

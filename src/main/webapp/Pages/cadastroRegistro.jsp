@@ -25,27 +25,49 @@
         
         <jsp:include page="/Components/header.jsp"/>
         
+        <% char tipo; 
+        
+            if (request.getAttribute("tipo") != null) {
+              if (request.getAttribute("tipo").equals("R")) { 
+                tipo = 'R';
+              } else {
+                tipo = 'D';
+              }
+            } else if (registro.getTipo() == 'R') {
+                tipo = 'R';
+            } else {
+                tipo = 'D';
+            }
+        %>
+        
         <div class="container-primario">
             <div class="container-primario__container-secundario">
-                <% if (request.getAttribute("tipo") != null) {
-                    if (request.getAttribute("tipo").equals("R")) { %>
+                <% if (tipo == 'R') { %>
                         <h1 class="container-primario__container-secundario__titulo">Cadastro de Receita</h1>             
-                    <% } else { %>
-                        <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
-                    <% } 
-                } else if (registro.getTipo() == 'R') { %>
-                    <h1 class="container-primario__container-secundario__titulo">Cadastro de Receita</h1>
                 <% } else { %>
-                    <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
-                <% } %>
+                        <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
+                <% } %>        
                 <form action="${pageContext.request.contextPath}/SaveRegistroServlet" method="POST">
                     <div class="form-item">     
                         <label class="label-nome" for="input-nome">Nome</label>            
                         <input type="text" class="form-control" id="input-nome" name="nome" 
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
-                    </div>
+                    </div>                       
+                    <div class="form-button">
+                        <% if (tipo == 'R') { %>
+                            <a class="form-button__caixa button-add-categoria form-button--efeito"
+                               href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=R&isOnRegister=1">
+                                <span class="form-button__caixa__titulo">Cadastrar categoria</span>
+                            </a>
+                        <% } else { %>
+                            <a class="form-button__caixa button-add-categoria form-button--efeito"
+                               href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=D&isOnRegister=1">
+                                <span class="form-button__caixa__titulo">Cadastrar categoria</span>
+                            </a>
+                        <% } %>
+                    </div>                            
                     <div class="form-item">
-                        <label for="input-categoria">Categoria</label>            
+                        <label class="label-categoria" for="input-categoria">Categoria</label>
                         <select class="form-select" id="input-categoria" aria-label="Default select example" name="categoria" required>                           
                             
                         <% for (CategoriaBean categoria : colecaoCategoria.getCategorias()) {

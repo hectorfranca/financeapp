@@ -28,7 +28,8 @@
                         <label class="label-nome" for="input-nome">Nome</label>         
                         <input type="text" class="form-control" id="input-nome" name="nome" 
                                value="<%= categoria.getNome() != null ? categoria.getNome() : "" %>" required>
-                        
+                        <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>">
+                        <input type="hidden" name="isOnRegister" value="<%= request.getParameter("isOnRegister") %>">
                         <% if (categoria.getId() != null) {  %>
                             <input type="hidden" name="id" value="<%= categoria.getId() %>">
                         <% } %>
@@ -38,7 +39,7 @@
                             <span class="form-button__caixa__titulo">Registrar</span>
                         </a>                    
                         <a class="form-button__caixa form-button--efeito"
-                                href="${pageContext.request.contextPath}/index.jsp">
+                                href="${pageContext.request.contextPath}/ListCategoriaServlet">
                             <span class="form-button__caixa__titulo">Cancelar</span>
                         </a>
                     </div>
