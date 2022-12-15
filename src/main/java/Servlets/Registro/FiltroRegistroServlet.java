@@ -1,6 +1,7 @@
 package Servlets.Registro;
 
 import Beans.ColecaoRegistroBean;
+import Beans.ColecaoRegistroResumidoBean;
 import DAO.RegistroDAO;
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
@@ -17,7 +18,6 @@ public class FiltroRegistroServlet extends HttpServlet {
             throws ServletException, IOException {
         
         RegistroDAO registroDAO = new RegistroDAO();
-        ColecaoRegistroBean colecaoRegistro = new ColecaoRegistroBean();
         RequestDispatcher requestDispatcher = null;  
         
         try {            
@@ -25,22 +25,37 @@ public class FiltroRegistroServlet extends HttpServlet {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             
             if (request.getParameter("tipoLista").equals("completa")) {
+                ColecaoRegistroBean colecaoRegistro = new ColecaoRegistroBean();
                 requestDispatcher = request.getRequestDispatcher("/Pages/listaCompletaRegistro.jsp");
+                
+                if (request.getParameter("tipo").equals("R")) {
+                    colecaoRegistro.setRegistros(registroDAO.filtroDataListaReceitas(
+                        dateFormatUS.parse(request.getParameter("dataInicial")),
+                        dateFormatUS.parse(request.getParameter("dataFinal"))));               
+                } else {
+                    colecaoRegistro.setRegistros(registroDAO.filtroDataListaDespesas(
+                        dateFormatUS.parse(request.getParameter("dataInicial")),
+                        dateFormatUS.parse(request.getParameter("dataFinal"))));              
+                }
+                
+                request.setAttribute("colecaoRegistro", colecaoRegistro);
             } else {
+                ColecaoRegistroResumidoBean colecaoRegistroResumido = new ColecaoRegistroResumidoBean();
                 requestDispatcher = request.getRequestDispatcher("/Pages/listaResumidaRegistro.jsp");
+                
+                if (request.getParameter("tipo").equals("R")) {
+                    colecaoRegistroResumido.setRegistros(registroDAO.filtroDataListaReceitasResumida(
+                        dateFormatUS.parse(request.getParameter("dataInicial")),
+                        dateFormatUS.parse(request.getParameter("dataFinal"))));               
+                } else {
+                    colecaoRegistroResumido.setRegistros(registroDAO.filtroDataListaDespesasResumida(
+                        dateFormatUS.parse(request.getParameter("dataInicial")),
+                        dateFormatUS.parse(request.getParameter("dataFinal"))));              
+                }
+                
+                request.setAttribute("colecaoRegistroResumido", colecaoRegistroResumido);
             }
-
-            if (request.getParameter("tipo").equals("R")) {
-                colecaoRegistro.setRegistros(registroDAO.filtroDataListaReceitas(
-                    dateFormatUS.parse(request.getParameter("dataInicial")),
-                    dateFormatUS.parse(request.getParameter("dataFinal"))));               
-            } else {
-                colecaoRegistro.setRegistros(registroDAO.filtroDataListaDespesas(
-                    dateFormatUS.parse(request.getParameter("dataInicial")),
-                    dateFormatUS.parse(request.getParameter("dataFinal"))));              
-            }
-                         
-            request.setAttribute("colecaoRegistro", colecaoRegistro);
+                                    
             request.setAttribute("dataInicial", dateFormat.format(dateFormatUS.parse(request.getParameter("dataInicial"))));  
             request.setAttribute("dataFinal", dateFormat.format(dateFormatUS.parse(request.getParameter("dataFinal")))); 
             

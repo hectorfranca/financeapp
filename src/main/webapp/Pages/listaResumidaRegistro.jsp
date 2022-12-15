@@ -1,3 +1,4 @@
+<%@page import="Beans.RegistroResumidoBean"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="Beans.RegistroBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,6 +20,7 @@
     </head>
     <body>
         <jsp:useBean id="colecaoRegistro" class="Beans.ColecaoRegistroBean" scope="request"></jsp:useBean>
+        <jsp:useBean id="colecaoRegistroResumido" class="Beans.ColecaoRegistroResumidoBean" scope="request"></jsp:useBean>
         
         <jsp:include page="/Components/header.jsp"/>
         
@@ -41,24 +43,41 @@
                         <%= request.getAttribute("dataFinal") %>
                     <span>
                 </div>             
-                <% if (colecaoRegistro.getRegistros().size() > 0) { %>
-                    <div class="container-primario__container-secundario__lista">
-                
+                <% if ((colecaoRegistro.getRegistros() != null && colecaoRegistro.getRegistros().size() > 0)
+                        || (colecaoRegistroResumido.getRegistros() != null 
+                        && colecaoRegistroResumido.getRegistros().size() > 0)) { %>
+                    <div class="container-primario__container-secundario__lista">               
                     <% DecimalFormat decimalFormat = new DecimalFormat("R$ #,##0.00");
-                
-                    for (RegistroBean registro : colecaoRegistro.getRegistros()) { %>
-                        <div class="item-lista">
-                            <div class="item-lista__nome">
-                                <span><%= registro.getNome() %></span>
-                            </div>                         
-                            <div class="item-lista__valor">
-                                <span class="item-lista__valor__conteudo"><%= decimalFormat.format(registro.getValor()) %></span>
-                            </div>                         
-                        </div>                       
-                    <% } %> 
+                    if (colecaoRegistro.getRegistros() != null) {
+                        for (RegistroBean registro : colecaoRegistro.getRegistros()) { %>
+                            <div class="item-lista">
+                                <div class="item-lista__nome">
+                                    <span><%= registro.getNome() %></span>
+                                </div>                         
+                                <div class="item-lista__valor">
+                                    <span class="item-lista__valor__conteudo"><%= decimalFormat.format(registro.getValor()) %></span>
+                                </div>                         
+                            </div>                       
+                        <% } 
+                    } else {
+                        for (RegistroResumidoBean registro : colecaoRegistroResumido.getRegistros()) { %>
+                            <div class="item-lista">
+                                <div class="item-lista__nome">
+                                    <span><%= registro.getNome() %></span>
+                                </div>                         
+                                <div class="item-lista__valor">
+                                    <span class="item-lista__valor__conteudo"><%= decimalFormat.format(registro.getValor()) %></span>
+                                </div>                         
+                            </div>                       
+                        <% }
+                    } %> 
                     </div> 
-                    <input type="hidden" class="tipo-registro" value="<%= colecaoRegistro.getRegistros().get(0).getTipo() %>"/>
-                <% } else { %>
+                    <% if (colecaoRegistro.getRegistros() != null) { %>
+                        <input type="hidden" class="tipo-registro" value="<%= colecaoRegistro.getRegistros().get(0).getTipo() %>"/>
+                    <% } else { %>
+                        <input type="hidden" class="tipo-registro" value="<%= colecaoRegistroResumido.getRegistros().get(0).getTipo() %>"/>
+                    <% }    
+                } else { %>
                     <p>Nenhum registro cadastrado.</p>
                 <% } %>
             </div>
