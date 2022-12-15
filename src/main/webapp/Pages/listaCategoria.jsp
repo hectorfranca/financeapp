@@ -21,13 +21,18 @@
         
         <jsp:include page="/Components/header.jsp"/>
         
-        <button class="add-button"
-                onclick="window.location.href='${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp'">
-        </button>
-        
         <div class="container-primario">
             <div class="container-primario__container-secundario">
-                <h1 class="container-primario__container-secundario__titulo">Categorias</h1>
+                <div class="header-content">
+                    <a class="back-button__caixa back-button--efeito"
+                        href="${pageContext.request.contextPath}/index.jsp">
+                            <span class="back-button__caixa__titulo">Voltar</span>
+                    </a>                           
+                    <h1 class="header-content__titulo">Categorias</h1>                   
+                    <button class="header-content__add-button"
+                        onclick="window.location.href='${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp'">
+                    </button>
+                </div>
                 <% if (colecaoCategoria.getCategorias().size() > 0) { %>
                     <div class="container-primario__container-secundario__lista">            
                     <% for (CategoriaBean categoria : colecaoCategoria.getCategorias()) { %>

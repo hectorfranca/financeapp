@@ -21,7 +21,8 @@ public class FiltroRegistroServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = null;  
         
         try {            
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             
             if (request.getParameter("tipoLista").equals("completa")) {
                 requestDispatcher = request.getRequestDispatcher("/Pages/listaCompletaRegistro.jsp");
@@ -31,15 +32,18 @@ public class FiltroRegistroServlet extends HttpServlet {
 
             if (request.getParameter("tipo").equals("R")) {
                 colecaoRegistro.setRegistros(registroDAO.filtroDataListaReceitas(
-                    dateFormat.parse(request.getParameter("dataInicial")),
-                    dateFormat.parse(request.getParameter("dataFinal"))));               
+                    dateFormatUS.parse(request.getParameter("dataInicial")),
+                    dateFormatUS.parse(request.getParameter("dataFinal"))));               
             } else {
                 colecaoRegistro.setRegistros(registroDAO.filtroDataListaDespesas(
-                    dateFormat.parse(request.getParameter("dataInicial")),
-                    dateFormat.parse(request.getParameter("dataFinal"))));              
+                    dateFormatUS.parse(request.getParameter("dataInicial")),
+                    dateFormatUS.parse(request.getParameter("dataFinal"))));              
             }
                          
-            request.setAttribute("colecaoRegistro", colecaoRegistro);       
+            request.setAttribute("colecaoRegistro", colecaoRegistro);
+            request.setAttribute("dataInicial", dateFormat.format(dateFormatUS.parse(request.getParameter("dataInicial"))));  
+            request.setAttribute("dataFinal", dateFormat.format(dateFormatUS.parse(request.getParameter("dataFinal")))); 
+            
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {
             throw new ServletException("Não foi possível listar os registros: " 

@@ -23,13 +23,24 @@
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
+            <a class="back-button__caixa back-button--efeito"
+                href="javascript:history.back()">
+                    <span class="back-button__caixa__titulo">Voltar</span>
+            </a>
             <div class="container-primario__container-secundario">
                 <% if (request.getParameter("tipo").equals("R")) { %>
                     <h1 class="container-primario__container-secundario__titulo">Relatório de Receitas</h1> 
                 <% } else { %>
                     <h1 class="container-primario__container-secundario__titulo">Relatório de Despesas</h1>
                 <% } %>  
-                <h2 class="container-primario__container-secundario__subtitulo">Lista Resumida</h2>
+                <h2 class="container-primario__container-secundario__subtitulo">Lista Resumida</h2>              
+                <div class="data-filter">
+                    <span>
+                        <%= request.getAttribute("dataInicial") %>
+                        a
+                        <%= request.getAttribute("dataFinal") %>
+                    <span>
+                </div>             
                 <% if (colecaoRegistro.getRegistros().size() > 0) { %>
                     <div class="container-primario__container-secundario__lista">
                 

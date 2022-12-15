@@ -10,20 +10,72 @@ body {
 }
 .container-primario {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-.container-primario__container-secundario {
-    width: 400px;
-    height: auto;
     margin-top: 120px;
     margin-bottom: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.back-button__caixa {
+    width: 80px;
+    height: 40px;
+    border: 3px solid orange !important;
+    background-color: #ffc000;
+    color: black;
+    font-size: 15px;
+    text-align: center !important;
+    border:none !important;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px;
+}
+.back-button__caixa:active {
+    transform: scale(0.95);
+}
+.back-button__caixa__titulo {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+.back-button--efeito {
+    overflow: hidden;
+    position: relative;
+}
+.back-button--efeito:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: -85px;
+    opacity: .4;
+    position: absolute;
+    top: -60px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+    -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 70px;
+    z-index: 1;
+}
+.back-button--efeito:hover:after {
+    left: 130%;
+    -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.container-primario__container-secundario {
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 .container-primario__container-secundario__titulo {
     margin-bottom: 20px;
@@ -34,6 +86,11 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
+.data-filter {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffc000;
+}
 .container-primario__container-secundario__lista {
     width: 90%;
     border-radius: 10px;
@@ -43,6 +100,7 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 1px 1px;
+    gap: 20px;
 }
 .item-lista {
     width: 90%;

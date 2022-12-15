@@ -18,7 +18,11 @@
     <body>        
         <jsp:include page="/Components/header.jsp"/>
         
-        <div class="container-primario">
+        <div class="container-primario">           
+            <a class="back-button__caixa back-button--efeito"
+                href="${pageContext.request.contextPath}/index.jsp">
+                    <span class="back-button__caixa__titulo">Voltar</span>
+            </a>                    
             <div class="container-primario__container-secundario">
                 <div class="container-primario__container-secundario__titulo">
                     <a>Dúvidas? Contate-nos!</a>  
@@ -35,7 +39,7 @@
                         </div>
                         <div class="container-conteudo__item__social">
                             <label>Linkedin:</label>
-                            <a href="https://www.linkedin.com/in/gustavo-f-vetter-012090225/">@gustavo-f-vetter-012090225</a>
+                            <a href="https://www.linkedin.com/in/gustavo-f-vetter-012090225/">@gustavovetter</a>
                         </div>          
                     </div>
                     <div class="container-conteudo__item"> 
@@ -75,14 +79,6 @@
 
         <jsp:include page="/Components/footer.jsp"/>
         
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-                crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>     
     </body>
 </html>

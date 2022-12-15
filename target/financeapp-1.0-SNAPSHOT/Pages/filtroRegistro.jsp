@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Beans.CategoriaBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,6 +21,13 @@
     <body>
         <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>  
         
+        <%
+            SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd"); 
+            Calendar currentDayOfMonth = Calendar.getInstance();
+            Calendar lastDayOfMonth = Calendar.getInstance();
+            lastDayOfMonth.set(Calendar.DAY_OF_MONTH, lastDayOfMonth.getActualMaximum(Calendar.DAY_OF_MONTH));
+        %>
+        
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
@@ -34,13 +43,15 @@
                         <div class="form-calendario__inicial">
                             <p class="form-calendario__inicial__titulo">Data Inicial</p>     
                             <div class="form-calendario__inicial__data">
-                                <input class="date-inicial" type="date" name="dataInicial" required/> 
+                                <input class="date-inicial" type="date" name="dataInicial" 
+                                    value="<%= dateFormatUS.format(currentDayOfMonth.getTime()) %>" required/> 
                             </div>
                         </div>
                         <div class="form-calendario__final">   
                             <p class="form-calendario__final__titulo">Data Final</p>
                             <div class="form-calendario__final__data">          
-                                <input class="date-final" type="date" name="dataFinal" required/>  
+                                <input class="date-final" type="date" name="dataFinal" 
+                                    value="<%= dateFormatUS.format(lastDayOfMonth.getTime()) %>" required/>  
                             </div>              
                         </div>
                     </div>
