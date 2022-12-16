@@ -37,11 +37,20 @@
                      <div class="form-button">
                         <a class="form-button__registrar form-button__caixa form-button--efeito">
                             <span class="form-button__caixa__titulo">Registrar</span>
-                        </a>                    
-                        <a class="form-button__caixa form-button--efeito"
-                                href="${pageContext.request.contextPath}/ListCategoriaServlet">
-                            <span class="form-button__caixa__titulo">Cancelar</span>
                         </a>
+                         
+                        <% if (request.getParameter("isOnRegister") != null 
+                                && request.getParameter("isOnRegister").equals("1")) { %>
+                            <a class="form-button__caixa form-button--efeito"
+                               href="${pageContext.request.contextPath}/GoToFormRegistroServlet?tipo=<%= request.getParameter("tipo") %>">
+                               <span class="form-button__caixa__titulo">Cancelar</span>
+                            </a>
+                        <% } else { %>                        
+                            <a class="form-button__caixa form-button--efeito"
+                                    href="${pageContext.request.contextPath}/ListCategoriaServlet">
+                                <span class="form-button__caixa__titulo">Cancelar</span>
+                            </a>
+                        <% } %>
                     </div>
                 </form>
             </div>      
