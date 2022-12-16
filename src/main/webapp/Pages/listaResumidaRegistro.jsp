@@ -22,6 +22,11 @@
         <jsp:useBean id="colecaoRegistro" class="Beans.ColecaoRegistroBean" scope="request"></jsp:useBean>
         <jsp:useBean id="colecaoRegistroResumido" class="Beans.ColecaoRegistroResumidoBean" scope="request"></jsp:useBean>
         
+        <%
+            DecimalFormat decimalFormat = new DecimalFormat("R$ #,##0.00");
+            float valorTotal = 0;
+        %>
+        
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
@@ -47,9 +52,9 @@
                         || (colecaoRegistroResumido.getRegistros() != null 
                         && colecaoRegistroResumido.getRegistros().size() > 0)) { %>
                     <div class="container-primario__container-secundario__lista">               
-                    <% DecimalFormat decimalFormat = new DecimalFormat("R$ #,##0.00");
-                    if (colecaoRegistro.getRegistros() != null) {
-                        for (RegistroBean registro : colecaoRegistro.getRegistros()) { %>
+                    <% if (colecaoRegistro.getRegistros() != null) {
+                        for (RegistroBean registro : colecaoRegistro.getRegistros()) { 
+                            valorTotal += registro.getValor(); %>
                             <div class="item-lista">
                                 <div class="item-lista__nome">
                                     <span><%= registro.getNome() %></span>
@@ -60,7 +65,8 @@
                             </div>                       
                         <% } 
                     } else {
-                        for (RegistroResumidoBean registro : colecaoRegistroResumido.getRegistros()) { %>
+                        for (RegistroResumidoBean registro : colecaoRegistroResumido.getRegistros()) { 
+                            valorTotal += registro.getValor(); %>
                             <div class="item-lista">
                                 <div class="item-lista__nome">
                                     <span><%= registro.getNome() %></span>
@@ -81,6 +87,15 @@
                     <p>Nenhum registro cadastrado.</p>
                 <% } %>
             </div>
+        </div>
+            
+        <div class="valor-total">
+            <div class="valor-total-item">
+                <span>Total:</span>
+            </div> 
+            <div class="valor-total-item">
+                <span class="valor-total-item__valor"><%= decimalFormat.format(valorTotal) %></span>
+            </div>       
         </div>
 
         <jsp:include page="/Components/footer.jsp"/>

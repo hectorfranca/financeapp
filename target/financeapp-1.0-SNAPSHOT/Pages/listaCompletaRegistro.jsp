@@ -21,6 +21,11 @@
     <body>
         <jsp:useBean id="colecaoRegistro" class="Beans.ColecaoRegistroBean" scope="request"></jsp:useBean>
         
+        <% 
+            DecimalFormat decimalFormat = new DecimalFormat("R$ #,##0.00");
+            float valorTotal = 0; 
+        %>
+        
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">          
@@ -46,9 +51,9 @@
                     <div class="container-primario__container-secundario__lista">                   
                     <% SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
-                    DecimalFormat decimalFormat = new DecimalFormat("R$ #,##0.00");
                 
-                    for (RegistroBean registro : colecaoRegistro.getRegistros()) { %>
+                    for (RegistroBean registro : colecaoRegistro.getRegistros()) {
+                        valorTotal += registro.getValor(); %>                  
                         <div class="item-lista">
                             <div class="item-lista__data">
                                 <span><%= dateFormat.format(registro.getData()) %></span>
@@ -77,9 +82,16 @@
                     <p>Nenhum registro cadastrado.</p>
                 <% } %>           
             </div>               
+        </div>           
+        <div class="valor-total">
+            <div class="valor-total-item">
+                <span>Total:</span>
+            </div> 
+            <div class="valor-total-item">
+                <span class="valor-total-item__valor"><%= decimalFormat.format(valorTotal) %></span>
+            </div>       
         </div>
-
-         <div class="seletor hidden">
+        <div class="seletor hidden">
             <div class="seletor-item">
                 <span>Selecionado:</span>
             </div> 

@@ -1,5 +1,7 @@
 const itemLista = document.getElementsByClassName('item-lista');
 const conteudoValor = document.getElementsByClassName("item-lista__valor__conteudo");
+const total = document.getElementsByClassName("valor-total")[0];
+const valorTotal = document.getElementsByClassName("valor-total-item__valor")[0];
 const seletor = document.getElementsByClassName("seletor")[0];
 const lista = document.getElementsByClassName("container-primario__container-secundario__lista")[0];
 const excluirButton = document.getElementById("excluir-button");
@@ -20,12 +22,16 @@ let itemSelecionado = {
 if (typeof(tipo) != "undefined") {
     if (tipo.value == "R") {
         for (let valor of conteudoValor) {
-            valor.style.color = "green";   
+            valor.style.color = "green";
         }
+        
+        valorTotal.style.color = "green";
     } else {
         for (let valor of conteudoValor) {
             valor.style.color = "red";   
         }
+        
+        valorTotal.style.color = "red";
     }
 }
 
@@ -42,6 +48,7 @@ for (let item of itemLista) {
             seletor.classList.add("show");
             seletor.classList.remove("hidden");
             lista.style.marginBottom = "50px";
+            total.style.marginBottom = "100px";
             
             // Realce de cor do item selecionado
             for (let item of itemLista) {
@@ -79,7 +86,8 @@ document.addEventListener("click", e => {
         && e.target.parentNode.parentNode.parentNode != seletor)) {
         seletor.classList.add("hidden");
         seletor.classList.remove("show");
-        lista.style.marginBottom = "0px";   
+        lista.style.marginBottom = "0px";
+        total.style.marginBottom = "50px";
         
         // Realce de cor do item selecionado
         for (let item of itemLista) {

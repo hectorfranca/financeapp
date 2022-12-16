@@ -1,5 +1,6 @@
 const itemLista = document.getElementsByClassName('item-lista');
 const conteudoValor = document.getElementsByClassName("item-lista__valor__conteudo");
+const valorTotal = document.getElementsByClassName("valor-total-item__valor")[0];
 
 let tipo = document.getElementsByClassName("tipo-registro")[0];
 
@@ -9,10 +10,14 @@ if (typeof(tipo) != "undefined") {
         for (let valor of conteudoValor) {
             valor.style.color = "green";   
         }
+        
+        valorTotal.style.color = "green";
     } else {
         for (let valor of conteudoValor) {
             valor.style.color = "red";   
         }
+        
+        valorTotal.style.color = "red";
     }
 }
 
