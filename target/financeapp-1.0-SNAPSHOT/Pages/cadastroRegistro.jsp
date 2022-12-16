@@ -52,20 +52,22 @@
                         <label class="label-nome" for="input-nome">Nome</label>            
                         <input type="text" class="form-control" id="input-nome" name="nome" 
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
-                    </div>                       
-                    <div class="form-button">
-                        <% if (tipo == 'R') { %>
-                            <a class="form-button__caixa button-add-categoria form-button--efeito"
-                               href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=R&isOnRegister=1">
-                                <span class="form-button__caixa__titulo">Cadastrar categoria</span>
-                            </a>
-                        <% } else { %>
-                            <a class="form-button__caixa button-add-categoria form-button--efeito"
-                               href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=D&isOnRegister=1">
-                                <span class="form-button__caixa__titulo">Cadastrar categoria</span>
-                            </a>
-                        <% } %>
-                    </div>                            
+                    </div>
+                    <% if (registro.getId() == null) { %>
+                        <div class="form-button">
+                            <% if (tipo == 'R') { %>
+                                <a class="form-button__caixa button-add-categoria form-button--efeito"
+                                   href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=R&isOnRegister=1">
+                                    <span class="form-button__caixa__titulo">Cadastrar categoria</span>
+                                </a>
+                            <% } else { %>
+                                <a class="form-button__caixa button-add-categoria form-button--efeito"
+                                   href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=D&isOnRegister=1">
+                                    <span class="form-button__caixa__titulo">Cadastrar categoria</span>
+                                </a>
+                            <% } %>
+                        </div>   
+                    <% } %>
                     <div class="form-item">
                         <label class="label-categoria" for="input-categoria">Categoria</label>
                         <select class="form-select" id="input-categoria" aria-label="Default select example" name="categoria" required>                           

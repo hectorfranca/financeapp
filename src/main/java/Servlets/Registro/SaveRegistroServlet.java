@@ -21,12 +21,8 @@ public class SaveRegistroServlet extends HttpServlet {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         RegistroBean registro = new RegistroBean();
         SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
-        RequestDispatcher requestDispatcher = null;
         
         try {     
-            requestDispatcher = request.getRequestDispatcher("/GoToFormRegistroServlet?=tipo" +
-                    request.getParameter("tipo"));
-            
             registro.setNome(request.getParameter("nome"));
             registro.setTipo(request.getParameter("tipo").charAt(0));
             registro.setData(dateFormatUS.parse(request.getParameter("data")));         
@@ -36,11 +32,16 @@ public class SaveRegistroServlet extends HttpServlet {
             if (request.getParameter("id") != null) {
                 registro.setId(Long.parseLong(request.getParameter("id")));                                   
                 registroDAO.update(registro);
+                
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
-                registroDAO.save(registro);
+                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/GoToFormRegistroServlet?=tipo" +
+                    request.getParameter("tipo"));
+                
+                registroDAO.save(registro);  
+                
+                requestDispatcher.forward(request, response);
             }
-            
-           requestDispatcher.forward(request, response);
         } catch(Exception exception) {
             throw new ServletException("Não foi possível salvar o registro: " 
                     + exception.getMessage());
