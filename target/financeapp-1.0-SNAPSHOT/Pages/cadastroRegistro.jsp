@@ -50,7 +50,7 @@
                 <form action="${pageContext.request.contextPath}/SaveRegistroServlet" method="POST">
                     <div class="form-item">     
                         <label class="label-nome" for="input-nome">Nome</label>            
-                        <input type="text" class="form-control" id="input-nome" name="nome" 
+                        <input type="text" class="form-control" id="input-nome" name="nome" maxlength="30" 
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
                     </div>
                     <% if (registro.getId() == null) { %>
@@ -104,7 +104,7 @@
                         </a>                    
                         <a class="form-button__caixa form-button--efeito"
                                 href="${pageContext.request.contextPath}/index.jsp">
-                            <span class="form-button__caixa__titulo">Cancelar</span>
+                            <span class="form-button__caixa__titulo">Voltar</span>
                         </a>
                     </div>
                 </form>

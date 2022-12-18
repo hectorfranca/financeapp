@@ -83,7 +83,7 @@
                         </a> 
                         <a class="form-button__caixa form-button--efeito"
                                 href="${pageContext.request.contextPath}/index.jsp">
-                            <span class="form-button__caixa__titulo">Cancelar</span>
+                            <span class="form-button__caixa__titulo">Voltar</span>
                         </a>
                     </div>
                 </form>

@@ -26,7 +26,7 @@
                 <form action="${pageContext.request.contextPath}/SaveCategoriaServlet" method="POST">
                     <div class="form-item">
                         <label class="label-nome" for="input-nome">Nome</label>         
-                        <input type="text" class="form-control" id="input-nome" name="nome" 
+                        <input type="text" class="form-control" id="input-nome" name="nome" maxlength="25"
                                value="<%= categoria.getNome() != null ? categoria.getNome() : "" %>" required>
                         <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>">
                         <input type="hidden" name="isOnRegister" value="<%= request.getParameter("isOnRegister") %>">
@@ -43,12 +43,12 @@
                                 && request.getParameter("isOnRegister").equals("1")) { %>
                             <a class="form-button__caixa form-button--efeito"
                                href="${pageContext.request.contextPath}/GoToFormRegistroServlet?tipo=<%= request.getParameter("tipo") %>">
-                               <span class="form-button__caixa__titulo">Cancelar</span>
+                               <span class="form-button__caixa__titulo">Voltar</span>
                             </a>
                         <% } else { %>                        
                             <a class="form-button__caixa form-button--efeito"
                                     href="${pageContext.request.contextPath}/ListCategoriaServlet">
-                                <span class="form-button__caixa__titulo">Cancelar</span>
+                                <span class="form-button__caixa__titulo">Voltar</span>
                             </a>
                         <% } %>
                     </div>
