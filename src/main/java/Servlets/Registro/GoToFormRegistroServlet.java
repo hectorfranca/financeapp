@@ -21,6 +21,7 @@ public class GoToFormRegistroServlet extends HttpServlet {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         RequestDispatcher requestDispatcher = null;
         SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         
         try {            
             if (!request.getParameter("tipo").equals("R") && !request.getParameter("tipo").equals("D")) {
@@ -39,9 +40,12 @@ public class GoToFormRegistroServlet extends HttpServlet {
                     registro.setData(dateFormatUS.parse(request.getParameter("data")));
                     registro.setValor(Double.parseDouble(request.getParameter("valor")));
                     registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
-
+  
+                    request.setAttribute("dataInicial", request.getParameter("dataInicial"));
+                    request.setAttribute("dataFinal", request.getParameter("dataFinal"));
+                    request.setAttribute("tipoLista", request.getParameter("tipoLista"));
                     request.setAttribute("registro", registro);
-                } else {
+                 } else {
                     request.setAttribute("tipo", request.getParameter("tipo"));
                 }
 

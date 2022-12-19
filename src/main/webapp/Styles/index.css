@@ -27,10 +27,10 @@ a {
 .container__titulo {
     text-align: center;
     font-size: 18px;
+    margin-top: 15px;
     margin-bottom: 50px;
 }
 .btn-primario, .btn-secundario {
-    width: 325px !important;
     text-align: center;
     display: flex !important;
     flex-direction: row !important;
@@ -39,7 +39,7 @@ a {
     margin-bottom: 20px;
 }
 .btn-primario__caixa, .btn-secundario__caixa {
-    width: 400px;
+    width: 300px;
     height: 30px;
     border: 3px solid orange !important;
     background-color: #ffc000;

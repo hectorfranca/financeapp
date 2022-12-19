@@ -21,8 +21,8 @@ public class FiltroRegistroServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = null;  
         
         try {            
-            SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
             
             if (request.getParameter("tipoLista").equals("completa")) {
                 ColecaoRegistroBean colecaoRegistro = new ColecaoRegistroBean();
@@ -55,9 +55,9 @@ public class FiltroRegistroServlet extends HttpServlet {
                 
                 request.setAttribute("colecaoRegistroResumido", colecaoRegistroResumido);
             }
-                                    
-            request.setAttribute("dataInicial", dateFormat.format(dateFormatUS.parse(request.getParameter("dataInicial"))));  
-            request.setAttribute("dataFinal", dateFormat.format(dateFormatUS.parse(request.getParameter("dataFinal")))); 
+            
+            request.setAttribute("dataInicial", dateFormat.format(dateFormatUS.parse(request.getParameter("dataInicial"))));
+            request.setAttribute("dataFinal", dateFormat.format(dateFormatUS.parse(request.getParameter("dataFinal"))));
             
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {

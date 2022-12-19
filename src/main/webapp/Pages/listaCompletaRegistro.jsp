@@ -46,6 +46,8 @@
                         a
                         <%= request.getAttribute("dataFinal") %>
                     <span>
+                    <input type="hidden" class="data-inicial" name="dataInicial" value="<%= request.getParameter("dataInicial") %>"/>  
+                    <input type="hidden" class="data-final" name="dataFinal" value="<%= request.getParameter("dataFinal") %>"/> 
                 </div>
                 <% if (colecaoRegistro.getRegistros().size() > 0) { %>
                     <div class="container-primario__container-secundario__lista">                   
@@ -69,14 +71,15 @@
                             <div class="item-lista__valor">
                                 <span class="item-lista__valor__conteudo"><%= decimalFormat.format(registro.getValor()) %></span>
                             </div>
-                            <input type="hidden" class="id-registro" value="<%= registro.getId() %>"/>
-                            <input type="hidden" class="data-registro" value="<%= dateFormatUS.format(registro.getData()) %>"/> 
-                            <input type="hidden" class="nome-registro" value="<%= registro.getNome() %>"/>                           
-                            <input type="hidden" class="categoria-registro" value="<%= registro.getCategoria().getId() %>"/>
-                            <input type="hidden" class="valor-registro" value="<%= registro.getValor() %>"/>
-                            <input type="hidden" class="tipo-registro" value="<%= registro.getTipo() %>"/>                 
+                            <input type="hidden" class="id-registro" name="id" value="<%= registro.getId() %>"/>
+                            <input type="hidden" class="data-registro" name="data" value="<%= dateFormatUS.format(registro.getData()) %>"/> 
+                            <input type="hidden" class="nome-registro" name="nome" value="<%= registro.getNome() %>"/>                           
+                            <input type="hidden" class="categoria-registro" name="categoria" value="<%= registro.getCategoria().getId() %>"/>
+                            <input type="hidden" class="valor-registro" name="valor" value="<%= registro.getValor() %>"/>
+                            <input type="hidden" class="tipo-registro" name="tipo" value="<%= registro.getTipo() %>"/>                 
                         </div>                     
                     <% } %>
+                    <input type="hidden" class="tipo-lista" name="tipoLista" value="<%= request.getParameter("tipoLista") %>"/>  
                     </div>
                 <% } else { %>
                     <p>Nenhum registro cadastrado.</p>

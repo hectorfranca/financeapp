@@ -97,6 +97,9 @@
                     
                     <% if (registro.getId() != null) { %>                        
                     <input type="hidden" name="id" value="<%= registro.getId() %>">
+                    <input type="hidden" class="data-inicial" name="dataInicial" value="<%= request.getAttribute("dataInicial") %>"/>  
+                    <input type="hidden" class="data-final" name="dataFinal" value="<%= request.getAttribute("dataFinal") %>"/> 
+                    <input type="hidden" class="tipo-lista" name="tipoLista" value="<%= request.getParameter("tipoLista") %>"/>
                     <% } %>                    
                     <div class="form-button">
                         <a class="form-button__registrar form-button__caixa form-button--efeito">

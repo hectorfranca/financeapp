@@ -22,7 +22,7 @@ public class SaveRegistroServlet extends HttpServlet {
         RegistroBean registro = new RegistroBean();
         SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
         
-        try {     
+        try {        
             registro.setNome(request.getParameter("nome"));
             registro.setTipo(request.getParameter("tipo").charAt(0));
             registro.setData(dateFormatUS.parse(request.getParameter("data")));         
@@ -33,7 +33,11 @@ public class SaveRegistroServlet extends HttpServlet {
                 registro.setId(Long.parseLong(request.getParameter("id")));                                   
                 registroDAO.update(registro);
                 
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                response.sendRedirect(request.getContextPath() + "/FiltroRegistroServlet?"
+                        + "dataInicial=" + request.getParameter("dataInicial") 
+                        + "&dataFinal=" + request.getParameter("dataFinal")
+                        + "&tipo=" + request.getParameter("tipo")
+                        + "&tipoLista=" + request.getParameter("tipoLista"));
             } else {
                  RequestDispatcher requestDispatcher = request.getRequestDispatcher("/GoToFormRegistroServlet?=tipo" +
                     request.getParameter("tipo"));

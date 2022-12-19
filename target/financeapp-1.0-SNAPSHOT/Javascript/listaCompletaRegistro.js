@@ -6,6 +6,9 @@ const seletor = document.getElementsByClassName("seletor")[0];
 const lista = document.getElementsByClassName("container-primario__container-secundario__lista")[0];
 const excluirButton = document.getElementById("excluir-button");
 const editarButton = document.getElementById("editar-button");
+const dataInicial = document.getElementsByClassName("data-inicial")[0];
+const dataFinal = document.getElementsByClassName("data-final")[0];
+const tipoLista = document.getElementsByClassName("tipo-lista")[0];
 
 let tipo = document.getElementsByClassName("tipo-registro")[0];
 
@@ -103,7 +106,9 @@ editarButton.addEventListener("click", () => {
     window.location.href = "/financeapp/GoToFormRegistroServlet?id=" + itemSelecionado.id
         + "&nome=" + itemSelecionado.nome + "&categoria=" + itemSelecionado.categoria
         + "&data=" + itemSelecionado.data + "&valor=" + itemSelecionado.valor
-        + "&tipo=" + itemSelecionado.tipo;
+        + "&tipo=" + itemSelecionado.tipo
+        + "&dataInicial=" + dataInicial.value + "&dataFinal=" + dataFinal.value
+        + "&tipoLista=" + tipoLista.value;
 });
 
 excluirButton.addEventListener("click", () => {
