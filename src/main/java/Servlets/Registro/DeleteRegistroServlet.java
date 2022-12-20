@@ -21,7 +21,11 @@ public class DeleteRegistroServlet extends HttpServlet {
 
             registroDAO.delete(id);
             
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            response.sendRedirect(request.getContextPath() + "/FiltroRegistroServlet?"
+                        + "dataInicial=" + request.getParameter("dataInicial") 
+                        + "&dataFinal=" + request.getParameter("dataFinal")
+                        + "&tipo=" + request.getParameter("tipo")
+                        + "&tipoLista=" + request.getParameter("tipoLista"));
         } catch(Exception exception) {
             throw new ServletException("Não foi possível excluir o registro: " 
                     + exception.getMessage());

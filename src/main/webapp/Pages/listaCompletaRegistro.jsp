@@ -30,7 +30,7 @@
         
         <div class="container-primario">          
             <a class="back-button__caixa back-button--efeito"
-                href="javascript:history.back()">
+                href="GoToFiltroRegistroServlet?tipo=<%= request.getParameter("tipo") %>">
                     <span class="back-button__caixa__titulo">Voltar</span>
             </a>                 
             <div class="container-primario__container-secundario">
@@ -85,15 +85,17 @@
                     <p>Nenhum registro cadastrado.</p>
                 <% } %>           
             </div>               
-        </div>           
-        <div class="valor-total">
-            <div class="valor-total-item">
-                <span>Total:</span>
-            </div> 
-            <div class="valor-total-item">
-                <span class="valor-total-item__valor"><%= decimalFormat.format(valorTotal) %></span>
-            </div>       
         </div>
+        <% if (colecaoRegistro.getRegistros().size() > 0) { %>
+            <div class="valor-total">
+                <div class="valor-total-item">
+                    <span>Total:</span>
+                </div> 
+                <div class="valor-total-item">
+                    <span class="valor-total-item__valor"><%= decimalFormat.format(valorTotal) %></span>
+                </div>       
+            </div>
+        <% } %>
         <div class="seletor hidden">
             <div class="seletor-item">
                 <span>Selecionado:</span>

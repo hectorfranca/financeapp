@@ -77,7 +77,7 @@ for (let item of itemLista) {
 
 // Esconder o menu de opcoes 
 document.addEventListener("click", e => {
-    if (e.target.tagName == "HTML"
+    if ((e.target.tagName == "HTML" && typeof lista != "undefined")
         || (e.target.parentNode != lista
         && e.target.parentNode.parentNode != lista
         && e.target.parentNode.parentNode.parentNode != lista
@@ -86,7 +86,8 @@ document.addEventListener("click", e => {
         && e.target != seletor
         && e.target.parentNode != seletor
         && e.target.parentNode.parentNode != seletor
-        && e.target.parentNode.parentNode.parentNode != seletor)) {
+        && e.target.parentNode.parentNode.parentNode != seletor
+        && typeof lista != "undefined")) {
         seletor.classList.add("hidden");
         seletor.classList.remove("show");
         lista.style.marginBottom = "0px";
@@ -108,11 +109,14 @@ editarButton.addEventListener("click", () => {
         + "&data=" + itemSelecionado.data + "&valor=" + itemSelecionado.valor
         + "&tipo=" + itemSelecionado.tipo
         + "&dataInicial=" + dataInicial.value + "&dataFinal=" + dataFinal.value
-        + "&tipoLista=" + tipoLista.value;
+        + "&tipoLista=" + tipoLista.value + "&isOnListRegister=1";
 });
 
 excluirButton.addEventListener("click", () => {
-    window.location.href = "/financeapp/DeleteRegistroServlet?id=" + itemSelecionado.id;
+    window.location.href = "/financeapp/DeleteRegistroServlet?id=" + itemSelecionado.id
+        + "&tipo=" + itemSelecionado.tipo
+        + "&dataInicial=" + dataInicial.value + "&dataFinal=" + dataFinal.value
+        + "&tipoLista=" + tipoLista.value;
 });
 
 function intercalarFundoItem() {

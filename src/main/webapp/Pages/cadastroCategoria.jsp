@@ -37,8 +37,7 @@
                      <div class="form-button">
                         <a class="form-button__registrar form-button__caixa form-button--efeito">
                             <span class="form-button__caixa__titulo">Registrar</span>
-                        </a>
-                         
+                        </a>               
                         <% if (request.getParameter("isOnRegister") != null 
                                 && request.getParameter("isOnRegister").equals("1")) { %>
                             <a class="form-button__caixa form-button--efeito"

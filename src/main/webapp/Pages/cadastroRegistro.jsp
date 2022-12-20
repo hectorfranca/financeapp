@@ -55,17 +55,10 @@
                     </div>
                     <% if (registro.getId() == null) { %>
                         <div class="form-button">
-                            <% if (tipo == 'R') { %>
-                                <a class="form-button__caixa button-add-categoria form-button--efeito"
-                                   href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=R&isOnRegister=1">
-                                    <span class="form-button__caixa__titulo">Cadastrar categoria</span>
-                                </a>
-                            <% } else { %>
-                                <a class="form-button__caixa button-add-categoria form-button--efeito"
-                                   href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=D&isOnRegister=1">
-                                    <span class="form-button__caixa__titulo">Cadastrar categoria</span>
-                                </a>
-                            <% } %>
+                            <a class="form-button__caixa button-add-categoria form-button--efeito"
+                               href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=<%= tipo %>&isOnRegister=1">
+                                <span class="form-button__caixa__titulo">Cadastrar categoria</span>
+                            </a>
                         </div>   
                     <% } %>
                     <div class="form-item">
@@ -104,11 +97,19 @@
                     <div class="form-button">
                         <a class="form-button__registrar form-button__caixa form-button--efeito">
                             <span class="form-button__caixa__titulo">Registrar</span>
-                        </a>                    
-                        <a class="form-button__caixa form-button--efeito"
-                                href="${pageContext.request.contextPath}/index.jsp">
-                            <span class="form-button__caixa__titulo">Voltar</span>
                         </a>
+                        <% if (request.getParameter("isOnListRegister") != null 
+                                && request.getParameter("isOnListRegister").equals("1")) { %>
+                            <a class="form-button__caixa form-button--efeito"
+                                    href="${pageContext.request.contextPath}/FiltroRegistroServlet?tipo=<%= tipo %>&dataInicial=<%= request.getParameter("dataInicial") %>&dataFinal=<%= request.getParameter("dataFinal") %>&tipoLista=<%= request.getParameter("tipoLista") %>">
+                                <span class="form-button__caixa__titulo">Voltar</span>
+                            </a>
+                        <% } else { %>
+                            <a class="form-button__caixa form-button--efeito"
+                                    href="${pageContext.request.contextPath}/index.jsp">
+                                <span class="form-button__caixa__titulo">Voltar</span>
+                            </a>
+                        <% } %>
                     </div>
                 </form>
             </div>      

@@ -88,16 +88,18 @@
                 <% } %>
             </div>
         </div>
-            
-        <div class="valor-total">
-            <div class="valor-total-item">
-                <span>Total:</span>
-            </div> 
-            <div class="valor-total-item">
-                <span class="valor-total-item__valor"><%= decimalFormat.format(valorTotal) %></span>
-            </div>       
-        </div>
-
+        <% if ((colecaoRegistro.getRegistros() != null && colecaoRegistro.getRegistros().size() > 0)
+                        || (colecaoRegistroResumido.getRegistros() != null 
+                        && colecaoRegistroResumido.getRegistros().size() > 0)) { %>
+            <div class="valor-total">
+                <div class="valor-total-item">
+                    <span>Total:</span>
+                </div> 
+                <div class="valor-total-item">
+                    <span class="valor-total-item__valor"><%= decimalFormat.format(valorTotal) %></span>
+                </div>       
+            </div>
+        <% } %>
         <jsp:include page="/Components/footer.jsp"/>
                
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>     

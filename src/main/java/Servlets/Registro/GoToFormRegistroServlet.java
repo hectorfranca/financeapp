@@ -21,7 +21,6 @@ public class GoToFormRegistroServlet extends HttpServlet {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         RequestDispatcher requestDispatcher = null;
         SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         
         try {            
             if (!request.getParameter("tipo").equals("R") && !request.getParameter("tipo").equals("D")) {
