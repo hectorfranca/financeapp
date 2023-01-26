@@ -26,16 +26,18 @@
                 </a>
             </div>
             <div class="collapse" id="collapseExample">
-                <div class="btn-secundario">
-                    <a class="btn-secundario__caixa btn-secundario--efeito" href="GoToFormRegistroServlet?tipo=R">
-                        <span class="btn-secundario__caixa__titulo">Registrar</span>  
-                    </a> 
-                </div>
-                <div class="btn-secundario">
-                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/GoToFiltroRegistroServlet?tipo=R">
+                <form action="${pageContext.request.contextPath}/GoToFormRegistroServlet" method="POST" id="registrar-receita-form" class="btn-secundario">
+                    <input type="hidden" name="tipo" value="R">
+                    <a id="registrar-receita" class="btn-secundario__caixa btn-secundario--efeito">
+                        <span class="btn-secundario__caixa__titulo">Registrar</span> 
+                    </a>
+                </form>
+                <form action="${pageContext.request.contextPath}/GoToFiltroRegistroServlet" method="POST" id="consultar-receita-form" class="btn-secundario">
+                    <input type="hidden" name="tipo" value="R">
+                    <a id="consultar-receita" class="btn-secundario__caixa btn-secundario--efeito">
                         <span class="btn-secundario__caixa__titulo">Consultar</span>   
                     </a>
-                </div>
+                </form>
             </div>
             <div class="btn-primario">
                 <a class="btn-primario__caixa btn-primario--efeito" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -43,16 +45,18 @@
                 </a>
             </div>
             <div class="collapse" id="collapseExample2">
-                <div class="btn-secundario entrada-item">
-                    <a class="btn-secundario__caixa btn-secundario--efeito" href="GoToFormRegistroServlet?tipo=D"">
+                <form action="${pageContext.request.contextPath}/GoToFormRegistroServlet" method="POST" id="registrar-despesa-form" class="btn-secundario entrada-item">
+                    <input type="hidden" name="tipo" value="D">
+                    <a id="registrar-despesa" class="btn-secundario__caixa btn-secundario--efeito">
                         <span class="btn-secundario__caixa__titulo">Registrar</span>
-                    </a> 
-                </div>
-                <div class="btn-secundario">
-                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/GoToFiltroRegistroServlet?tipo=D">
+                    </a>
+                </form>
+                <form action="${pageContext.request.contextPath}/GoToFiltroRegistroServlet" method="POST" id="consultar-despesa-form" class="btn-secundario">
+                    <input type="hidden" name="tipo" value="D">
+                    <a id="consultar-despesa" class="btn-secundario__caixa btn-secundario--efeito">
                         <span class="btn-secundario__caixa__titulo">Consultar</span>
                     </a>
-                </div>
+                </form>
             </div>
             <div class="btn-primario">
                 <a class="btn-primario__caixa btn-primario--efeito" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -84,5 +88,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous"></script>
+        <script src="${pageContext.request.contextPath}/Javascript/index.js"></script>
     </body>
 </html>

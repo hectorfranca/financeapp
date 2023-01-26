@@ -18,7 +18,7 @@ public class FiltroRegistroServlet extends HttpServlet {
             throws ServletException, IOException {
         
         RegistroDAO registroDAO = new RegistroDAO();
-        RequestDispatcher requestDispatcher = null;  
+        RequestDispatcher requestDispatcher = null;
         
         try {            
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

@@ -28,18 +28,20 @@
         
         <jsp:include page="/Components/header.jsp"/>
         
-        <div class="container-primario">          
-            <a class="back-button__caixa back-button--efeito"
-                href="GoToFiltroRegistroServlet?tipo=<%= request.getParameter("tipo") %>">
+        <div class="container-primario">     
+            <form id="voltar-form" action="${pageContext.request.contextPath}/GoToFiltroRegistroServlet" method="POST">
+                <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>">
+                <a id="voltar-button" class="back-button__caixa back-button--efeito">
                     <span class="back-button__caixa__titulo">Voltar</span>
-            </a>                 
+                </a>
+            </form>
             <div class="container-primario__container-secundario">
                 <% if (request.getParameter("tipo").equals("R")) { %>
                     <h1 class="container-primario__container-secundario__titulo">Relatório de Receitas</h1> 
                 <% } else { %>
                     <h1 class="container-primario__container-secundario__titulo">Relatório de Despesas</h1>
                 <% } %>
-                <h2 class="container-primario__container-secundario__subtitulo">Lista Completa</h2>
+                <h2 class="container-primario__container-secundario__subtitulo">Lista Completa</h2>              
                 <div class="data-filter">
                     <span>
                         <%= request.getAttribute("dataInicial") %>
@@ -84,7 +86,26 @@
                 <% } else { %>
                     <p>Nenhum registro cadastrado.</p>
                 <% } %>           
-            </div>               
+            </div>
+            <form id="editar-registro-form" action="${pageContext.request.contextPath}/GoToFormRegistroServlet" method="POST">
+                <input type="hidden" id="editar-id-registro" name="id"/>
+                <input type="hidden" id="editar-data-registro" name="data"/> 
+                <input type="hidden" id="editar-nome-registro" name="nome"/>                           
+                <input type="hidden" id="editar-categoria-registro" name="categoria"/>
+                <input type="hidden" id="editar-valor-registro" name="valor"/>
+                <input type="hidden" id="editar-tipo-registro" name="tipo"/> 
+                <input type="hidden" id="editar-data-inicial" name="dataInicial"/>  
+                <input type="hidden" id="editar-data-final" name="dataFinal"/>
+                <input type="hidden" id="editar-tipo-lista" name="tipoLista"/>
+                <input type="hidden" id="editar-is-on-register" name="isOnRegister"/>
+            </form>
+            <form id="excluir-registro-form" action="${pageContext.request.contextPath}/DeleteRegistroServlet" method="POST">
+                <input type="hidden" id="excluir-id-registro" name="id"/>
+                <input type="hidden" id="excluir-tipo-registro" name="tipo"/>
+                <input type="hidden" id="excluir-data-inicial" name="dataInicial"/>  
+                <input type="hidden" id="excluir-data-final" name="dataFinal"/>
+                <input type="hidden" id="excluir-tipo-lista" name="tipoLista"/>
+            </form>
         </div>
         <% if (colecaoRegistro.getRegistros().size() > 0) { %>
             <div class="valor-total">

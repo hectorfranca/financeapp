@@ -57,17 +57,20 @@
             </div> 
             <div class="seletor-item">
                 <span class="seletor-item__selecionado">Supermercado</span>
-            </div> 
-            <div class="seletor-item">
-                <button id="editar-button" type="submit" class="editar-button ">
+            </div>
+            <form action="${pageContext.request.contextPath}/GoToFormCategoriaServlet" method="POST" class="editar-form seletor-item">
+                <input type="hidden" id="editar-id-categoria" name="id"/>
+                <input type="hidden" id="editar-nome-categoria" name="nome"/>
+                <button id="editar-button" class="editar-button">
                     <img src="${pageContext.request.contextPath}/img/editar.png">    
                 </button>
-            </div>
-            <div class="seletor-item">
+            </form>
+            <form action="${pageContext.request.contextPath}/DeleteCategoriaServlet" class="excluir-form seletor-item">
+                <input type="hidden" id="excluir-id-categoria" name="id"/>
                 <button id="excluir-button" class="excluir-button active">
                     <img src="${pageContext.request.contextPath}/img/excluir.png">    
                 </button>
-            </div>
+            </form>
         </div>   
 
         <jsp:include page="/Components/footer.jsp"/>

@@ -2,6 +2,7 @@ package Servlets.Categoria;
 
 import Beans.CategoriaBean;
 import DAO.CategoriaDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,20 +17,21 @@ public class SaveCategoriaServlet extends HttpServlet {
         
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         CategoriaBean categoria = new CategoriaBean();
+        RequestDispatcher requestDispatcher = null;
      
         try {
-            categoria.setNome(request.getParameter("nome"));
+            categoria.setNome(request.getParameter("nome-categoria"));
             
-            if (request.getParameter("id") != null) {            
-                categoria.setId(Long.parseLong(request.getParameter("id")));                                   
+            if (request.getParameter("id-categoria") != null) {            
+                categoria.setId(Long.parseLong(request.getParameter("id-categoria")));                                   
                 categoriaDAO.update(categoria);
             } else {
                 categoriaDAO.save(categoria);
             }
             
             if (request.getParameter("isOnRegister").equals("1")) {
-                response.sendRedirect(request.getContextPath() + "/GoToFormRegistroServlet?tipo=" + 
-                        request.getParameter("tipo"));
+                requestDispatcher = request.getRequestDispatcher("/GoToFormRegistroServlet");       
+                requestDispatcher.forward(request, response);
             } else {
                 response.sendRedirect(request.getContextPath() + "/ListCategoriaServlet");
             }

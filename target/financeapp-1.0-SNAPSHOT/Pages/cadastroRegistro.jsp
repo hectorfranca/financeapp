@@ -19,7 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <%! SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd"); %>
+        <% SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd"); %>
         <jsp:useBean id="registro" class="Beans.RegistroBean" scope="request"></jsp:useBean>
         <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>
         
@@ -27,8 +27,8 @@
         
         <% char tipo; 
         
-            if (request.getAttribute("tipo") != null) {
-              if (request.getAttribute("tipo").equals("R")) { 
+            if (request.getParameter("tipo") != null) {
+              if (request.getParameter("tipo").equals("R")) { 
                 tipo = 'R';
               } else {
                 tipo = 'D';
@@ -46,21 +46,31 @@
                         <h1 class="container-primario__container-secundario__titulo">Cadastro de Receita</h1>             
                 <% } else { %>
                         <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
-                <% } %>        
-                <form action="${pageContext.request.contextPath}/SaveRegistroServlet" method="POST">
+                <% } %>
+                <form id="add-categoria-form" class="form-button" action="${pageContext.request.contextPath}/GoToFormCategoriaServlet" method="POST">
+                    <input type="hidden" name="isOnRegister" value="1">
+                    <input type="hidden" name="tipo" value="<%= tipo %>">
+                    <% if (request.getParameter("id") != null) { %>
+                    <input type="hidden" name="id" value="<%= registro.getId() %>">
+                    <input type="hidden" name="nome" value="<%= registro.getNome() %>">
+                    <input type="hidden" name="data" value="<%= dateFormatUS.format(registro.getData()) %>">
+                    <input type="hidden" name="categoria" value="<%= registro.getCategoria().getId() %>">
+                    <input type="hidden" name="valor" value="<%= registro.getValor() %>">
+                    <input type="hidden" name="dataInicial" value="<%= request.getParameter("dataInicial") %>">
+                    <input type="hidden" name="dataFinal" value="<%= request.getParameter("dataFinal") %>">
+                    <input type="hidden" name="tipoLista" value="<%= request.getParameter("tipoLista") %>">
+                    <% } %>
+                    
+                    <a class="form-button__caixa button-add-categoria form-button--efeito">
+                        <span class="form-button__caixa__titulo">Cadastrar categoria</span>
+                    </a>
+                </form>
+                <form id="salvar-registro-form" action="${pageContext.request.contextPath}/SaveRegistroServlet" method="POST">
                     <div class="form-item">     
                         <label class="label-nome" for="input-nome">Nome</label>            
                         <input type="text" class="form-control" id="input-nome" name="nome" maxlength="30" 
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
                     </div>
-                    <% if (registro.getId() == null) { %>
-                        <div class="form-button">
-                            <a class="form-button__caixa button-add-categoria form-button--efeito"
-                               href="${pageContext.request.contextPath}/Pages/cadastroCategoria.jsp?tipo=<%= tipo %>&isOnRegister=1">
-                                <span class="form-button__caixa__titulo">Cadastrar categoria</span>
-                            </a>
-                        </div>   
-                    <% } %>
                     <div class="form-item">
                         <label class="label-categoria" for="input-categoria">Categoria</label>
                         <select class="form-select" id="input-categoria" aria-label="Default select example" name="categoria" required>                           
@@ -90,28 +100,35 @@
                     
                     <% if (registro.getId() != null) { %>                        
                     <input type="hidden" name="id" value="<%= registro.getId() %>">
-                    <input type="hidden" class="data-inicial" name="dataInicial" value="<%= request.getAttribute("dataInicial") %>"/>  
-                    <input type="hidden" class="data-final" name="dataFinal" value="<%= request.getAttribute("dataFinal") %>"/> 
+                    <input type="hidden" class="data-inicial" name="dataInicial" value="<%= request.getParameter("dataInicial") %>"/>  
+                    <input type="hidden" class="data-final" name="dataFinal" value="<%= request.getParameter("dataFinal") %>"/> 
                     <input type="hidden" class="tipo-lista" name="tipoLista" value="<%= request.getParameter("tipoLista") %>"/>
                     <% } %>                    
-                    <div class="form-button">
-                        <a class="form-button__registrar form-button__caixa form-button--efeito">
-                            <span class="form-button__caixa__titulo">Registrar</span>
-                        </a>
-                        <% if (request.getParameter("isOnListRegister") != null 
-                                && request.getParameter("isOnListRegister").equals("1")) { %>
-                            <a class="form-button__caixa form-button--efeito"
-                                    href="${pageContext.request.contextPath}/FiltroRegistroServlet?tipo=<%= tipo %>&dataInicial=<%= request.getParameter("dataInicial") %>&dataFinal=<%= request.getParameter("dataFinal") %>&tipoLista=<%= request.getParameter("tipoLista") %>">
-                                <span class="form-button__caixa__titulo">Voltar</span>
-                            </a>
-                        <% } else { %>
-                            <a class="form-button__caixa form-button--efeito"
-                                    href="${pageContext.request.contextPath}/index.jsp">
-                                <span class="form-button__caixa__titulo">Voltar</span>
-                            </a>
-                        <% } %>
-                    </div>
                 </form>
+                <div class="form-button">
+                    <a class="form-button__registrar form-button__caixa form-button--efeito">
+                        <span class="form-button__caixa__titulo">Registrar</span>
+                    </a>
+                    <% if (request.getParameter("isOnRegister") != null 
+                            && request.getParameter("isOnRegister").equals("1")
+                            && request.getParameter("id") != null) { %>
+                        <form id="voltar-form" action="${pageContext.request.contextPath}/FiltroRegistroServlet" method="POST">
+                            <input type="hidden" name="tipo" value="<%= tipo %>">
+                            <input type="hidden" name="tipoLista" value="<%= request.getParameter("tipoLista") %>">
+                            <input type="hidden" name="dataInicial" value="<%= request.getParameter("dataInicial") %>">
+                            <input type="hidden" name="dataFinal" value="<%= request.getParameter("dataFinal") %>">
+                            
+                            <a id="voltar-button-form" class="form-button__caixa form-button--efeito">
+                                <span class="form-button__caixa__titulo">Voltar</span>
+                            </a>
+                        </form>
+                    <% } else { %>
+                        <a class="form-button__caixa form-button--efeito"
+                                href="${pageContext.request.contextPath}/index.jsp">
+                            <span class="form-button__caixa__titulo">Voltar</span>
+                        </a>
+                    <% } %>
+                </div>
             </div>      
         </div>
             

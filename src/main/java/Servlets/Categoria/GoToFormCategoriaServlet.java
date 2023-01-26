@@ -16,13 +16,13 @@ public class GoToFormCategoriaServlet extends HttpServlet {
        
         RequestDispatcher requestDispatcher;
         
-        try {    
+        try {
             requestDispatcher = request.getRequestDispatcher("/Pages/cadastroCategoria.jsp");                 
 
-            if (request.getParameter("id") != null) {
+            if (request.getParameter("categoria-id") != null) {
                 CategoriaBean categoria = new CategoriaBean();
                 
-                categoria.setId(Long.parseLong(request.getParameter("id")));
+                categoria.setId(Long.parseLong(request.getParameter("categoria-id")));
                 categoria.setNome(request.getParameter("nome"));
                                
                 request.setAttribute("categoria", categoria);

@@ -35,6 +35,9 @@ a {
     margin-bottom: 20px;
     text-align: center !important;
 }
+.button-add-categoria {
+    width: 300px !important;
+}
 .form-item {
     margin-top: 30px;
 }
@@ -44,10 +47,8 @@ a {
     box-shadow: 1px 1px;
     width: 300px;
 }
-.button-add-categoria {
-    width: 100% !important;
-}
 .form-button {
+    width: 300px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

@@ -23,35 +23,60 @@
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Cadastro de Categoria</h2>
-                <form action="${pageContext.request.contextPath}/SaveCategoriaServlet" method="POST">
+                <form id="registrar-form" action="${pageContext.request.contextPath}/SaveCategoriaServlet" method="POST">
                     <div class="form-item">
                         <label class="label-nome" for="input-nome">Nome</label>         
-                        <input type="text" class="form-control" id="input-nome" name="nome" maxlength="25"
+                        <input type="text" class="form-control" id="input-nome" name="nome-categoria" maxlength="25"
                                value="<%= categoria.getNome() != null ? categoria.getNome() : "" %>" required>
                         <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>">
                         <input type="hidden" name="isOnRegister" value="<%= request.getParameter("isOnRegister") %>">
                         <% if (categoria.getId() != null) {  %>
-                            <input type="hidden" name="id" value="<%= categoria.getId() %>">
+                            <input type="hidden" name="id-categoria" value="<%= categoria.getId() %>">
                         <% } %>
-                    </div>                                                                             
-                     <div class="form-button">
-                        <a class="form-button__registrar form-button__caixa form-button--efeito">
-                            <span class="form-button__caixa__titulo">Registrar</span>
-                        </a>               
-                        <% if (request.getParameter("isOnRegister") != null 
-                                && request.getParameter("isOnRegister").equals("1")) { %>
-                            <a class="form-button__caixa form-button--efeito"
-                               href="${pageContext.request.contextPath}/GoToFormRegistroServlet?tipo=<%= request.getParameter("tipo") %>">
+                        
+                        <% if (request.getParameter("id") != null) { %>
+                            <input type="hidden" name="id" value="<%= request.getParameter("id") %>">
+                            <input type="hidden" name="nome" value="<%= request.getParameter("nome") %>">
+                            <input type="hidden" name="data" value="<%= request.getParameter("data") %>">
+                            <input type="hidden" name="categoria" value="<%= request.getParameter("categoria") %>">
+                            <input type="hidden" name="valor" value="<%= request.getParameter("valor") %>">
+                            <input type="hidden" name="dataInicial" value="<%= request.getParameter("dataInicial") %>">
+                            <input type="hidden" name="dataFinal" value="<%= request.getParameter("dataFinal") %>">
+                            <input type="hidden" name="tipoLista" value="<%= request.getParameter("tipoLista") %>">
+                        <% } %>
+                    </div> 
+                </form>
+                <div class="form-button">
+                   <a class="form-button__registrar form-button__caixa form-button--efeito">
+                       <span class="form-button__caixa__titulo">Registrar</span>
+                   </a>               
+                   <% if (request.getParameter("isOnRegister") != null 
+                           && request.getParameter("isOnRegister").equals("1")) { %>
+                        <form id="voltar-form" action="${pageContext.request.contextPath}/GoToFormRegistroServlet" method="POST">
+                            <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>">
+                            <input type="hidden" name="isOnRegister" value="<%= request.getParameter("isOnRegister") %>">
+                            <% if (request.getParameter("id") != null) { %>
+                            <input type="hidden" name="id" value="<%= request.getParameter("id") %>">
+                            <input type="hidden" name="nome" value="<%= request.getParameter("nome") %>">
+                            <input type="hidden" name="data" value="<%= request.getParameter("data") %>">
+                            <input type="hidden" name="categoria" value="<%= request.getParameter("categoria") %>">
+                            <input type="hidden" name="valor" value="<%= request.getParameter("valor") %>">
+                            <input type="hidden" name="dataInicial" value="<%= request.getParameter("dataInicial") %>">
+                            <input type="hidden" name="dataFinal" value="<%= request.getParameter("dataFinal") %>">
+                            <input type="hidden" name="tipoLista" value="<%= request.getParameter("tipoLista") %>">
+                            <% } %>
+                            
+                            <a id="voltar-button" class="form-button__caixa form-button--efeito">
                                <span class="form-button__caixa__titulo">Voltar</span>
                             </a>
-                        <% } else { %>                        
-                            <a class="form-button__caixa form-button--efeito"
-                                    href="${pageContext.request.contextPath}/ListCategoriaServlet">
-                                <span class="form-button__caixa__titulo">Voltar</span>
-                            </a>
-                        <% } %>
-                    </div>
-                </form>
+                        </form>
+                   <% } else { %>                        
+                       <a class="form-button__caixa form-button--efeito"
+                               href="${pageContext.request.contextPath}/ListCategoriaServlet">
+                           <span class="form-button__caixa__titulo">Voltar</span>
+                       </a>
+                   <% } %>
+               </div>
             </div>      
         </div>
             

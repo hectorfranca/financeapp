@@ -9,6 +9,7 @@ const editarButton = document.getElementById("editar-button");
 const dataInicial = document.getElementsByClassName("data-inicial")[0];
 const dataFinal = document.getElementsByClassName("data-final")[0];
 const tipoLista = document.getElementsByClassName("tipo-lista")[0];
+const voltarButton = document.getElementById("voltar-button");
 
 let tipo = document.getElementsByClassName("tipo-registro")[0];
 
@@ -75,6 +76,12 @@ for (let item of itemLista) {
     });
 }
 
+voltarButton.addEventListener("click", () => {
+   let voltarForm = document.getElementById("voltar-form") ;
+   
+   voltarForm.submit();
+});
+
 // Esconder o menu de opcoes 
 document.addEventListener("click", e => {
     if ((e.target.tagName == "HTML" && typeof lista != "undefined")
@@ -104,19 +111,49 @@ document.addEventListener("click", e => {
 }); 
 
 editarButton.addEventListener("click", () => { 
-    window.location.href = "/financeapp/GoToFormRegistroServlet?id=" + itemSelecionado.id
-        + "&nome=" + itemSelecionado.nome + "&categoria=" + itemSelecionado.categoria
-        + "&data=" + itemSelecionado.data + "&valor=" + itemSelecionado.valor
-        + "&tipo=" + itemSelecionado.tipo
-        + "&dataInicial=" + dataInicial.value + "&dataFinal=" + dataFinal.value
-        + "&tipoLista=" + tipoLista.value + "&isOnListRegister=1";
+    let idRegistro = document.getElementById("editar-id-registro");
+    let nomeRegistro = document.getElementById("editar-nome-registro");
+    let dataRegistro = document.getElementById("editar-data-registro");
+    let categoriaRegistro = document.getElementById("editar-categoria-registro");
+    let valorRegistro = document.getElementById("editar-valor-registro");
+    let tipoRegistro = document.getElementById("editar-tipo-registro");
+    let dataInicialForm = document.getElementById("editar-data-inicial");
+    let dataFinalForm = document.getElementById("editar-data-final");
+    let tipoListaForm = document.getElementById("editar-tipo-lista");
+    let isOnRegister = document.getElementById("editar-is-on-register");
+    
+    idRegistro.value = itemSelecionado.id;
+    nomeRegistro.value = itemSelecionado.nome;
+    dataRegistro.value = itemSelecionado.data;
+    categoriaRegistro.value = itemSelecionado.categoria;
+    valorRegistro.value = itemSelecionado.valor;
+    tipoRegistro.value = itemSelecionado.tipo;
+    dataInicialForm.value = dataInicial.value;
+    dataFinalForm.value = dataFinal.value;
+    tipoListaForm.value = tipoLista.value;
+    isOnRegister.value = "1";
+    
+    let editarRegistroForm = document.getElementById("editar-registro-form");
+    
+    editarRegistroForm.submit();
 });
 
 excluirButton.addEventListener("click", () => {
-    window.location.href = "/financeapp/DeleteRegistroServlet?id=" + itemSelecionado.id
-        + "&tipo=" + itemSelecionado.tipo
-        + "&dataInicial=" + dataInicial.value + "&dataFinal=" + dataFinal.value
-        + "&tipoLista=" + tipoLista.value;
+    let idRegistro = document.getElementById("excluir-id-registro");
+    let tipoRegistro = document.getElementById("excluir-tipo-registro");
+    let dataInicialForm = document.getElementById("excluir-data-inicial");
+    let dataFinalForm = document.getElementById("excluir-data-final");
+    let tipoListaForm = document.getElementById("excluir-tipo-lista");
+    
+    idRegistro.value = itemSelecionado.id;
+    tipoRegistro.value = itemSelecionado.tipo;
+    dataInicialForm.value = dataInicial.value;
+    dataFinalForm.value = dataFinal.value;
+    tipoListaForm.value = tipoLista.value;
+    
+    let excluirRegistroForm = document.getElementById("excluir-registro-form");
+        
+    excluirRegistroForm.submit();
 });
 
 function intercalarFundoItem() {

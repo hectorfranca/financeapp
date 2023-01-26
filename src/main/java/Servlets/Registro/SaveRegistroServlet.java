@@ -21,6 +21,7 @@ public class SaveRegistroServlet extends HttpServlet {
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         RegistroBean registro = new RegistroBean();
         SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
+        RequestDispatcher requestDispatcher = null;
         
         try {        
             registro.setNome(request.getParameter("nome"));
@@ -30,22 +31,18 @@ public class SaveRegistroServlet extends HttpServlet {
             registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
             
             if (request.getParameter("id") != null) {
+                requestDispatcher = request.getRequestDispatcher("/FiltroRegistroServlet"); 
+                                
                 registro.setId(Long.parseLong(request.getParameter("id")));                                   
-                registroDAO.update(registro);
-                
-                response.sendRedirect(request.getContextPath() + "/FiltroRegistroServlet?"
-                        + "dataInicial=" + request.getParameter("dataInicial") 
-                        + "&dataFinal=" + request.getParameter("dataFinal")
-                        + "&tipo=" + request.getParameter("tipo")
-                        + "&tipoLista=" + request.getParameter("tipoLista"));
+                registroDAO.update(registro);            
             } else {
-                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/GoToFormRegistroServlet?=tipo" +
+                requestDispatcher = request.getRequestDispatcher("/GoToFormRegistroServlet?=tipo" +
                     request.getParameter("tipo"));
                 
-                registroDAO.save(registro);  
-                
-                requestDispatcher.forward(request, response);
+                registroDAO.save(registro);
             }
+            
+            requestDispatcher.forward(request, response);
         } catch(Exception exception) {
             throw new ServletException("Não foi possível salvar o registro: " 
                     + exception.getMessage());

@@ -1,9 +1,23 @@
-const form = document.getElementsByTagName('form')[0];
+const salvarRegistroForm = document.getElementById('salvar-registro-form');
 const registrarButton = document.getElementsByClassName("form-button__registrar")[0];
 const inputNome = document.getElementById("input-nome");
 const inputCategoria = document.getElementById("input-categoria");
 const inputData = document.getElementById("input-data");
 const inputValor = document.getElementById("input-valor");
+const addCategoriaButton = document.getElementsByClassName("button-add-categoria")[0];
+const voltarButtonForm = document.getElementById("voltar-button-form");
+
+if (voltarButtonForm != null) {
+    voltarButtonForm.addEventListener("click", () => {
+       let voltarForm = document.getElementById("voltar-form");
+       voltarForm.submit();
+    });
+}
+
+addCategoriaButton.addEventListener("click", () => {
+   let addCategoriaForm = document.getElementById("add-categoria-form");
+   addCategoriaForm.submit();
+});
 
 registrarButton.addEventListener("click", () => {
     let labelNome = document.getElementsByClassName("label-nome")[0];
@@ -45,6 +59,6 @@ registrarButton.addEventListener("click", () => {
     
     if (inputNome.value != '' && inputCategoria.value != ''
             && inputData.value != '' && inputValor.value != '') {       
-        form.submit();
+        salvarRegistroForm.submit();
     }
 });

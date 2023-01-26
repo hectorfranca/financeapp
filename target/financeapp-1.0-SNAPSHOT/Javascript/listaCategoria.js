@@ -65,13 +65,25 @@ document.addEventListener("click", e => {
     }
 }); 
 
-editarButton.addEventListener("click", () => { 
-    window.location.href = "/financeapp/GoToFormCategoriaServlet?id=" + itemSelecionado.id
-        + "&nome=" + itemSelecionado.nome;
+editarButton.addEventListener("click", (event) => { 
+    event.preventDefault();
+    
+    let editarForm = document.getElementsByClassName("editar-form")[0];
+    
+    document.getElementById("editar-id-categoria").value = itemSelecionado.id;
+    document.getElementById("editar-nome-categoria").value = itemSelecionado.nome;
+    
+    editarForm.submit();
 });
 
 excluirButton.addEventListener("click", () => {
-    window.location.href = "/financeapp/DeleteCategoriaServlet?id=" + itemSelecionado.id;
+    event.preventDefault();
+    
+    let excluirForm = document.getElementsByClassName("excluir-form")[0];
+    
+    document.getElementById("excluir-id-categoria").value = itemSelecionado.id;
+    
+    excluirForm.submit();
 });
 
 function intercalarFundoItem() {

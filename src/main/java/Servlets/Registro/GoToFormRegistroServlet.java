@@ -28,7 +28,7 @@ public class GoToFormRegistroServlet extends HttpServlet {
             } else {
                 requestDispatcher = request.getRequestDispatcher("/Pages/cadastroRegistro.jsp");
                 
-                colecaoCategoriaBean.setCategorias(categoriaDAO.getAll());         
+                colecaoCategoriaBean.setCategorias(categoriaDAO.getAll());        
 
                 if (request.getParameter("id") != null) {
                     RegistroBean registro = new RegistroBean();
@@ -40,13 +40,8 @@ public class GoToFormRegistroServlet extends HttpServlet {
                     registro.setValor(Double.parseDouble(request.getParameter("valor")));
                     registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
   
-                    request.setAttribute("dataInicial", request.getParameter("dataInicial"));
-                    request.setAttribute("dataFinal", request.getParameter("dataFinal"));
-                    request.setAttribute("tipoLista", request.getParameter("tipoLista"));
                     request.setAttribute("registro", registro);
-                 } else {
-                    request.setAttribute("tipo", request.getParameter("tipo"));
-                }
+                 }
 
                 request.setAttribute("colecaoCategoria", colecaoCategoriaBean);
 

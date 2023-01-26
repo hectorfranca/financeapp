@@ -1,6 +1,7 @@
 package Servlets.Registro;
 
 import DAO.RegistroDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,19 +14,23 @@ public class DeleteRegistroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        RequestDispatcher requestDispatcher = null;
         RegistroDAO registroDAO = new RegistroDAO();
         long id;
         
-        try {            
+        try {      
+            requestDispatcher = request.getRequestDispatcher("/FiltroRegistroServlet");
             id = Long.parseLong(request.getParameter("id"));
 
             registroDAO.delete(id);
             
-            response.sendRedirect(request.getContextPath() + "/FiltroRegistroServlet?"
-                        + "dataInicial=" + request.getParameter("dataInicial") 
-                        + "&dataFinal=" + request.getParameter("dataFinal")
-                        + "&tipo=" + request.getParameter("tipo")
-                        + "&tipoLista=" + request.getParameter("tipoLista"));
+            //response.sendRedirect(request.getContextPath() + "/FiltroRegistroServlet?"
+            //            + "dataInicial=" + request.getParameter("dataInicial") 
+            //            + "&dataFinal=" + request.getParameter("dataFinal")
+            //            + "&tipo=" + request.getParameter("tipo")
+            //            + "&tipoLista=" + request.getParameter("tipoLista"));
+            
+            requestDispatcher.forward(request, response);
         } catch(Exception exception) {
             throw new ServletException("Não foi possível excluir o registro: " 
                     + exception.getMessage());
