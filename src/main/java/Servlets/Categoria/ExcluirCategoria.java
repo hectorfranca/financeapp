@@ -17,7 +17,7 @@ public class ExcluirCategoria extends HttpServlet {
         long id;       
         
         try {            
-            id = Long.parseLong(request.getParameter("id"));
+            id = Long.parseLong(request.getParameter("id-categoria"));
 
             categoriaDAO.delete(id);  
             

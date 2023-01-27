@@ -19,11 +19,11 @@ public class CadastrarCategoria extends HttpServlet {
         try {
             requestDispatcher = request.getRequestDispatcher("/Pages/cadastro-categoria.jsp");                 
 
-            if (request.getParameter("categoria-id") != null) {
+            if (request.getParameter("id-categoria") != null) {
                 CategoriaBean categoria = new CategoriaBean();
                 
-                categoria.setId(Long.parseLong(request.getParameter("categoria-id")));
-                categoria.setNome(request.getParameter("nome"));
+                categoria.setId(Long.parseLong(request.getParameter("id-categoria")));
+                categoria.setNome(request.getParameter("nome-categoria"));
                                
                 request.setAttribute("categoria", categoria);
             }

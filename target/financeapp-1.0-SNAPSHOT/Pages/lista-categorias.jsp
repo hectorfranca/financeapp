@@ -58,15 +58,15 @@
             <div class="seletor-item">
                 <span class="seletor-item__selecionado">Supermercado</span>
             </div>
-            <form action="${pageContext.request.contextPath}/RegistrarCategoria" method="POST" class="editar-form seletor-item">
-                <input type="hidden" id="editar-id-categoria" name="id"/>
-                <input type="hidden" id="editar-nome-categoria" name="nome"/>
+            <form action="${pageContext.request.contextPath}/CadastrarCategoria" method="POST" class="editar-form seletor-item">
+                <input type="hidden" id="editar-id-categoria" name="id-categoria"/>
+                <input type="hidden" id="editar-nome-categoria" name="nome-categoria"/>
                 <button id="editar-button" class="editar-button">
                     <img src="${pageContext.request.contextPath}/img/editar.png">    
                 </button>
             </form>
-            <form action="${pageContext.request.contextPath}/ExcluirCategoria" class="excluir-form seletor-item">
-                <input type="hidden" id="excluir-id-categoria" name="id"/>
+            <form action="${pageContext.request.contextPath}/ExcluirCategoria" method="POST" class="excluir-form seletor-item">
+                <input type="hidden" id="excluir-id-categoria" name="id-categoria"/>
                 <button id="excluir-button" class="excluir-button active">
                     <img src="${pageContext.request.contextPath}/img/excluir.png">    
                 </button>
