@@ -26,13 +26,13 @@
                 </a>
             </div>
             <div class="collapse" id="collapseExample">
-                <form action="${pageContext.request.contextPath}/GoToFormRegistroServlet" method="POST" id="registrar-receita-form" class="btn-secundario">
+                <form action="${pageContext.request.contextPath}/CadastrarRegistro" method="POST" id="registrar-receita-form" class="btn-secundario">
                     <input type="hidden" name="tipo" value="R">
                     <a id="registrar-receita" class="btn-secundario__caixa btn-secundario--efeito">
                         <span class="btn-secundario__caixa__titulo">Registrar</span> 
                     </a>
                 </form>
-                <form action="${pageContext.request.contextPath}/GoToFiltroRegistroServlet" method="POST" id="consultar-receita-form" class="btn-secundario">
+                <form action="${pageContext.request.contextPath}/FiltrarRegistros" method="POST" id="consultar-receita-form" class="btn-secundario">
                     <input type="hidden" name="tipo" value="R">
                     <a id="consultar-receita" class="btn-secundario__caixa btn-secundario--efeito">
                         <span class="btn-secundario__caixa__titulo">Consultar</span>   
@@ -45,13 +45,13 @@
                 </a>
             </div>
             <div class="collapse" id="collapseExample2">
-                <form action="${pageContext.request.contextPath}/GoToFormRegistroServlet" method="POST" id="registrar-despesa-form" class="btn-secundario entrada-item">
+                <form action="${pageContext.request.contextPath}/CadastrarRegistro" method="POST" id="registrar-despesa-form" class="btn-secundario entrada-item">
                     <input type="hidden" name="tipo" value="D">
                     <a id="registrar-despesa" class="btn-secundario__caixa btn-secundario--efeito">
                         <span class="btn-secundario__caixa__titulo">Registrar</span>
                     </a>
                 </form>
-                <form action="${pageContext.request.contextPath}/GoToFiltroRegistroServlet" method="POST" id="consultar-despesa-form" class="btn-secundario">
+                <form action="${pageContext.request.contextPath}/FiltrarRegistros" method="POST" id="consultar-despesa-form" class="btn-secundario">
                     <input type="hidden" name="tipo" value="D">
                     <a id="consultar-despesa" class="btn-secundario__caixa btn-secundario--efeito">
                         <span class="btn-secundario__caixa__titulo">Consultar</span>
@@ -65,7 +65,7 @@
             </div>
             <div class="collapse" id="collapseExample3">
                 <div class="btn-secundario">
-                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/ListCategoriaServlet">
+                    <a class="btn-secundario__caixa btn-secundario--efeito" href="${pageContext.request.contextPath}/ListarCategorias">
                         <span class="btn-secundario__caixa__titulo">Categorias</span>  
                     </a> 
                 </div>
