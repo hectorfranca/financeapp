@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+a {
+    text-decoration: none !important;
+}
+.container {
+    width: 90%;
+    height: 600px;
+    background-color:#FFFFE0;
+    border-radius: 10px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.container__titulo {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+.btn-primario, .btn-secundario {
+    text-align: center;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.btn-primario__caixa, .btn-secundario__caixa {
+    width: 300px;
+    height: 30px;
+    border: 3px solid orange !important;
+    background-color: #ffc000;
+    color: black;
+    font-size: 15px;
+    text-align: center !important;
+    border:none !important;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px;
+}
+.btn-secundario__caixa {
+    background-color: #EEE8AA !important;
+}
+.btn-secundario__caixa:active {
+    transform: scale(0.95);
+}
+.btn-primario__caixa__titulo, .btn-secundario__caixa__titulo {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+.btn-primario--efeito, .btn-secundario--efeito {
+    overflow: hidden;
+    position: relative;
+}
+.btn-primario--efeito:after, .btn-secundario--efeito:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: -85px;
+    opacity: .4;
+    position: absolute;
+    top: -60px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+    -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 70px;
+    z-index: 1;
+}
+.btn-primario--efeito:hover:after, .btn-secundario--efeito:hover:after {
+    left: 130%;
+    -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+}

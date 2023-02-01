@@ -9,14 +9,21 @@
         <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/logo.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/header.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/session.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/footer.css"/>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/index.css"/>     
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/menu.css"/>     
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
+        <% if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
+                || session.getAttribute("email") == null) {
+            response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
+        } %>
+        
         <jsp:include page="/Components/header.jsp"/>
+        <jsp:include page="/Components/session.jsp"/>
         
         <div class="container">
             <h1 class="container__titulo">O seu app de finanças totalmente descomplicado!</h1>  
@@ -88,6 +95,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous"></script>
-        <script src="${pageContext.request.contextPath}/Javascript/index.js"></script>
+        <script src="${pageContext.request.contextPath}/Javascript/menu.js"></script>
     </body>
 </html>

@@ -1,7 +1,9 @@
 package Servlets.Registro;
 
+import Beans.ContaBean;
 import Beans.RegistroBean;
 import DAO.CategoriaDAO;
+import DAO.ContaDAO;
 import DAO.RegistroDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
@@ -17,18 +19,23 @@ public class SalvarRegistro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        ContaDAO contaDAO = new ContaDAO();
+        ContaBean conta = new ContaBean();
         RegistroDAO registroDAO = new RegistroDAO();
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         RegistroBean registro = new RegistroBean();
         SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd");
         RequestDispatcher requestDispatcher = null;
         
-        try {        
+        try {   
+            conta = contaDAO.find(Long.parseLong(request.getSession().getAttribute("id").toString()));
+                        
             registro.setNome(request.getParameter("nome"));
             registro.setTipo(request.getParameter("tipo").charAt(0));
             registro.setData(dateFormatUS.parse(request.getParameter("data")));         
             registro.setValor(Double.parseDouble(request.getParameter("valor")));
-            registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));
+            registro.setCategoria(categoriaDAO.find(Long.parseLong(request.getParameter("categoria"))));          
+            registro.setConta(conta);
             
             if (request.getParameter("id") != null) {
                 requestDispatcher = request.getRequestDispatcher("/ListarRegistros"); 

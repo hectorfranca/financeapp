@@ -17,14 +17,14 @@ header {
     width: 100px;
     height: 100px;
 }
-.conteudoTitulo {
+.conteudo-titulo {
     align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.tituloHeader {
+.titulo-header {
     font-size: 30px !important;
     color: white !important;
     text-decoration: none;

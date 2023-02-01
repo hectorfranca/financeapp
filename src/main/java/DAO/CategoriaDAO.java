@@ -42,7 +42,7 @@ public class CategoriaDAO {
 
     }
 
-    public CategoriaBean delete(long id) {
+    public CategoriaBean delete(Long id) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
@@ -62,7 +62,7 @@ public class CategoriaDAO {
         return null;
     }
     
-        public CategoriaBean find(long id) {
+    public CategoriaBean find(Long id) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 

@@ -1,5 +1,6 @@
 package DAO;
 
+import Beans.ContaBean;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,7 +46,7 @@ public class RegistroDAO {
 
     }
 
-    public RegistroBean delete(long id) {
+    public RegistroBean delete(Long id) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
@@ -64,49 +65,15 @@ public class RegistroDAO {
         
         return null;
     }
-    
-    public List<RegistroBean> getAllReceitas() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        try {
-            Query query = entityManager.createQuery("SELECT r FROM RegistroBean r WHERE r.tipo = 'R'");
-            return query.getResultList();
-        } catch (Exception exception) {
-            System.out.println("Erro ao listar os registros: " + exception.getMessage());
-        } finally {
-            entityManager.close();
-            entityManagerFactory.close();
-        }
-        
-        return null;
-    }
-    
-    public List<RegistroBean> getAllDespesas() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        try {
-            Query query = entityManager.createQuery("SELECT r FROM RegistroBean r WHERE r.tipo = 'D'");
-            return query.getResultList();
-        } catch (Exception exception) {
-            System.out.println("Erro ao listar os registros: " + exception.getMessage());
-        } finally {
-            entityManager.close();
-            entityManagerFactory.close();
-        }
-        
-        return null;
-    }
-    
-    public List<RegistroBean> filtroDataListaReceitas(Date dataInicial, Date dataFinal) {
+    public List<RegistroBean> filtroDataListaReceitas(Date dataInicial, Date dataFinal, Long contaId) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
             Query query = entityManager.createQuery(
-                    "SELECT r FROM RegistroBean r WHERE r.tipo = 'R' AND r.data >= " + dataInicial.getTime()
-                            + " AND r.data <= " + dataFinal.getTime());
+                    "SELECT r FROM RegistroBean r JOIN r.conta c WHERE r.tipo = 'R' AND r.data >= " + dataInicial.getTime()
+                            + " AND r.data <= " + dataFinal.getTime() + " AND c.id = '" + contaId + "'");
             return query.getResultList();
         } catch (Exception exception) {
             System.out.println("Erro ao listar os registros: " + exception.getMessage());
@@ -118,15 +85,15 @@ public class RegistroDAO {
         return null;
     }
     
-    public List<RegistroResumidoBean> filtroDataListaReceitasResumida(Date dataInicial, Date dataFinal) {
+    public List<RegistroResumidoBean> filtroDataListaReceitasResumida(Date dataInicial, Date dataFinal, Long contaId) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
             Query query = entityManager.createQuery(
-                    "SELECT c.nome, SUM(r.valor) FROM RegistroBean r JOIN r.categoria c"
+                    "SELECT c.nome, SUM(r.valor) FROM RegistroBean r JOIN r.categoria c JOIN r.conta cont"
                             + " WHERE r.tipo = 'R' AND r.data >= " + dataInicial.getTime()
-                            + " AND r.data <= " + dataFinal.getTime() + " GROUP BY c");
+                            + " AND r.data <= " + dataFinal.getTime() + " AND cont.id = '" + contaId + "' GROUP BY c");
             
             List<RegistroResumidoBean> registrosResumidos = new ArrayList<RegistroResumidoBean>();          
             List<Object[]> result = query.getResultList();
@@ -147,14 +114,14 @@ public class RegistroDAO {
         return null;
     }
     
-      public List<RegistroBean> filtroDataListaDespesas(Date dataInicial, Date dataFinal) {
+      public List<RegistroBean> filtroDataListaDespesas(Date dataInicial, Date dataFinal, Long contaId) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
             Query query = entityManager.createQuery(
-                    "SELECT r FROM RegistroBean r WHERE r.tipo = 'D' AND r.data >= " + dataInicial.getTime()
-                            + " AND r.data <= " + dataFinal.getTime());
+                    "SELECT r FROM RegistroBean r JOIN r.conta c WHERE r.tipo = 'D' AND r.data >= " + dataInicial.getTime()
+                            + " AND r.data <= " + dataFinal.getTime() + " AND c.id = '" + contaId + "'");
             return query.getResultList();
         } catch (Exception exception) {
             System.out.println("Erro ao listar os registros: " + exception.getMessage());
@@ -166,15 +133,15 @@ public class RegistroDAO {
         return null;
     }
       
-    public List<RegistroResumidoBean> filtroDataListaDespesasResumida(Date dataInicial, Date dataFinal) {
+    public List<RegistroResumidoBean> filtroDataListaDespesasResumida(Date dataInicial, Date dataFinal, Long contaId) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
             Query query = entityManager.createQuery(
-                    "SELECT c.nome, SUM(r.valor) FROM RegistroBean r JOIN r.categoria c"
+                    "SELECT c.nome, SUM(r.valor) FROM RegistroBean r JOIN r.categoria c JOIN r.conta cont"
                             + " WHERE r.tipo = 'D' AND r.data >= " + dataInicial.getTime()
-                            + " AND r.data <= " + dataFinal.getTime() + " GROUP BY c");
+                            + " AND r.data <= " + dataFinal.getTime() + " AND cont.id = '" + contaId + "' GROUP BY c");
             
             List<RegistroResumidoBean> registrosResumidos = new ArrayList<RegistroResumidoBean>();          
             List<Object[]> result = query.getResultList();

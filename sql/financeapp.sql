@@ -24,6 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `conta`
+--
+
+DROP TABLE IF EXISTS `conta`;
+CREATE TABLE IF NOT EXISTS `conta` (
+  `Id` int(11) AUTO_INCREMENT NOT NULL,
+  `Nome` varchar(10) COLLATE latin1_bin NOT NULL,
+  `Email` varchar(100) COLLATE latin1_bin NOT NULL,
+  `Senha` varchar(32) COLLATE latin1_bin NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `categoria`
 --
 
@@ -44,12 +59,14 @@ DROP TABLE IF EXISTS `registro`;
 CREATE TABLE IF NOT EXISTS `registro` (
   `Id` int(11) AUTO_INCREMENT NOT NULL,
   `Categoria_id` int(11) NOT NULL,
+  `Conta_id` int(11) NOT NULL,
   `Nome` varchar(60) COLLATE latin1_bin NOT NULL,
   `Tipo` char(1) COLLATE latin1_bin NOT NULL,
   `Data` date NOT NULL,
   `Valor` double NOT NULL,
   PRIMARY KEY (`Id`),
-  KEY `fk_categoriaid` (`Categoria_id`)
+  KEY `fk_categoriaid` (`Categoria_id`),
+  KEY `fk_contaid` (`Conta_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --

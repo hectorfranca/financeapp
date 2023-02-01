@@ -1,9 +1,9 @@
 <footer>
-     <div class="containerFooter">
-         <div class="tituloFooter">
-             <a class="nomeTitulo" href="${pageContext.request.contextPath}/index.jsp">Financeapp</a>
+     <div class="container-footer">
+         <div class="titulo-footer">
+             <a class="nome-titulo" href="${pageContext.request.contextPath}/index.jsp">Financeapp</a>
          </div>
-         <div class="copyrightFooter">
+         <div class="copyright-footer">
              <span>&#169;All rigths reserved</span>
          </div> 
      </div>  

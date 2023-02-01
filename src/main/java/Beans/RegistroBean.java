@@ -22,6 +22,10 @@ public class RegistroBean {
     @JoinColumn(name = "Categoria_id", nullable = false)
     private CategoriaBean categoria;
     
+    @ManyToOne
+    @JoinColumn(name = "Conta_id", nullable = false)
+    private ContaBean conta;
+    
     @Column(name = "Nome", nullable = false, length = 60)
     private String nome;
     
@@ -50,6 +54,14 @@ public class RegistroBean {
         this.categoria = categoria;
     }
 
+    public ContaBean getConta() {
+        return conta;
+    }
+
+    public void setConta(ContaBean conta) {
+        this.conta = conta;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -57,7 +69,7 @@ public class RegistroBean {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public char getTipo() {
         return tipo;
     }
@@ -84,7 +96,7 @@ public class RegistroBean {
 
     @Override
     public String toString() {
-        return "RegistroBean{" + "id=" + id + ", categoria=" + categoria + ", nome=" + nome + ", tipo=" + tipo + ", data=" + data + ", valor=" + valor + '}';
+        return "RegistroBean{" + "id=" + id + ", categoria=" + categoria + ", conta=" + conta + ", nome=" + nome + ", tipo=" + tipo + ", data=" + data + ", valor=" + valor + '}';
     }
-    
+
 }

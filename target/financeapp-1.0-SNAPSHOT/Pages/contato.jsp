@@ -9,18 +9,25 @@
         <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/img/logo.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/header.css"/>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/session.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/Components/footer.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/Styles/contato.css"/>     
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
-    <body>        
+    <body>
+        <% if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
+                || session.getAttribute("email") == null) {
+            response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
+        } %>
+        
         <jsp:include page="/Components/header.jsp"/>
+        <jsp:include page="/Components/session.jsp"/>
         
         <div class="container-primario">           
             <a class="back-button__caixa back-button--efeito"
-                href="${pageContext.request.contextPath}/index.jsp">
+                href="${pageContext.request.contextPath}/Pages/menu.jsp">
                     <span class="back-button__caixa__titulo">Voltar</span>
             </a>                    
             <div class="container-primario__container-secundario">

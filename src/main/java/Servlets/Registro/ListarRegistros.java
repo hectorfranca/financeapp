@@ -31,11 +31,15 @@ public class ListarRegistros extends HttpServlet {
                 if (request.getParameter("tipo").equals("R")) {
                     colecaoRegistro.setRegistros(registroDAO.filtroDataListaReceitas(
                         dateFormatUS.parse(request.getParameter("dataInicial")),
-                        dateFormatUS.parse(request.getParameter("dataFinal"))));               
+                        dateFormatUS.parse(request.getParameter("dataFinal")),
+                        Long.parseLong(request.getSession().getAttribute("id").toString())
+                    ));               
                 } else {
                     colecaoRegistro.setRegistros(registroDAO.filtroDataListaDespesas(
                         dateFormatUS.parse(request.getParameter("dataInicial")),
-                        dateFormatUS.parse(request.getParameter("dataFinal"))));              
+                        dateFormatUS.parse(request.getParameter("dataFinal")),
+                        Long.parseLong(request.getSession().getAttribute("id").toString())
+                    ));              
                 }
                 
                 request.setAttribute("colecaoRegistro", colecaoRegistro);
@@ -46,11 +50,15 @@ public class ListarRegistros extends HttpServlet {
                 if (request.getParameter("tipo").equals("R")) {
                     colecaoRegistroResumido.setRegistros(registroDAO.filtroDataListaReceitasResumida(
                         dateFormatUS.parse(request.getParameter("dataInicial")),
-                        dateFormatUS.parse(request.getParameter("dataFinal"))));               
+                        dateFormatUS.parse(request.getParameter("dataFinal")),
+                        Long.parseLong(request.getSession().getAttribute("id").toString())
+                    ));               
                 } else {
                     colecaoRegistroResumido.setRegistros(registroDAO.filtroDataListaDespesasResumida(
                         dateFormatUS.parse(request.getParameter("dataInicial")),
-                        dateFormatUS.parse(request.getParameter("dataFinal"))));              
+                        dateFormatUS.parse(request.getParameter("dataFinal")),
+                        Long.parseLong(request.getSession().getAttribute("id").toString())
+                    ));
                 }
                 
                 request.setAttribute("colecaoRegistroResumido", colecaoRegistroResumido);
