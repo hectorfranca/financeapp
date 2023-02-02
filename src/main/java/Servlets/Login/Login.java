@@ -2,6 +2,7 @@ package Servlets.Login;
 
 import Beans.ContaBean;
 import DAO.ContaDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,6 +20,7 @@ public class Login extends HttpServlet {
         
         ContaDAO contaDAO = new ContaDAO();
         ContaBean conta = new ContaBean();
+        RequestDispatcher requestDispatcher = null;
         
         try {
             String nomeEmail = request.getParameter("nome-email");
@@ -37,7 +39,9 @@ public class Login extends HttpServlet {
                 
                 response.sendRedirect(request.getContextPath() + "/Pages/menu.jsp");
             } else {
-                response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
+                requestDispatcher = request.getRequestDispatcher("/Pages/login.jsp");
+                request.setAttribute("loginMessage", "Conta inválida.");
+                requestDispatcher.forward(request, response);
             }
         } catch(Exception exception) {
             throw new ServletException("Não foi possível efetuar o login: " 

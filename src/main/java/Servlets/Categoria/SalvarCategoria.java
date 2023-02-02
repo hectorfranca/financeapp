@@ -1,7 +1,9 @@
 package Servlets.Categoria;
 
 import Beans.CategoriaBean;
+import Beans.ContaBean;
 import DAO.CategoriaDAO;
+import DAO.ContaDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -17,15 +19,22 @@ public class SalvarCategoria extends HttpServlet {
         
         CategoriaDAO categoriaDAO = new CategoriaDAO();
         CategoriaBean categoria = new CategoriaBean();
+        ContaDAO contaDAO = new ContaDAO();
+        ContaBean conta = new ContaBean();
         RequestDispatcher requestDispatcher = null;
      
         try {
             categoria.setNome(request.getParameter("nome-categoria"));
             
-            if (request.getParameter("id-categoria") != null) {            
-                categoria.setId(Long.parseLong(request.getParameter("id-categoria")));                                   
+            if (request.getParameter("id-categoria") != null) {   
+                conta = contaDAO.find(Long.parseLong(request.getSession().getAttribute("id").toString()));
+                
+                categoria.setId(Long.parseLong(request.getParameter("id-categoria")));   
+                categoria.setConta(conta);
                 categoriaDAO.update(categoria);
             } else {
+                conta = contaDAO.find(Long.parseLong(request.getSession().getAttribute("id").toString()));
+                categoria.setConta(conta);
                 categoriaDAO.save(categoria);
             }
             

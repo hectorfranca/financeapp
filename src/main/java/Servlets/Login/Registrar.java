@@ -2,6 +2,7 @@ package Servlets.Login;
 
 import Beans.ContaBean;
 import DAO.ContaDAO;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,8 +19,11 @@ public class Registrar extends HttpServlet {
         
         ContaBean conta = new ContaBean();
         ContaDAO contaDAO = new ContaDAO();
+        RequestDispatcher requestDispatcher = null;
         
         try {
+            requestDispatcher = request.getRequestDispatcher("/Pages/registrar.jsp");
+            
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(request.getParameter("senha").getBytes(), 0, request.getParameter("senha").length());
             BigInteger senhaCriptografada = new BigInteger(1, messageDigest.digest());
@@ -27,17 +31,19 @@ public class Registrar extends HttpServlet {
             conta.setNome(request.getParameter("nome"));
             conta.setEmail(request.getParameter("email"));
             conta.setSenha(senhaCriptografada.toString(16));
-        
-            if (conta.getNome() != null && conta.getEmail() != null && conta.getSenha() != null
-                    && contaDAO.findByName(conta.getNome()) == null
-                    && contaDAO.findByEmail(conta.getEmail())== null) {
-                
-                contaDAO.save(conta);
-                
-                response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
-            } else {
-                response.sendRedirect(request.getContextPath() + "/Pages/registrar.jsp");
+            
+            if (conta.getNome() != null && conta.getEmail() != null && conta.getSenha() != null) {
+                if (contaDAO.findByName(conta.getNome()) != null) {
+                    request.setAttribute("registrationMessage", "Nome já cadastrado!");
+                } else if (contaDAO.findByEmail(conta.getEmail()) != null) {
+                    request.setAttribute("registrationMessage", "Email já cadastrado!");
+                } else {
+                    request.setAttribute("registrationMessage", "Conta registrada com sucesso!");
+                    contaDAO.save(conta);
+                }                
             }
+            
+            requestDispatcher.forward(request, response);
         } catch(Exception exception) {
             throw new ServletException("Não foi possível efetuar o login: " 
                     + exception.getMessage());

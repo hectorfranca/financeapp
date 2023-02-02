@@ -7,4 +7,5 @@ Beans\CategoriaBean_.class
 DAO\RegistroDAO.class
 Beans\ColecaoCategoriaBean.class
 DAO\CategoriaDAO.class
+Beans\ContaBean_.class
 Beans\ColecaoRegistroBean.class

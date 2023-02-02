@@ -26,22 +26,27 @@
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Cadastro</h2>
+                
+                <% if (request.getAttribute("registrationMessage") != null) { %>
+                    <span><%= request.getAttribute("registrationMessage") %></span>
+                <% } %>
+                
                 <form id="registrar-form" action="${pageContext.request.contextPath}/Registrar" method="POST">
                     <div class="form-item">
-                        <label for="nome">Nome</label>         
-                        <input type="text" id="nome" class="form-control" name="nome">
+                        <label class="label-nome" for="nome">Nome</label>         
+                        <input id="input-nome" type="text" id="nome" class="form-control" name="nome" maxlength="10" required>
                     </div>
                     <div class="form-item">
-                        <label for="email">E-mail</label>         
-                        <input type="email" id="email" class="form-control" name="email">
+                        <label class="label-email" for="email">E-mail</label>         
+                        <input id="input-email" type="email" id="email" class="form-control" name="email" maxlength="100" required>
                     </div>
                     <div class="form-item">
-                        <label for="senha">Senha</label>         
-                        <input type="password" id="senha" class="form-control" name="senha">
+                        <label class="label-senha" for="senha">Senha</label>         
+                        <input id="input-senha" type="password" id="senha" class="form-control" name="senha" maxlength="16" required>
                     </div>
                     <div class="form-item">
-                        <label for="senha-confirmacao">Confirmar Senha</label>         
-                        <input type="password" id="senha-confirmacao" class="form-control" name="senha-confirmacao">
+                        <label class="label-senha-confirmacao" for="senha-confirmacao">Confirmar Senha</label>         
+                        <input id="input-senha-confirmacao" type="password" id="senha-confirmacao" class="form-control" name="senha-confirmacao" maxlength="16" required>
                     </div>
                 </form>
                 <div class="form-button">

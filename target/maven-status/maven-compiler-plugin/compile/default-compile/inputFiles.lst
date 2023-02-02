@@ -9,6 +9,7 @@ C:\Users\Hector\Documents\financeapp\src\main\java\Beans\CategoriaBean.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Categoria\SalvarCategoria.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Registro\FiltrarRegistros.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Login\Login.java
+C:\Users\Hector\Documents\financeapp\src\main\java\DAO\ContaDAO.java
 C:\Users\Hector\Documents\financeapp\src\main\java\DAO\RegistroDAO.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Beans\ContaBean.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Login\Registrar.java
@@ -17,6 +18,5 @@ C:\Users\Hector\Documents\financeapp\src\main\java\Beans\ColecaoCategoriaBean.ja
 C:\Users\Hector\Documents\financeapp\src\main\java\Beans\ColecaoRegistroResumidoBean.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Beans\RegistroBean.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Registro\CadastrarRegistro.java
-C:\Users\Hector\Documents\financeapp\src\main\java\DAO\LoginDAO.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Beans\RegistroResumidoBean.java
 C:\Users\Hector\Documents\financeapp\src\main\java\Servlets\Registro\ExcluirRegistro.java

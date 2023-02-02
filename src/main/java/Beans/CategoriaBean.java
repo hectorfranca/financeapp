@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,6 +18,10 @@ public class CategoriaBean {
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @ManyToOne
+    @JoinColumn(name = "Conta_id", nullable = false)
+    private ContaBean conta;
     
     @OneToMany(mappedBy = "categoria")
     private Set<RegistroBean> registros;
@@ -29,6 +35,14 @@ public class CategoriaBean {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public ContaBean getConta() {
+        return conta;
+    }
+
+    public void setConta(ContaBean conta) {
+        this.conta = conta;
     }
 
     public Set<RegistroBean> getRegistros() {
@@ -49,7 +63,7 @@ public class CategoriaBean {
 
     @Override
     public String toString() {
-        return "CategoriaBean{" + "id=" + id + ", registros=" + registros + ", nome=" + nome + '}';
+        return "CategoriaBean{" + "id=" + id + ", conta=" + conta + ", registros=" + registros + ", nome=" + nome + '}';
     }
-
+  
 }

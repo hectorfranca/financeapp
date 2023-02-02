@@ -26,14 +26,19 @@
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Login</h2>
+                
+                <% if (request.getAttribute("loginMessage") != null) { %>
+                    <span><%= request.getAttribute("loginMessage") %></span>
+                <% } %>
+                
                 <form id="login-form" action="${pageContext.request.contextPath}/Login" method="POST">
                     <div class="form-item">
-                        <label for="nome-email">Nome ou E-mail</label>         
-                        <input type="text" id="nome-email" class="form-control" name="nome-email">
+                        <label class="label-nome" for="nome-email">Nome ou E-mail</label>         
+                        <input id="input-nome" type="text" id="nome-email" class="form-control" name="nome-email" maxlength="100" required>
                     </div>
                     <div class="form-item">
-                        <label for="senha">Senha</label>         
-                        <input type="password" id="senha" class="form-control" name="senha">
+                        <label class="label-senha" for="senha">Senha</label>         
+                        <input id="input-senha" type="password" id="senha" class="form-control" name="senha" maxlength="16" required>
                     </div>
                 </form>
                 <div class="form-button">

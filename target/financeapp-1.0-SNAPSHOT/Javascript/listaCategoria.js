@@ -13,57 +13,61 @@ let itemSelecionado = {
 intercalarFundoItem();
 
 // Exibir o menu de opcoes
-for (let item of itemLista) {
-    item.addEventListener("click", e => {
-        if (e.target == item
-            || e.target.parentNode == item
-            || e.target.parentNode.parentNode == item) {
-            seletor.classList.add("show");
-            seletor.classList.remove("hidden");
-            lista.style.marginBottom = "50px";
-            
+if (typeof lista != "undefined") {
+    for (let item of itemLista) {
+        item.addEventListener("click", e => {
+            if (e.target == item
+                || e.target.parentNode == item
+                || e.target.parentNode.parentNode == item) {
+                seletor.classList.add("show");
+                seletor.classList.remove("hidden");
+                lista.style.marginBottom = "50px";
+
+                // Realce de cor do item selecionado
+                for (let item of itemLista) {
+                    item.style.backgroundColor = "white";
+                    item.style.transform = "scale(1)";
+                }
+
+                item.style.backgroundColor = "#FFDAB9";
+                item.style.transform = "scale(1.05)";
+
+                // Dados da categoria selecionada
+                itemSelecionado.id = item.getElementsByClassName("id-categoria")[0].value;
+                itemSelecionado.nome = item.getElementsByClassName("nome-categoria")[0].value; 
+
+                seletor.getElementsByClassName("seletor-item__selecionado")[0].textContent = itemSelecionado.nome;
+            }
+        });
+    }
+}
+
+// Esconder o menu de opcoes 
+if (typeof lista != "undefined") {
+    document.addEventListener("click", e => {
+        if (e.target.tagName == "HTML"
+            || (e.target.parentNode != lista
+            && e.target.parentNode.parentNode != lista
+            && e.target.parentNode.parentNode.parentNode != lista
+
+            && e.target != seletor
+            && e.target.parentNode != seletor
+            && e.target.parentNode.parentNode != seletor
+            && e.target.parentNode.parentNode.parentNode != seletor)) {
+            seletor.classList.add("hidden");
+            seletor.classList.remove("show");
+            lista.style.marginBottom = "0px";  
+
             // Realce de cor do item selecionado
             for (let item of itemLista) {
                 item.style.backgroundColor = "white";
                 item.style.transform = "scale(1)";
             }
-            
-            item.style.backgroundColor = "#FFDAB9";
-            item.style.transform = "scale(1.05)";
-            
-            // Dados da categoria selecionada
-            itemSelecionado.id = item.getElementsByClassName("id-categoria")[0].value;
-            itemSelecionado.nome = item.getElementsByClassName("nome-categoria")[0].value; 
-            
-            seletor.getElementsByClassName("seletor-item__selecionado")[0].textContent = itemSelecionado.nome;
+
+            intercalarFundoItem();
         }
-    });
+    }); 
 }
-
-// Esconder o menu de opcoes 
-document.addEventListener("click", e => {
-    if (e.target.tagName == "HTML"
-        || (e.target.parentNode != lista
-        && e.target.parentNode.parentNode != lista
-        && e.target.parentNode.parentNode.parentNode != lista
-
-        && e.target != seletor
-        && e.target.parentNode != seletor
-        && e.target.parentNode.parentNode != seletor
-        && e.target.parentNode.parentNode.parentNode != seletor)) {
-        seletor.classList.add("hidden");
-        seletor.classList.remove("show");
-        lista.style.marginBottom = "0px";   
-
-        // Realce de cor do item selecionado
-        for (let item of itemLista) {
-            item.style.backgroundColor = "white";
-            item.style.transform = "scale(1)";
-        }
-
-        intercalarFundoItem();
-    }
-}); 
 
 editarButton.addEventListener("click", (event) => { 
     event.preventDefault();

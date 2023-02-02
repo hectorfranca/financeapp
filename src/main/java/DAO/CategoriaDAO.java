@@ -78,12 +78,12 @@ public class CategoriaDAO {
         return null;
     }
     
-    public List<CategoriaBean> getAll() {
+    public List<CategoriaBean> getAll(Long contaId) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
-            Query query = entityManager.createQuery("SELECT c FROM CategoriaBean c");
+            Query query = entityManager.createQuery("SELECT c FROM CategoriaBean c JOIN c.conta cont WHERE cont.id = " + contaId);
             return query.getResultList();
         } catch (Exception exception) {
             System.out.println("Erro ao listar a categoria: " + exception.getMessage());

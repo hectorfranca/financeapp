@@ -19,6 +19,9 @@ public class ContaBean {
     private Long id;
     
     @OneToMany(mappedBy = "conta")
+    private Set<RegistroBean> categorias;
+    
+    @OneToMany(mappedBy = "conta")
     private Set<RegistroBean> registros;
     
     @Column(name = "Nome", nullable = false, length = 40)
@@ -36,6 +39,14 @@ public class ContaBean {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Set<RegistroBean> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(Set<RegistroBean> categorias) {
+        this.categorias = categorias;
     }
 
     public Set<RegistroBean> getRegistros() {
@@ -68,6 +79,11 @@ public class ContaBean {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }  
-    
+    }
+
+    @Override
+    public String toString() {
+        return "ContaBean{" + "id=" + id + ", categorias=" + categorias + ", registros=" + registros + ", nome=" + nome + ", email=" + email + ", senha=" + senha + '}';
+    }
+
 }

@@ -28,7 +28,7 @@ public class CadastrarRegistro extends HttpServlet {
             } else {
                 requestDispatcher = request.getRequestDispatcher("/Pages/cadastro-registro.jsp");
                 
-                colecaoCategoriaBean.setCategorias(categoriaDAO.getAll());        
+                colecaoCategoriaBean.setCategorias(categoriaDAO.getAll(Long.parseLong(request.getSession().getAttribute("id").toString())));        
 
                 if (request.getParameter("id") != null) {
                     RegistroBean registro = new RegistroBean();

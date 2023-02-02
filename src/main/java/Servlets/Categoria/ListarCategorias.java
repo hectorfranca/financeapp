@@ -21,7 +21,7 @@ public class ListarCategorias extends HttpServlet {
         
         try {            
             requestDispatcher = request.getRequestDispatcher("/Pages/lista-categorias.jsp");
-            colecaoCategoria.setCategorias(categoriaDAO.getAll());
+            colecaoCategoria.setCategorias(categoriaDAO.getAll(Long.parseLong(request.getSession().getAttribute("id").toString())));
          
             request.setAttribute("colecaoCategoria", colecaoCategoria);
  
