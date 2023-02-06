@@ -23,7 +23,7 @@ public class Registrar extends HttpServlet {
         
         try {
             requestDispatcher = request.getRequestDispatcher("/Pages/registrar.jsp");
-            
+                            
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(request.getParameter("senha").getBytes(), 0, request.getParameter("senha").length());
             BigInteger senhaCriptografada = new BigInteger(1, messageDigest.digest());
@@ -33,12 +33,11 @@ public class Registrar extends HttpServlet {
             conta.setSenha(senhaCriptografada.toString(16));
             
             if (conta.getNome() != null && conta.getEmail() != null && conta.getSenha() != null) {
-                if (contaDAO.findByName(conta.getNome()) != null) {
-                    request.setAttribute("registrationMessage", "Nome já cadastrado!");
-                } else if (contaDAO.findByEmail(conta.getEmail()) != null) {
+                if (contaDAO.findByEmail(conta.getEmail()) != null) {
                     request.setAttribute("registrationMessage", "Email já cadastrado!");
                 } else {
-                    request.setAttribute("registrationMessage", "Conta registrada com sucesso!");
+                    requestDispatcher = request.getRequestDispatcher("/Pages/login.jsp");                    
+                    request.setAttribute("loginMessage", "Conta cadastrada com sucesso!");
                     contaDAO.save(conta);
                 }                
             }

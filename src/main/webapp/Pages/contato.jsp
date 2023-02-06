@@ -17,10 +17,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <% if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
+        <%
+            if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
                 || session.getAttribute("email") == null) {
-            response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
-        } %>
+                response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
+            } 
+        %>
         
         <jsp:include page="/Components/header.jsp"/>
         <jsp:include page="/Components/session.jsp"/>

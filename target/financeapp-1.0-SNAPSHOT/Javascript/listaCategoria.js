@@ -3,6 +3,13 @@ const itemLista = document.getElementsByClassName('item-lista');
 const seletor = document.getElementsByClassName("seletor")[0];
 const excluirButton = document.getElementById("excluir-button");
 const editarButton = document.getElementById("editar-button");
+const message = document.getElementsByClassName("message")[0];
+
+if (typeof message != "undefined") {
+    setTimeout(() => {
+        message.classList.add("hidden");
+    }, 5000);
+}
 
 let itemSelecionado = {
     id: null,

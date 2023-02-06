@@ -16,37 +16,40 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <% if (session.getAttribute("id") != null && session.getAttribute("nome") != null 
+        <%
+            if (session.getAttribute("id") != null && session.getAttribute("nome") != null 
                 && session.getAttribute("email") != null) {
-            response.sendRedirect(request.getContextPath() + "/Pages/menu.jsp");
-        } %>
+                response.sendRedirect(request.getContextPath() + "/Pages/menu.jsp");
+            } 
+        %>
         
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Cadastro</h2>
+                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
                 
                 <% if (request.getAttribute("registrationMessage") != null) { %>
-                    <span><%= request.getAttribute("registrationMessage") %></span>
+                    <span class="message"><%= request.getAttribute("registrationMessage") %></span>
                 <% } %>
                 
                 <form id="registrar-form" action="${pageContext.request.contextPath}/Registrar" method="POST">
                     <div class="form-item">
-                        <label class="label-nome" for="nome">Nome</label>         
-                        <input id="input-nome" type="text" id="nome" class="form-control" name="nome" maxlength="10" required>
+                        <label class="label-nome" for="nome">Nome (<span class="required-field-titulo">*</span>)</label>         
+                        <input id="input-nome" type="text" id="nome" class="form-control" name="nome" minlength="4" maxlength="10" required>
                     </div>
                     <div class="form-item">
-                        <label class="label-email" for="email">E-mail</label>         
+                        <label class="label-email" for="email">E-mail (<span class="required-field-titulo">*</span>)</label>         
                         <input id="input-email" type="email" id="email" class="form-control" name="email" maxlength="100" required>
                     </div>
                     <div class="form-item">
-                        <label class="label-senha" for="senha">Senha</label>         
-                        <input id="input-senha" type="password" id="senha" class="form-control" name="senha" maxlength="16" required>
+                        <label class="label-senha" for="senha">Senha (<span class="required-field-titulo">*</span>)</label>         
+                        <input id="input-senha" type="password" id="senha" class="form-control" name="senha" minlength="6" maxlength="16" required>
                     </div>
                     <div class="form-item">
-                        <label class="label-senha-confirmacao" for="senha-confirmacao">Confirmar Senha</label>         
-                        <input id="input-senha-confirmacao" type="password" id="senha-confirmacao" class="form-control" name="senha-confirmacao" maxlength="16" required>
+                        <label class="label-senha-confirmacao" for="senha-confirmacao">Confirmar Senha (<span class="required-field-titulo">*</span>)</label>         
+                        <input id="input-senha-confirmacao" type="password" id="senha-confirmacao" class="form-control" name="senha-confirmacao" minlength="6" maxlength="16" required>
                     </div>
                 </form>
                 <div class="form-button">

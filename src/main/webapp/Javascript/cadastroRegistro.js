@@ -6,6 +6,13 @@ const inputData = document.getElementById("input-data");
 const inputValor = document.getElementById("input-valor");
 const addCategoriaButton = document.getElementsByClassName("button-add-categoria")[0];
 const voltarButtonForm = document.getElementById("voltar-button-form");
+const message = document.getElementsByClassName("message")[0];
+
+if (typeof message != "undefined") {
+    setTimeout(() => {
+        message.classList.add("hidden");
+    }, 5000);
+}
 
 if (voltarButtonForm != null) {
     voltarButtonForm.addEventListener("click", () => {

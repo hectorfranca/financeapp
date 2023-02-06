@@ -78,24 +78,6 @@ public class ContaDAO {
         return null;
     }
     
-    public ContaBean findByName(String name) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        try {
-            Query query = entityManager.createQuery("SELECT c FROM ContaBean c WHERE c.nome = '" + name + "'");
-            
-            return (ContaBean) query.getSingleResult();             
-        } catch (Exception exception) {
-            System.out.println("Erro ao buscar a conta: " + exception.getMessage());
-        } finally {
-            entityManager.close();
-            entityManagerFactory.close();
-        }
-        
-        return null;
-    }
-    
     public ContaBean findByEmail(String email) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -114,13 +96,12 @@ public class ContaDAO {
         return null;
     }
     
-    public ContaBean findAccount(String nameEmail, String password) {
+    public ContaBean findAccount(String email, String password) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistenceUnit");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
-            Query query = entityManager.createQuery("SELECT c FROM ContaBean c WHERE c.nome = '" + nameEmail + "'"
-                    + " AND c.senha = '" + password + "'" + " OR c.email  = '" + nameEmail + "' AND c.senha = '" + password + "'");
+            Query query = entityManager.createQuery("SELECT c FROM ContaBean c WHERE c.email = '" + email + "' AND c.senha = '" + password + "'");
             
             return (ContaBean) query.getSingleResult();
         } catch (Exception exception) {

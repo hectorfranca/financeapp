@@ -20,10 +20,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <% if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
+        <%
+            if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
                 || session.getAttribute("email") == null) {
-            response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
-        } %>
+                response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
+            } 
+        %>
         
         <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>  
         
@@ -45,17 +47,18 @@
                     <h1 class="container-primario__container-secundario__titulo">Relatório de Despesas</h1>
                 <% } %>
                 <h2 class="container-primario__container-secundario__subtitulo">Defina suas opções de consulta</h2>
+                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
                 <form action="${pageContext.request.contextPath}/ListarRegistros" method="POST">               
                     <div class="form-calendario">
                         <div class="form-calendario__inicial">
-                            <p class="form-calendario__inicial__titulo">Data Inicial</p>     
+                            <p class="form-calendario__inicial__titulo">Data Inicial (<span class="required-field-titulo">*</span>)</p>     
                             <div class="form-calendario__inicial__data">
                                 <input class="date-inicial" type="date" name="dataInicial" 
                                     value="<%= dateFormatUS.format(currentDayOfMonth.getTime()) %>" required/> 
                             </div>
                         </div>
                         <div class="form-calendario__final">   
-                            <p class="form-calendario__final__titulo">Data Final</p>
+                            <p class="form-calendario__final__titulo">Data Final (<span class="required-field-titulo">*</span>)</p>
                             <div class="form-calendario__final__data">          
                                 <input class="date-final" type="date" name="dataFinal" 
                                     value="<%= dateFormatUS.format(lastDayOfMonth.getTime()) %>" required/>  
@@ -64,7 +67,7 @@
                     </div>
                     <div class="form-option">
                         <div class="form-option__caixa">
-                            <span class="form-option__caixa__titulo">Opções</span> 
+                            <span class="form-option__caixa__titulo">Opções (<span class="required-field-titulo">*</span>)</span> 
                         </div>    
                         <div class="form-option__lista-completa">
                             <div class="form-option__lista-completa__caixa-radio">

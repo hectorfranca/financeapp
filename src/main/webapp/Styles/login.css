@@ -104,3 +104,12 @@ body {
 .required-field-caixa {
     border: 1px solid red;
 }
+.message {
+    font-weight: bold;
+    color: red;
+    margin-top: 10px;
+    transition: all 1s;
+}
+.hidden {
+    opacity: 0;
+}

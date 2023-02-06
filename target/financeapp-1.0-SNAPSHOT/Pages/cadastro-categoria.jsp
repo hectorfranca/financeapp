@@ -17,10 +17,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <% if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
+        <%
+            if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
                 || session.getAttribute("email") == null) {
-            response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
-        } %>
+                response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
+            } 
+        %>
         
         <jsp:useBean id="categoria" class="Beans.CategoriaBean" scope="request"></jsp:useBean>
         
@@ -30,9 +32,10 @@
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Cadastro de Categoria</h2>
+                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
                 <form id="registrar-form" action="${pageContext.request.contextPath}/SalvarCategoria" method="POST">
                     <div class="form-item">
-                        <label class="label-nome" for="input-nome">Nome</label>         
+                        <label class="label-nome" for="input-nome">Nome (<span class="required-field-titulo">*</span>)</label>         
                         <input type="text" class="form-control" id="input-nome" name="nome-categoria" maxlength="25"
                                value="<%= categoria.getNome() != null ? categoria.getNome() : "" %>" required>
                         <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>">

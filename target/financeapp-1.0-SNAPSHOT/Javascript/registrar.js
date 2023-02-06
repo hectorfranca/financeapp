@@ -7,6 +7,13 @@ const labelSenha = document.getElementsByClassName("label-senha")[0];
 const inputSenha = document.getElementById("input-senha");
 const labelSenhaConfirmacao = document.getElementsByClassName("label-senha-confirmacao")[0];
 const inputSenhaConfirmacao = document.getElementById("input-senha-confirmacao");
+const message = document.getElementsByClassName("message")[0];
+
+if (typeof message != "undefined") {
+    setTimeout(() => {
+        message.classList.add("hidden");
+    }, 5000);
+}
 
 registrarFormButton.addEventListener("click", () => {
    let registrarForm = document.getElementById("registrar-form");

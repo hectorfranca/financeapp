@@ -20,10 +20,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <% if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
+        <%
+            if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
                 || session.getAttribute("email") == null) {
-            response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
-        } %>
+                response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
+            } 
+        %>
         
         <% SimpleDateFormat dateFormatUS = new SimpleDateFormat("yyyy-MM-dd"); %>
         <jsp:useBean id="registro" class="Beans.RegistroBean" scope="request"></jsp:useBean>
@@ -54,6 +56,16 @@
                 <% } else { %>
                         <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
                 <% } %>
+                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
+                
+                <% if (request.getAttribute("categoriaMessage") != null) { %>
+                    <span class="message"><%= request.getAttribute("categoriaMessage") %></span>
+                <% } %>
+                
+                <% if (request.getAttribute("registroMessage") != null) { %>
+                    <span class="message"><%= request.getAttribute("registroMessage") %></span>
+                <% } %>
+                
                 <form id="add-categoria-form" class="form-button" action="${pageContext.request.contextPath}/CadastrarCategoria" method="POST">
                     <input type="hidden" name="isOnRegister" value="1">
                     <input type="hidden" name="tipo" value="<%= tipo %>">
@@ -73,13 +85,8 @@
                     </a>
                 </form>
                 <form id="salvar-registro-form" action="${pageContext.request.contextPath}/SalvarRegistro" method="POST">
-                    <div class="form-item">     
-                        <label class="label-nome" for="input-nome">Nome</label>            
-                        <input type="text" class="form-control" id="input-nome" name="nome" maxlength="30" 
-                               value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
-                    </div>
                     <div class="form-item">
-                        <label class="label-categoria" for="input-categoria">Categoria</label>
+                        <label class="label-categoria" for="input-categoria">Categoria (<span class="required-field-titulo">*</span>)</label>
                         <select class="form-select" id="input-categoria" aria-label="Default select example" name="categoria" required>                           
                             
                         <% for (CategoriaBean categoria : colecaoCategoria.getCategorias()) {
@@ -91,14 +98,19 @@
                            } 
                         %>
                         </select>
-                    </div>          
+                    </div>
                     <div class="form-item">     
-                        <label class="label-data" for="input-data">Data</label>            
+                        <label class="label-nome" for="input-nome">Nome (<span class="required-field-titulo">*</span>)</label>            
+                        <input type="text" class="form-control" id="input-nome" name="nome" maxlength="30" 
+                               value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
+                    </div>
+                    <div class="form-item">     
+                        <label class="label-data" for="input-data">Data (<span class="required-field-titulo">*</span>)</label>            
                         <input type="date" class="form-control" id="input-data" name="data" 
                                value="<%= registro.getData() != null ? dateFormatUS.format(registro.getData()) : dateFormatUS.format(new Date()) %>" required>
                     </div>               
                     <div class="form-item">
-                        <label class="label-valor" for="input-valor">Valor em R$</label>
+                        <label class="label-valor" for="input-valor">Valor em R$ (<span class="required-field-titulo">*</span>)</label>
                         <input type="number" class="form-control" id="input-valor" name="valor" min="0" 
                                value="<%= registro.getValor() != 0 ? registro.getValor() : "" %>" required>    
                     </div>                             

@@ -40,10 +40,12 @@ public class SalvarCategoria extends HttpServlet {
             
             if (request.getParameter("isOnRegister").equals("1")) {
                 requestDispatcher = request.getRequestDispatcher("/CadastrarRegistro");       
-                requestDispatcher.forward(request, response);
             } else {
-                response.sendRedirect(request.getContextPath() + "/ListarCategorias");
-            }
+                requestDispatcher = request.getRequestDispatcher("/ListarCategorias");
+            }     
+            
+            request.setAttribute("categoriaMessage", "Categoria cadastrada com sucesso!");
+            requestDispatcher.forward(request, response);
         } catch(Exception exception) {
             throw new ServletException("Não foi possível salvar a categoria: " 
                     + exception.getMessage());

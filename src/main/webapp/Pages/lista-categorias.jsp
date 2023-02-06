@@ -18,10 +18,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
-        <% if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
+        <%
+            if (session.getAttribute("id") == null || session.getAttribute("nome") == null 
                 || session.getAttribute("email") == null) {
-            response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
-        } %>
+                response.sendRedirect(request.getContextPath() + "/Pages/login.jsp");
+            } 
+        %>
         
         <jsp:useBean id="colecaoCategoria" class="Beans.ColecaoCategoriaBean" scope="request"></jsp:useBean>  
         
@@ -40,6 +42,11 @@
                         onclick="window.location.href='${pageContext.request.contextPath}/Pages/cadastro-categoria.jsp'">
                     </button>
                 </div>
+                    
+                <% if (request.getAttribute("categoriaMessage") != null) { %>
+                    <span class="message"><%= request.getAttribute("categoriaMessage") %></span>
+                <% } %>
+                
                 <% if (colecaoCategoria.getCategorias().size() > 0) { %>
                     <div class="container-primario__container-secundario__lista">            
                     <% for (CategoriaBean categoria : colecaoCategoria.getCategorias()) { %>

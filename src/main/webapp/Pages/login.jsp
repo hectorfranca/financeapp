@@ -16,28 +16,31 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>  
-        <% if (session.getAttribute("id") != null && session.getAttribute("nome") != null 
+        <%
+            if (session.getAttribute("id") != null && session.getAttribute("nome") != null 
                 && session.getAttribute("email") != null) {
-            response.sendRedirect(request.getContextPath() + "/Pages/menu.jsp");
-        } %>
+                response.sendRedirect(request.getContextPath() + "/Pages/menu.jsp");
+            } 
+        %>
         
         <jsp:include page="/Components/header.jsp"/>
         
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Login</h2>
+                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
                 
                 <% if (request.getAttribute("loginMessage") != null) { %>
-                    <span><%= request.getAttribute("loginMessage") %></span>
+                    <span class="message"><%= request.getAttribute("loginMessage") %></span>
                 <% } %>
                 
                 <form id="login-form" action="${pageContext.request.contextPath}/Login" method="POST">
                     <div class="form-item">
-                        <label class="label-nome" for="nome-email">Nome ou E-mail</label>         
-                        <input id="input-nome" type="text" id="nome-email" class="form-control" name="nome-email" maxlength="100" required>
+                        <label class="label-email" for="input-email">E-mail (<span class="required-field-titulo">*</span>)</label>         
+                        <input id="input-email" type="text" class="form-control" name="email" maxlength="100" required>
                     </div>
                     <div class="form-item">
-                        <label class="label-senha" for="senha">Senha</label>         
+                        <label class="label-senha" for="senha">Senha (<span class="required-field-titulo">*</span>)</label>         
                         <input id="input-senha" type="password" id="senha" class="form-control" name="senha" maxlength="16" required>
                     </div>
                 </form>

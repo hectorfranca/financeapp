@@ -23,13 +23,13 @@ public class Login extends HttpServlet {
         RequestDispatcher requestDispatcher = null;
         
         try {
-            String nomeEmail = request.getParameter("nome-email");
+            String email = request.getParameter("email");
             
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(request.getParameter("senha").getBytes(), 0, request.getParameter("senha").length());
             BigInteger senhaCriptografada = new BigInteger(1, messageDigest.digest());
             
-            conta = contaDAO.findAccount(nomeEmail, senhaCriptografada.toString(16));
+            conta = contaDAO.findAccount(email, senhaCriptografada.toString(16));
         
             if (conta != null) {
                 HttpSession session = request.getSession();
