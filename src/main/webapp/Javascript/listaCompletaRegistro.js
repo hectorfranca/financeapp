@@ -10,6 +10,13 @@ const dataInicial = document.getElementsByClassName("data-inicial")[0];
 const dataFinal = document.getElementsByClassName("data-final")[0];
 const tipoLista = document.getElementsByClassName("tipo-lista")[0];
 const voltarButton = document.getElementById("voltar-button");
+const message = document.getElementsByClassName("message")[0];
+
+if (typeof message != "undefined") {
+    setTimeout(() => {
+        message.classList.add("hidden");
+    }, 5000);
+}
 
 let tipo = document.getElementsByClassName("tipo-registro")[0];
 
@@ -49,8 +56,8 @@ for (let item of itemLista) {
             || e.target.parentNode == item
             || e.target.parentNode.parentNode == item
             || e.target.parentNode.parentNode.parentNode == item) {
-            seletor.classList.add("show");
-            seletor.classList.remove("hidden");
+            seletor.classList.add("show-visibility");
+            seletor.classList.remove("hidden-visibility");
             lista.style.marginBottom = "50px";
             total.style.marginBottom = "100px";
             
@@ -95,8 +102,8 @@ document.addEventListener("click", e => {
         && e.target.parentNode.parentNode != seletor
         && e.target.parentNode.parentNode.parentNode != seletor
         && typeof lista != "undefined")) {
-        seletor.classList.add("hidden");
-        seletor.classList.remove("show");
+        seletor.classList.add("hidden-visibility");
+        seletor.classList.remove("show-visibility");
         lista.style.marginBottom = "0px";
         total.style.marginBottom = "50px";
         

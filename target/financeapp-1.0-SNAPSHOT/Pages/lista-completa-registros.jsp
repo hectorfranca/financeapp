@@ -60,6 +60,11 @@
                     <input type="hidden" class="data-inicial" name="dataInicial" value="<%= request.getParameter("dataInicial") %>"/>  
                     <input type="hidden" class="data-final" name="dataFinal" value="<%= request.getParameter("dataFinal") %>"/> 
                 </div>
+                
+                <% if (request.getAttribute("registroMessage") != null) { %>
+                    <span class="message"><%= request.getAttribute("registroMessage") %></span>
+                <% } %>
+                
                 <% if (colecaoRegistro.getRegistros().size() > 0) { %>
                     <div class="container-primario__container-secundario__lista">                   
                     <% SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -126,7 +131,7 @@
                 </div>       
             </div>
         <% } %>
-        <div class="seletor hidden">
+        <div class="seletor hidden-visibility">
             <div class="seletor-item">
                 <span>Selecionado:</span>
             </div> 

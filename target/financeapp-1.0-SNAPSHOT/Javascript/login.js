@@ -6,6 +6,11 @@ const inputSenha = document.getElementById("input-senha");
 const message = document.getElementsByClassName("message")[0];
 
 if (typeof message != "undefined") {
+    let statusMessage = document.getElementById("status-message");
+    
+    if (statusMessage.value == "success")
+        message.style.color = "green";
+    
     setTimeout(() => {
         message.classList.add("hidden");
     }, 5000);

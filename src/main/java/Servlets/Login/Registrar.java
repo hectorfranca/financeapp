@@ -21,9 +21,7 @@ public class Registrar extends HttpServlet {
         ContaDAO contaDAO = new ContaDAO();
         RequestDispatcher requestDispatcher = null;
         
-        try {
-            requestDispatcher = request.getRequestDispatcher("/Pages/registrar.jsp");
-                            
+        try {               
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(request.getParameter("senha").getBytes(), 0, request.getParameter("senha").length());
             BigInteger senhaCriptografada = new BigInteger(1, messageDigest.digest());
@@ -34,10 +32,12 @@ public class Registrar extends HttpServlet {
             
             if (conta.getNome() != null && conta.getEmail() != null && conta.getSenha() != null) {
                 if (contaDAO.findByEmail(conta.getEmail()) != null) {
+                    requestDispatcher = request.getRequestDispatcher("/Pages/registrar.jsp");
                     request.setAttribute("registrationMessage", "Email já cadastrado!");
                 } else {
                     requestDispatcher = request.getRequestDispatcher("/Pages/login.jsp");                    
                     request.setAttribute("loginMessage", "Conta cadastrada com sucesso!");
+                    request.setAttribute("statusMessage", "success");
                     contaDAO.save(conta);
                 }                
             }

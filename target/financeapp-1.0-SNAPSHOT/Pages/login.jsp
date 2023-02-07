@@ -32,6 +32,7 @@
                 
                 <% if (request.getAttribute("loginMessage") != null) { %>
                     <span class="message"><%= request.getAttribute("loginMessage") %></span>
+                    <input id="status-message" type="hidden" value="<%= request.getAttribute("statusMessage") %>">
                 <% } %>
                 
                 <form id="login-form" action="${pageContext.request.contextPath}/Login" method="POST">

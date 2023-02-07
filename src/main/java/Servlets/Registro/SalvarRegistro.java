@@ -38,9 +38,10 @@ public class SalvarRegistro extends HttpServlet {
             registro.setConta(conta);
             
             if (request.getParameter("id") != null) {
+                request.setAttribute("registroMessage", "Registro alterado com sucesso!");
                 requestDispatcher = request.getRequestDispatcher("/ListarRegistros"); 
                                 
-                registro.setId(Long.parseLong(request.getParameter("id")));                                   
+                registro.setId(Long.parseLong(request.getParameter("id")));                                 
                 registroDAO.update(registro);            
             } else {
                 request.setAttribute("registroMessage", "Registro cadastrado com sucesso!");
