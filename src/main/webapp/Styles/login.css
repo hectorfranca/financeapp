@@ -113,3 +113,6 @@ body {
 .hidden {
     opacity: 0;
 }
+.recuperar-senha {
+    margin-left: 150px;
+}
