@@ -21,7 +21,7 @@ consultarButton.addEventListener("click", () => {
         optionCaixa.classList.remove("required-field-caixa");
     }
     
-    if (dateInicial.value == '') {      
+    if (dateInicial.value === '') {      
         dataInicialTitulo.classList.add("required-field-titulo");
         dataInicialCaixa.classList.add("required-field-caixa");
     } else {
@@ -29,7 +29,7 @@ consultarButton.addEventListener("click", () => {
         dataInicialCaixa.classList.remove("required-field-caixa");
     }
     
-    if (dateFinal.value == '') {      
+    if (dateFinal.value === '') {      
         dataFinalTitulo.classList.add("required-field-titulo");
         dataFinalCaixa.classList.add("required-field-caixa");
     } else {
@@ -38,7 +38,7 @@ consultarButton.addEventListener("click", () => {
     }
     
     if ((radioCompleta.checked || radioResumida.checked)
-            && (dateInicial.value != '') && (dateFinal.value != '')) {       
+            && (dateInicial.value !== '') && (dateFinal.value !== '')) {       
         form.submit();
     }
 });

@@ -26,7 +26,7 @@ public class CategoriaBean {
     @OneToMany(mappedBy = "categoria")
     private Set<RegistroBean> registros;
     
-    @Column(name = "Nome", nullable = false, length = 40)
+    @Column(name = "Nome", nullable = false, length = 20)
     private String nome;
 
     public Long getId() {

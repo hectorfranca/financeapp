@@ -13,7 +13,7 @@ const voltarButton = document.getElementById("voltar-button");
 const message = document.getElementsByClassName("message")[0];
 const confirmacaoContainer = document.getElementById("confirmacao-container");
 
-if (typeof message != "undefined") {
+if (typeof message !== "undefined") {
     setTimeout(() => {
         message.classList.add("hidden");
     }, 5000);
@@ -28,11 +28,11 @@ let itemSelecionado = {
     data: null,
     valor: null,
     tipo: null
-}
+};
 
 // Valor na cor verde para receitas e vermelho para despesas
-if (typeof(tipo) != "undefined") {
-    if (tipo.value == "R") {
+if (typeof(tipo) !== "undefined") {
+    if (tipo.value === "R") {
         for (let valor of conteudoValor) {
             valor.style.color = "green";
         }
@@ -53,10 +53,10 @@ intercalarFundoItem();
 // Exibir o menu de opcoes
 for (let item of itemLista) {
     item.addEventListener("click", e => {
-        if (e.target == item
-            || e.target.parentNode == item
-            || e.target.parentNode.parentNode == item
-            || e.target.parentNode.parentNode.parentNode == item) {
+        if (e.target === item
+            || e.target.parentNode === item
+            || e.target.parentNode.parentNode === item
+            || e.target.parentNode.parentNode.parentNode === item) {
             seletor.classList.remove("hidden");
             lista.style.marginBottom = "50px";
             total.style.marginBottom = "100px";
@@ -91,17 +91,17 @@ voltarButton.addEventListener("click", () => {
 
 // Esconder o menu de opcoes 
 document.addEventListener("click", e => {
-    if ((e.target.tagName == "HTML" && typeof lista != "undefined")
-        || (e.target.parentNode != lista
-        && e.target.parentNode.parentNode != lista
-        && e.target.parentNode.parentNode.parentNode != lista
-        && e.target.parentNode.parentNode.parentNode.parentNode != lista
+    if ((e.target.tagName === "HTML" && typeof lista !== "undefined")
+        || (e.target.parentNode !== lista
+        && e.target.parentNode.parentNode !== lista
+        && e.target.parentNode.parentNode.parentNode !== lista
+        && e.target.parentNode.parentNode.parentNode.parentNode !== lista
         
-        && e.target != seletor
-        && e.target.parentNode != seletor
-        && e.target.parentNode.parentNode != seletor
-        && e.target.parentNode.parentNode.parentNode != seletor
-        && typeof lista != "undefined")) {
+        && e.target !== seletor
+        && e.target.parentNode !== seletor
+        && e.target.parentNode.parentNode !== seletor
+        && e.target.parentNode.parentNode.parentNode !== seletor
+        && typeof lista !== "undefined")) {
         seletor.classList.add("hidden");
         lista.style.marginBottom = "0px";
         total.style.marginBottom = "50px";
@@ -187,7 +187,7 @@ excluirButton.addEventListener("click", () => {
 
 function intercalarFundoItem() {
     for (let c = 0; c < itemLista.length; c++) {
-        if ((c % 2) == 0) {
+        if ((c % 2) === 0) {
             itemLista[c].style.backgroundColor = "white";
         } else {
             itemLista[c].style.backgroundColor = "#FFFACD";

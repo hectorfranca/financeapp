@@ -9,7 +9,7 @@ const labelSenhaConfirmacao = document.getElementsByClassName("label-senha-confi
 const inputSenhaConfirmacao = document.getElementById("input-senha-confirmacao");
 const message = document.getElementsByClassName("message")[0];
 
-if (typeof message != "undefined") {
+if (typeof message !== "undefined") {
     setTimeout(() => {
         message.classList.add("hidden");
     }, 5000);
@@ -18,7 +18,7 @@ if (typeof message != "undefined") {
 registrarFormButton.addEventListener("click", () => {
    let registrarForm = document.getElementById("registrar-form");
    
-    if (inputNome.value == '') {      
+    if (inputNome.value === '') {      
         labelNome.classList.add("required-field-titulo");
         inputNome.classList.add("required-field-caixa");
     } else {
@@ -26,7 +26,7 @@ registrarFormButton.addEventListener("click", () => {
         inputNome.classList.remove("required-field-caixa");
     }
     
-    if (inputEmail.value == '') {      
+    if (inputEmail.value === '') {      
         labelEmail.classList.add("required-field-titulo");
         inputEmail.classList.add("required-field-caixa");
     } else {
@@ -34,7 +34,7 @@ registrarFormButton.addEventListener("click", () => {
         inputEmail.classList.remove("required-field-caixa");
     }
     
-    if (inputSenha.value == '') {      
+    if (inputSenha.value === '') {      
         labelSenha.classList.add("required-field-titulo");
         inputSenha.classList.add("required-field-caixa");
     } else {
@@ -42,7 +42,7 @@ registrarFormButton.addEventListener("click", () => {
         inputSenha.classList.remove("required-field-caixa");
     }
     
-    if (inputSenhaConfirmacao.value == '' || inputSenhaConfirmacao.value != inputSenha.value) {      
+    if (inputSenhaConfirmacao.value === '' || inputSenhaConfirmacao.value !== inputSenha.value) {      
         labelSenhaConfirmacao.classList.add("required-field-titulo");
         inputSenhaConfirmacao.classList.add("required-field-caixa");
     } else {
@@ -50,8 +50,8 @@ registrarFormButton.addEventListener("click", () => {
         inputSenhaConfirmacao.classList.remove("required-field-caixa");
     }  
     
-    if (inputNome.value != '' && inputEmail.value != '' && inputSenha.value != '' 
-            && inputSenhaConfirmacao.value == inputSenha.value) {
+    if (inputNome.value !== '' && inputEmail.value !== '' && inputSenha.value !== '' 
+            && inputSenhaConfirmacao.value === inputSenha.value) {
         registrarForm.submit();
     }
 });

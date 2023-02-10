@@ -1,7 +1,9 @@
 Beans\RegistroResumidoBean.class
 Beans\CategoriaBean.class
+Servlets\Email\ResetPassword.class
 Servlets\Categoria\ExcluirCategoria.class
 Servlets\Registro\FiltrarRegistros.class
+Servlets\Email\RecoverEmail.class
 Beans\RegistroBean_.class
 Servlets\Email\RecoverPassword$1.class
 Beans\RegistroBean.class

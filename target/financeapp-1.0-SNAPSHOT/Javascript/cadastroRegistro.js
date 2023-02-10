@@ -8,13 +8,13 @@ const addCategoriaButton = document.getElementsByClassName("button-add-categoria
 const voltarButtonForm = document.getElementById("voltar-button-form");
 const message = document.getElementsByClassName("message")[0];
 
-if (typeof message != "undefined") {
+if (typeof message !== "undefined") {
     setTimeout(() => {
         message.classList.add("hidden");
     }, 5000);
 }
 
-if (voltarButtonForm != null) {
+if (voltarButtonForm !== null) {
     voltarButtonForm.addEventListener("click", () => {
        let voltarForm = document.getElementById("voltar-form");
        voltarForm.submit();
@@ -32,7 +32,7 @@ registrarButton.addEventListener("click", () => {
     let labelData = document.getElementsByClassName("label-data")[0];
     let labelValor = document.getElementsByClassName("label-valor")[0];
         
-    if (inputNome.value == '') {      
+    if (inputNome.value === '') {      
         labelNome.classList.add("required-field-titulo");
         inputNome.classList.add("required-field-caixa");
     } else {
@@ -40,7 +40,7 @@ registrarButton.addEventListener("click", () => {
         inputNome.classList.remove("required-field-caixa");
     }
     
-    if (inputCategoria.value == '') {      
+    if (inputCategoria.value === '') {      
         labelCategoria.classList.add("required-field-titulo");
         inputCategoria.classList.add("required-field-caixa");
     } else {
@@ -48,7 +48,7 @@ registrarButton.addEventListener("click", () => {
         inputCategoria.classList.remove("required-field-caixa");
     }
     
-    if (inputData.value == '') {      
+    if (inputData.value === '') {      
         labelData.classList.add("required-field-titulo");
         inputData.classList.add("required-field-caixa");
     } else {
@@ -56,7 +56,7 @@ registrarButton.addEventListener("click", () => {
         inputData.classList.remove("required-field-caixa");
     }
     
-    if (inputValor.value == '') {      
+    if (inputValor.value === '') {      
         labelValor.classList.add("required-field-titulo");
         inputValor.classList.add("required-field-caixa");
     } else {
@@ -64,8 +64,8 @@ registrarButton.addEventListener("click", () => {
         inputValor.classList.remove("required-field-caixa");
     }
     
-    if (inputNome.value != '' && inputCategoria.value != ''
-            && inputData.value != '' && inputValor.value != '') {       
+    if (inputNome.value !== '' && inputCategoria.value !== ''
+            && inputData.value !== '' && inputValor.value !== '') {       
         salvarRegistroForm.submit();
     }
 });

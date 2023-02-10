@@ -101,7 +101,7 @@
                     </div>
                     <div class="form-item">     
                         <label class="label-nome" for="input-nome">Nome (<span class="required-field-titulo">*</span>)</label>            
-                        <input type="text" class="form-control" id="input-nome" name="nome" maxlength="30" 
+                        <input type="text" class="form-control" id="input-nome" name="nome" maxlength="20"
                                value="<%= registro.getNome() != null ? registro.getNome() : "" %>" required>
                     </div>
                     <div class="form-item">     

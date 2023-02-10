@@ -6,7 +6,7 @@ const editarButton = document.getElementById("editar-button");
 const message = document.getElementsByClassName("message")[0];
 const confirmacaoContainer = document.getElementById("confirmacao-container");
 
-if (typeof message != "undefined") {
+if (typeof message !== "undefined") {
     setTimeout(() => {
         message.classList.add("hidden");
     }, 5000);
@@ -15,18 +15,18 @@ if (typeof message != "undefined") {
 let itemSelecionado = {
     id: null,
     nome: null
-}
+};
 
 // Cor dos itens intercaladas
 intercalarFundoItem();
 
 // Exibir o menu de opcoes
-if (typeof lista != "undefined") {
+if (typeof lista !== "undefined") {
     for (let item of itemLista) {
         item.addEventListener("click", e => {
-            if (e.target == item
-                || e.target.parentNode == item
-                || e.target.parentNode.parentNode == item) {
+            if (e.target === item
+                || e.target.parentNode === item
+                || e.target.parentNode.parentNode === item) {
                 seletor.classList.remove("hidden");
                 lista.style.marginBottom = "50px";
 
@@ -50,17 +50,17 @@ if (typeof lista != "undefined") {
 }
 
 // Esconder o menu de opcoes 
-if (typeof lista != "undefined") {
+if (typeof lista !== "undefined") {
     document.addEventListener("click", e => {
-        if (e.target.tagName == "HTML"
-            || (e.target.parentNode != lista
-            && e.target.parentNode.parentNode != lista
-            && e.target.parentNode.parentNode.parentNode != lista
+        if (e.target.tagName === "HTML"
+            || (e.target.parentNode !== lista
+            && e.target.parentNode.parentNode !== lista
+            && e.target.parentNode.parentNode.parentNode !== lista
 
-            && e.target != seletor
-            && e.target.parentNode != seletor
-            && e.target.parentNode.parentNode != seletor
-            && e.target.parentNode.parentNode.parentNode != seletor)) {
+            && e.target !== seletor
+            && e.target.parentNode !== seletor
+            && e.target.parentNode.parentNode !== seletor
+            && e.target.parentNode.parentNode.parentNode !== seletor)) {
             seletor.classList.add("hidden");
             lista.style.marginBottom = "0px";  
 
@@ -117,7 +117,7 @@ excluirButton.addEventListener("click", () => {
 
 function intercalarFundoItem() {
     for (let c = 0; c < itemLista.length; c++) {
-        if ((c % 2) == 0) {
+        if ((c % 2) === 0) {
             itemLista[c].style.backgroundColor = "white";
         } else {
             itemLista[c].style.backgroundColor = "#FFFACD";

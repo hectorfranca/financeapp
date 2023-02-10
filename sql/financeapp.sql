@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
   `Id` int(11) AUTO_INCREMENT NOT NULL,
   `Conta_id` int(11) NOT NULL,
-  `Nome` varchar(25) COLLATE latin1_bin NOT NULL,
+  `Nome` varchar(20) COLLATE latin1_bin NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `fk_contaid` (`Conta_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `registro` (
   `Id` int(11) AUTO_INCREMENT NOT NULL,
   `Categoria_id` int(11) NOT NULL,
   `Conta_id` int(11) NOT NULL,
-  `Nome` varchar(30) COLLATE latin1_bin NOT NULL,
+  `Nome` varchar(20) COLLATE latin1_bin NOT NULL,
   `Tipo` char(1) COLLATE latin1_bin NOT NULL,
   `Data` date NOT NULL,
   `Valor` double NOT NULL,

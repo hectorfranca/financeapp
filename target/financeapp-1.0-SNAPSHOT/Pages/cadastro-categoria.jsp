@@ -36,7 +36,7 @@
                 <form id="registrar-form" action="${pageContext.request.contextPath}/SalvarCategoria" method="POST">
                     <div class="form-item">
                         <label class="label-nome" for="input-nome">Nome (<span class="required-field-titulo">*</span>)</label>         
-                        <input type="text" class="form-control" id="input-nome" name="nome-categoria" maxlength="25"
+                        <input type="text" class="form-control" id="input-nome" name="nome-categoria" maxlength="20"
                                value="<%= categoria.getNome() != null ? categoria.getNome() : "" %>" required>
                         <input type="hidden" name="tipo" value="<%= request.getParameter("tipo") %>">
                         <input type="hidden" name="isOnRegister" value="<%= request.getParameter("isOnRegister") %>">

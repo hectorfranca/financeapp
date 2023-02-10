@@ -3,7 +3,7 @@ const registrarButton = document.getElementsByClassName("form-button__registrar"
 const inputNome = document.getElementById("input-nome");
 const voltarButton = document.getElementById("voltar-button");
 
-if (voltarButton != null) {
+if (voltarButton !== null) {
     voltarButton.addEventListener("click", () => {
         let voltarForm = document.getElementById("voltar-form");
 
@@ -14,7 +14,7 @@ if (voltarButton != null) {
 registrarButton.addEventListener("click", () => {
     let labelNome = document.getElementsByClassName("label-nome")[0];
         
-    if (inputNome.value == '') {      
+    if (inputNome.value === '') {      
         labelNome.classList.add("required-field-titulo");
         inputNome.classList.add("required-field-caixa");
     } else {

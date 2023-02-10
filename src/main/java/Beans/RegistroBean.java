@@ -26,7 +26,7 @@ public class RegistroBean {
     @JoinColumn(name = "Conta_id", nullable = false)
     private ContaBean conta;
     
-    @Column(name = "Nome", nullable = false, length = 60)
+    @Column(name = "Nome", nullable = false, length = 20)
     private String nome;
     
     @Column(name = "Tipo", nullable = false, length = 1)
