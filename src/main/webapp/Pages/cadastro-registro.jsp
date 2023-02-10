@@ -56,7 +56,10 @@
                 <% } else { %>
                         <h1 class="container-primario__container-secundario__titulo">Cadastro de Despesa</h1>
                 <% } %>
-                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
+                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span><br>
+                <div>
+                    <p>1- O nome do registro deve conter no máximo 20 caracteres.</p>
+                </div>   
                 
                 <% if (request.getAttribute("categoriaMessage") != null) { %>
                     <span class="message"><%= request.getAttribute("categoriaMessage") %></span>

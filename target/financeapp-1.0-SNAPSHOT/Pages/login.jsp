@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-item">
                         <label class="label-senha" for="senha">Senha (<span class="required-field-titulo">*</span>)</label>         
-                        <input id="input-senha" type="password" id="senha" class="form-control" name="senha" maxlength="16" required>
+                        <input id="input-senha" type="password" id="senha" class="form-control" name="senha" minlength="6" maxlength="16" required>
                         <a class="recuperar-senha" href="${pageContext.request.contextPath}/Pages/recuperar-senha.jsp">Esqueceu a senha?</a>
                     </div>
                 </form>

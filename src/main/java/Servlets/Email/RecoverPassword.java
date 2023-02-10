@@ -68,6 +68,7 @@ public class RecoverPassword extends HttpServlet {
             String email = request.getParameter("email");
             String token = "";
             conta = contaDAO.findByEmail(request.getParameter("email"));
+            String content = null;
             
             if (conta != null) {
                 Random random = new Random();              
@@ -80,9 +81,8 @@ public class RecoverPassword extends HttpServlet {
                 conta.setSenhaToken(tokenCriptografado.toString(16));
                 contaDAO.update(conta);
                 token = conta.getSenhaToken();
-            }
-            
-            String content =
+                
+                content =
                 "<h1>Equipe FinanceApp</h1>"
                 + "<p>Olá,</p>"
                 + "<p>foi solicitado a recuperação de senha de sua conta, acesse o link abaixo para cadastrar uma nova senha.</p>"
@@ -90,7 +90,13 @@ public class RecoverPassword extends HttpServlet {
                     + "http://localhost:8080/financeapp/RecoverEmail?email=" + email + "&token=" + token + "</a>"
                 + "<p>Se não foi você que solicitou a recuperação, entre em contato com o nosso suporte através dos canais abaixo.</p>"
                 + "<a href='financeapp@gmail.com'>financeapp@gmail.com</a>";
+            } else {
+               request.setAttribute("emailMessage", "<p>Email não cadastrado.</p>"
+                    + "<p>Crie sua conta aqui: <a href='http://localhost:8080/financeapp/Pages/registrar.jsp'>http://localhost:8080/financeapp/Pages/registrar.jsp</a></p>");            
             
+               requestDispatcher.forward(request, response);
+            }
+                     
             message.setContent(content, "text/html");
             Transport.send(message);
             System.out.println("Email enviado com sucesso");

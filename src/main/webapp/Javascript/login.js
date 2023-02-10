@@ -19,7 +19,7 @@ if (typeof message !== "undefined") {
 loginFormButton.addEventListener("click", () => {
     let loginForm = document.getElementById("login-form");
    
-    if (inputEmail.value === '') {      
+    if (!validaEmail()) {      
         labelEmail.classList.add("required-field-titulo");
         inputEmail.classList.add("required-field-caixa");
     } else {
@@ -27,7 +27,7 @@ loginFormButton.addEventListener("click", () => {
         inputEmail.classList.remove("required-field-caixa");
     }
     
-    if (inputSenha.value === '') {      
+    if (!validaSenha()) {      
         labelSenha.classList.add("required-field-titulo");
         inputSenha.classList.add("required-field-caixa");
     } else {
@@ -35,9 +35,25 @@ loginFormButton.addEventListener("click", () => {
         inputSenha.classList.remove("required-field-caixa");
     }
     
-    if (inputEmail.value !== '' && inputSenha.value !== '') {
+    if (validaEmail() && validaSenha()) {
         loginForm.submit();
     }
 });
 
+function validaEmail() {
+    if (inputEmail.value !== ''
+        && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputEmail.value)) {
+            return true;
+    }
+    
+    return false;
+}
+
+function validaSenha() {
+    if (inputSenha.value !== '') {
+            return true;
+    }
+    
+    return false;
+}
 

@@ -32,7 +32,7 @@ registrarButton.addEventListener("click", () => {
     let labelData = document.getElementsByClassName("label-data")[0];
     let labelValor = document.getElementsByClassName("label-valor")[0];
         
-    if (inputNome.value === '') {      
+    if (!validaNome()) {      
         labelNome.classList.add("required-field-titulo");
         inputNome.classList.add("required-field-caixa");
     } else {
@@ -40,7 +40,7 @@ registrarButton.addEventListener("click", () => {
         inputNome.classList.remove("required-field-caixa");
     }
     
-    if (inputCategoria.value === '') {      
+    if (!validaCategoria()) {      
         labelCategoria.classList.add("required-field-titulo");
         inputCategoria.classList.add("required-field-caixa");
     } else {
@@ -48,7 +48,7 @@ registrarButton.addEventListener("click", () => {
         inputCategoria.classList.remove("required-field-caixa");
     }
     
-    if (inputData.value === '') {      
+    if (!validaData()) {      
         labelData.classList.add("required-field-titulo");
         inputData.classList.add("required-field-caixa");
     } else {
@@ -56,7 +56,7 @@ registrarButton.addEventListener("click", () => {
         inputData.classList.remove("required-field-caixa");
     }
     
-    if (inputValor.value === '') {      
+    if (!validaValor()) {      
         labelValor.classList.add("required-field-titulo");
         inputValor.classList.add("required-field-caixa");
     } else {
@@ -64,8 +64,39 @@ registrarButton.addEventListener("click", () => {
         inputValor.classList.remove("required-field-caixa");
     }
     
-    if (inputNome.value !== '' && inputCategoria.value !== ''
-            && inputData.value !== '' && inputValor.value !== '') {       
+    if (validaNome() && validaCategoria() && validaData() && validaValor()) {       
         salvarRegistroForm.submit();
     }
 });
+
+function validaNome() {
+    if (inputNome.value !== '') {
+        return true;
+    }
+    
+    return false;
+}
+
+function validaCategoria() {
+    if (inputCategoria.value !== '') {
+        return true;
+    }
+    
+    return false;
+}
+
+function validaData() {
+    if (inputData.value !== '') {
+        return true;
+    }
+    
+    return false;
+}
+
+function validaValor() {
+    if (inputValor.value !== '') {
+        return true;
+    }
+    
+    return false;
+}

@@ -32,7 +32,10 @@
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Cadastro de Categoria</h2>
-                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
+                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span><br>
+                <div>
+                    <p>1- O nome da categoria deve conter no máximo 20 caracteres.</p>
+                </div>
                 <form id="registrar-form" action="${pageContext.request.contextPath}/SalvarCategoria" method="POST">
                     <div class="form-item">
                         <label class="label-nome" for="input-nome">Nome (<span class="required-field-titulo">*</span>)</label>         

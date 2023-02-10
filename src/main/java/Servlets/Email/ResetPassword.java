@@ -35,7 +35,7 @@ public class ResetPassword extends HttpServlet {
                 conta.setSenha(senhaCriptografado.toString(16));
                 conta.setSenhaToken(null);
                 contaDAO.update(conta);
-                request.setAttribute("emailMessage", "<p>Seha alterada com sucesso!</p>");
+                request.setAttribute("emailMessage", "<p>Senha alterada com sucesso!</p>");
             } else {
                  request.setAttribute("emailMessage", "<p>Não foi possível redefinir a senha.</p>"
                     + "<p>Contate o nosso suporte pelo canal de atendimento: <a href='financeapp@gmail.com'>financeapp@gmail.com</a></p>");

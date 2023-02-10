@@ -18,7 +18,7 @@ if (typeof message !== "undefined") {
 registrarFormButton.addEventListener("click", () => {
    let registrarForm = document.getElementById("registrar-form");
    
-    if (inputNome.value === '') {      
+    if (!validaNome()) {    
         labelNome.classList.add("required-field-titulo");
         inputNome.classList.add("required-field-caixa");
     } else {
@@ -26,7 +26,7 @@ registrarFormButton.addEventListener("click", () => {
         inputNome.classList.remove("required-field-caixa");
     }
     
-    if (inputEmail.value === '') {      
+    if (!validaEmail()) {      
         labelEmail.classList.add("required-field-titulo");
         inputEmail.classList.add("required-field-caixa");
     } else {
@@ -34,26 +34,46 @@ registrarFormButton.addEventListener("click", () => {
         inputEmail.classList.remove("required-field-caixa");
     }
     
-    if (inputSenha.value === '') {      
+    if (!validaSenha()) {      
         labelSenha.classList.add("required-field-titulo");
         inputSenha.classList.add("required-field-caixa");
-    } else {
-        labelSenha.classList.remove("required-field-titulo");
-        inputSenha.classList.remove("required-field-caixa");
-    }
-    
-    if (inputSenhaConfirmacao.value === '' || inputSenhaConfirmacao.value !== inputSenha.value) {      
         labelSenhaConfirmacao.classList.add("required-field-titulo");
         inputSenhaConfirmacao.classList.add("required-field-caixa");
     } else {
+        labelSenha.classList.remove("required-field-titulo");
+        inputSenha.classList.remove("required-field-caixa");
         labelSenhaConfirmacao.classList.remove("required-field-titulo");
         inputSenhaConfirmacao.classList.remove("required-field-caixa");
-    }  
+    }
     
-    if (inputNome.value !== '' && inputEmail.value !== '' && inputSenha.value !== '' 
-            && inputSenhaConfirmacao.value === inputSenha.value) {
+    if (validaNome() && validaEmail() && validaSenha()) {
         registrarForm.submit();
     }
 });
 
+function validaNome() {
+    if (inputNome.value !== '' && inputNome.value.length >= 4 && inputNome.value.length <= 20) {
+        return true;
+    }
+    
+    return false;
+}
+
+function validaEmail() {
+    if (inputEmail.value !== '' && inputEmail.value.length <= 100
+            && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputEmail.value)) {
+        return true;
+    }
+    
+    return false;
+}
+
+function validaSenha() {
+    if (inputSenha.value !== '' && inputSenha.value.length >= 6 && inputSenha.value.length <= 16
+            && inputSenhaConfirmacao.value === inputSenha.value) {
+        return true;
+    }
+    
+    return false;
+}
 

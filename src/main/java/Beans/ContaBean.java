@@ -24,7 +24,7 @@ public class ContaBean {
     @OneToMany(mappedBy = "conta")
     private Set<RegistroBean> registros;
     
-    @Column(name = "Nome", nullable = false, length = 40)
+    @Column(name = "Nome", nullable = false, length = 20)
     private String nome;
     
     @Column(name = "Email", nullable = false, length = 100)

@@ -28,8 +28,11 @@
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Cadastro</h2>
-                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
-                
+                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span><br>              
+                <div>
+                    <p>1- O nome de usuário deve conter de 4 a 20 caracteres.</p>
+                    <p>2- A senha deve deve conter de 6 a 16 caracteres.</p>
+                </div>               
                 <% if (request.getAttribute("registrationMessage") != null) { %>
                     <span class="message"><%= request.getAttribute("registrationMessage") %></span>
                 <% } %>
@@ -37,7 +40,7 @@
                 <form id="registrar-form" action="${pageContext.request.contextPath}/Registrar" method="POST">
                     <div class="form-item">
                         <label class="label-nome" for="nome">Nome (<span class="required-field-titulo">*</span>)</label>         
-                        <input id="input-nome" type="text" id="nome" class="form-control" name="nome" minlength="4" maxlength="10" required>
+                        <input id="input-nome" type="text" id="nome" class="form-control" name="nome" minlength="4" maxlength="20" required>
                     </div>
                     <div class="form-item">
                         <label class="label-email" for="email">E-mail (<span class="required-field-titulo">*</span>)</label>         

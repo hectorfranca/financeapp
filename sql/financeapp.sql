@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `conta`;
 CREATE TABLE IF NOT EXISTS `conta` (
   `Id` int(11) AUTO_INCREMENT NOT NULL,
-  `Nome` varchar(10) COLLATE latin1_bin NOT NULL,
+  `Nome` varchar(20) COLLATE latin1_bin NOT NULL,
   `Email` varchar(100) COLLATE latin1_bin NOT NULL,
   `Senha` varchar(64) COLLATE latin1_bin NOT NULL,
   `Senha_token` varchar(64) COLLATE latin1_bin,
