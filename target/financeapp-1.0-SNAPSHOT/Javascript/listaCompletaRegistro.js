@@ -11,6 +11,7 @@ const dataFinal = document.getElementsByClassName("data-final")[0];
 const tipoLista = document.getElementsByClassName("tipo-lista")[0];
 const voltarButton = document.getElementById("voltar-button");
 const message = document.getElementsByClassName("message")[0];
+const confirmacaoContainer = document.getElementById("confirmacao-container");
 
 if (typeof message != "undefined") {
     setTimeout(() => {
@@ -56,8 +57,7 @@ for (let item of itemLista) {
             || e.target.parentNode == item
             || e.target.parentNode.parentNode == item
             || e.target.parentNode.parentNode.parentNode == item) {
-            seletor.classList.add("show-visibility");
-            seletor.classList.remove("hidden-visibility");
+            seletor.classList.remove("hidden");
             lista.style.marginBottom = "50px";
             total.style.marginBottom = "100px";
             
@@ -102,8 +102,7 @@ document.addEventListener("click", e => {
         && e.target.parentNode.parentNode != seletor
         && e.target.parentNode.parentNode.parentNode != seletor
         && typeof lista != "undefined")) {
-        seletor.classList.add("hidden-visibility");
-        seletor.classList.remove("show-visibility");
+        seletor.classList.add("hidden");
         lista.style.marginBottom = "0px";
         total.style.marginBottom = "50px";
         
@@ -146,21 +145,44 @@ editarButton.addEventListener("click", () => {
 });
 
 excluirButton.addEventListener("click", () => {
-    let idRegistro = document.getElementById("excluir-id-registro");
-    let tipoRegistro = document.getElementById("excluir-tipo-registro");
-    let dataInicialForm = document.getElementById("excluir-data-inicial");
-    let dataFinalForm = document.getElementById("excluir-data-final");
-    let tipoListaForm = document.getElementById("excluir-tipo-lista");
+    confirmacaoContainer.classList.remove("hidden");
     
-    idRegistro.value = itemSelecionado.id;
-    tipoRegistro.value = itemSelecionado.tipo;
-    dataInicialForm.value = dataInicial.value;
-    dataFinalForm.value = dataFinal.value;
-    tipoListaForm.value = tipoLista.value;
+    document.getElementsByClassName("container-primario__container-secundario")[0].classList.add("hidden");
+    voltarButton.classList.add("hidden");
+    total.classList.add("hidden");
+    seletor.classList.add("hidden");
     
-    let excluirRegistroForm = document.getElementById("excluir-registro-form");
+    let confirmarExlusaoButton = document.getElementById("confirmar-exclusao-button");
+    let cancelarExlusaoButton = document.getElementById("cancelar-exclusao-button");
+    
+    confirmarExlusaoButton.addEventListener("click", () => {             
+        let idRegistro = document.getElementById("excluir-id-registro");
+        let tipoRegistro = document.getElementById("excluir-tipo-registro");
+        let dataInicialForm = document.getElementById("excluir-data-inicial");
+        let dataFinalForm = document.getElementById("excluir-data-final");
+        let tipoListaForm = document.getElementById("excluir-tipo-lista");
+
+        idRegistro.value = itemSelecionado.id;
+        tipoRegistro.value = itemSelecionado.tipo;
+        dataInicialForm.value = dataInicial.value;
+        dataFinalForm.value = dataFinal.value;
+        tipoListaForm.value = tipoLista.value;
+
+        let excluirRegistroForm = document.getElementById("excluir-registro-form");
+
+        excluirRegistroForm.submit();
         
-    excluirRegistroForm.submit();
+        confirmacaoContainer.classList.add("hidden");
+    });
+    
+    cancelarExlusaoButton.addEventListener("click", () => {
+        document.getElementsByClassName("container-primario__container-secundario")[0].classList.remove("hidden");
+        voltarButton.classList.remove("hidden");
+        total.classList.remove("hidden");
+        seletor.classList.remove("hidden");
+        confirmacaoContainer.classList.add("hidden");
+    });
+    
 });
 
 function intercalarFundoItem() {

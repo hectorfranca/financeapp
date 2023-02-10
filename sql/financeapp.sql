@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS `conta` (
   `Id` int(11) AUTO_INCREMENT NOT NULL,
   `Nome` varchar(10) COLLATE latin1_bin NOT NULL,
   `Email` varchar(100) COLLATE latin1_bin NOT NULL,
-  `Senha` varchar(32) COLLATE latin1_bin NOT NULL,
+  `Senha` varchar(64) COLLATE latin1_bin NOT NULL,
+  `Senha_token` varchar(64) COLLATE latin1_bin,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 

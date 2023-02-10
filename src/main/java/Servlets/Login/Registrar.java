@@ -22,7 +22,7 @@ public class Registrar extends HttpServlet {
         RequestDispatcher requestDispatcher = null;
         
         try {               
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
             messageDigest.update(request.getParameter("senha").getBytes(), 0, request.getParameter("senha").length());
             BigInteger senhaCriptografada = new BigInteger(1, messageDigest.digest());
             
@@ -44,7 +44,7 @@ public class Registrar extends HttpServlet {
             
             requestDispatcher.forward(request, response);
         } catch(Exception exception) {
-            throw new ServletException("Não foi possível efetuar o login: " 
+            throw new ServletException("Não foi possível registrar a conta: " 
                     + exception.getMessage());
         }
     }

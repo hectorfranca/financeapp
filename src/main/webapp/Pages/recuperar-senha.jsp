@@ -21,30 +21,36 @@
         <div class="container-primario">
             <div class="container-primario__container-secundario"> 
                 <h2 class="container-primario__container-secundario__titulo">Recuperar senha</h2>
-                <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
                 
-                <!-- <% if (request.getAttribute("loginMessage") != null) { %>
-                    <span class="message"><%= request.getAttribute("loginMessage") %></span>
-                    <input id="status-message" type="hidden" value="<%= request.getAttribute("statusMessage") %>">
-                <% } %> -->
-                
-                <form id="recuperar-senha-form" action="${pageContext.request.contextPath}/Login" method="POST">
-                    <div class="form-item">
-                        <label class="label-email" for="input-email">E-mail (<span class="required-field-titulo">*</span>)</label>         
-                        <input id="input-email" type="text" class="form-control" name="email" maxlength="100" required>
+                <% if (request.getAttribute("emailMessage") != null) { %>
+                    <%= request.getAttribute("emailMessage") %>
+                    
+                    <div class="form-button">
+                        <a class="form-button__caixa form-button--efeito" 
+                           href="${pageContext.request.contextPath}/Pages/login.jsp">
+                           <span class="form-button__caixa__titulo">Voltar</span>
+                        </a>
                     </div>
-                </form>
-                <div class="form-button">
-                    <a id="recuperar-senha-form-button" class="form-button__caixa form-button--efeito"
-                       href="${pageContext.request.contextPath}/RecoverPassword">
-                        <span class="form-button__caixa__titulo">Enviar</span>
-                    </a>               
-                  
-                    <a class="form-button__caixa form-button--efeito" 
-                       href="${pageContext.request.contextPath}/Pages/registrar.jsp">
-                       <span class="form-button__caixa__titulo">Voltar</span>
-                    </a>
-                </div>
+                <% } else { %>               
+                    <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span>
+
+                    <form id="recuperar-senha-form" action="${pageContext.request.contextPath}/RecoverPassword" method="POST">
+                        <div class="form-item">
+                            <label class="label-email" for="input-email">E-mail (<span class="required-field-titulo">*</span>)</label>         
+                            <input id="input-email" type="text" class="form-control" name="email" maxlength="100" required>
+                        </div>
+                    </form>
+                    <div class="form-button">
+                        <a id="recuperar-senha-form-button" class="form-button__caixa form-button--efeito">
+                            <span class="form-button__caixa__titulo">Enviar</span>
+                        </a>            
+
+                        <a class="form-button__caixa form-button--efeito" 
+                           href="${pageContext.request.contextPath}/Pages/login.jsp">
+                           <span class="form-button__caixa__titulo">Voltar</span>
+                        </a>
+                    </div>                     
+                <% } %>
             </div>
         </div>
             

@@ -120,6 +120,20 @@
                 <input type="hidden" id="excluir-data-final" name="dataFinal"/>
                 <input type="hidden" id="excluir-tipo-lista" name="tipoLista"/>
             </form>
+                
+            <div id="confirmacao-container" class="hidden">
+                <p>Realmente deseja excluir o registro?</p>
+                <div class="form-button">
+                    <a id="confirmar-exclusao-button" class="form-button__caixa form-button--efeito">
+                        <span class="form-button__caixa__titulo">Sim</span>
+                    </a>               
+
+                    <a id="cancelar-exclusao-button" class="form-button__caixa form-button--efeito">
+                       <span class="form-button__caixa__titulo">Não</span>
+                    </a>
+                </div>
+            </div>
+                
         </div>
         <% if (colecaoRegistro.getRegistros().size() > 0) { %>
             <div class="valor-total">
@@ -131,7 +145,7 @@
                 </div>       
             </div>
         <% } %>
-        <div class="seletor hidden-visibility">
+        <div class="seletor hidden">
             <div class="seletor-item">
                 <span>Selecionado:</span>
             </div> 
@@ -148,7 +162,7 @@
                     <img src="${pageContext.request.contextPath}/img/excluir.png">    
                 </button>
             </div>
-        </div>                   
+        </div>
         
         <jsp:include page="/Components/footer.jsp"/>
              

@@ -21,7 +21,7 @@ public class Logout extends HttpServlet {
             session.invalidate();
             response.sendRedirect(request.getContextPath() + "/Pages/menu.jsp");
         } catch(Exception exception) {
-            throw new ServletException("Não foi possível salvar a categoria: " 
+            throw new ServletException("Não foi possível efetuar o logout: " 
                     + exception.getMessage());
         }
     }

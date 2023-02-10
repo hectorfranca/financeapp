@@ -4,6 +4,7 @@ const seletor = document.getElementsByClassName("seletor")[0];
 const excluirButton = document.getElementById("excluir-button");
 const editarButton = document.getElementById("editar-button");
 const message = document.getElementsByClassName("message")[0];
+const confirmacaoContainer = document.getElementById("confirmacao-container");
 
 if (typeof message != "undefined") {
     setTimeout(() => {
@@ -26,7 +27,6 @@ if (typeof lista != "undefined") {
             if (e.target == item
                 || e.target.parentNode == item
                 || e.target.parentNode.parentNode == item) {
-                seletor.classList.add("show");
                 seletor.classList.remove("hidden");
                 lista.style.marginBottom = "50px";
 
@@ -62,7 +62,6 @@ if (typeof lista != "undefined") {
             && e.target.parentNode.parentNode != seletor
             && e.target.parentNode.parentNode.parentNode != seletor)) {
             seletor.classList.add("hidden");
-            seletor.classList.remove("show");
             lista.style.marginBottom = "0px";  
 
             // Realce de cor do item selecionado
@@ -90,11 +89,30 @@ editarButton.addEventListener("click", (event) => {
 excluirButton.addEventListener("click", () => {
     event.preventDefault();
     
-    let excluirForm = document.getElementsByClassName("excluir-form")[0];
+    confirmacaoContainer.classList.remove("hidden");
     
-    document.getElementById("excluir-id-categoria").value = itemSelecionado.id;
+    document.getElementsByClassName("container-primario__container-secundario")[0].classList.add("hidden");
+    seletor.classList.add("hidden");
     
-    excluirForm.submit();
+    let confirmarExlusaoButton = document.getElementById("confirmar-exclusao-button");
+    let cancelarExlusaoButton = document.getElementById("cancelar-exclusao-button");
+    
+    confirmarExlusaoButton.addEventListener("click", () => {     
+        let excluirForm = document.getElementsByClassName("excluir-form")[0];
+
+        document.getElementById("excluir-id-categoria").value = itemSelecionado.id;
+
+        excluirForm.submit();
+        
+        confirmacaoContainer.classList.add("hidden");
+    });
+    
+    cancelarExlusaoButton.addEventListener("click", () => {
+        document.getElementsByClassName("container-primario__container-secundario")[0].classList.remove("hidden");
+        seletor.classList.remove("hidden");
+        confirmacaoContainer.classList.add("hidden");
+    });
+    
 });
 
 function intercalarFundoItem() {

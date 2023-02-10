@@ -63,6 +63,19 @@
                     <p>Nenhuma categoria cadastrada.</p>
                 <% } %>
             </div>
+            
+            <div id="confirmacao-container" class="hidden">
+                <p>Realmente deseja excluir o registro?</p>
+                <div class="form-button">
+                    <a id="confirmar-exclusao-button" class="form-button__caixa form-button--efeito">
+                        <span class="form-button__caixa__titulo">Sim</span>
+                    </a>               
+
+                    <a id="cancelar-exclusao-button" class="form-button__caixa form-button--efeito">
+                       <span class="form-button__caixa__titulo">Não</span>
+                    </a>
+                </div>
+            </div>
         </div>
                 
         <div class="seletor hidden">

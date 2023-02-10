@@ -30,8 +30,11 @@ public class ContaBean {
     @Column(name = "Email", nullable = false, length = 100)
     private String email;
     
-    @Column(name = "Senha", nullable = false, length = 32)
+    @Column(name = "Senha", nullable = false, length = 64)
     private String senha;
+    
+    @Column(name = "Senha_token", nullable = true, length = 64)
+    private String senhaToken;
 
     public Long getId() {
         return id;
@@ -81,9 +84,18 @@ public class ContaBean {
         this.senha = senha;
     }
 
+    public String getSenhaToken() {
+        return senhaToken;
+    }
+
+    public void setSenhaToken(String senhaToken) {
+        this.senhaToken = senhaToken;
+    }
+
     @Override
     public String toString() {
-        return "ContaBean{" + "id=" + id + ", categorias=" + categorias + ", registros=" + registros + ", nome=" + nome + ", email=" + email + ", senha=" + senha + '}';
+        return "ContaBean{" + "id=" + id + ", categorias=" + categorias + ", registros=" + registros + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", senhaToken=" + senhaToken + '}';
     }
+    
 
 }
