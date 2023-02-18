@@ -86,7 +86,7 @@ public class RecoverPassword extends HttpServlet {
                 "<h1>Equipe FinanceApp</h1>"
                 + "<p>Olá,</p>"
                 + "<p>foi solicitado a recuperação de senha de sua conta, acesse o link abaixo para cadastrar uma nova senha.</p>"
-                + "<a href=http://localhost:8080/financeapp/RecoverEmail?email=" + email + "&token=" + token + ">"
+                + "<a href='http://localhost:8080/financeapp/RecoverEmail?email=" + email + "&token=" + token + "'>"
                     + "http://localhost:8080/financeapp/RecoverEmail?email=" + email + "&token=" + token + "</a>"
                 + "<p>Se não foi você que solicitou a recuperação, entre em contato com o nosso suporte através dos canais abaixo.</p>"
                 + "<a href='financeapp@gmail.com'>financeapp@gmail.com</a>";
@@ -97,7 +97,7 @@ public class RecoverPassword extends HttpServlet {
                requestDispatcher.forward(request, response);
             }
                      
-            message.setContent(content, "text/html");
+            message.setContent(content, "text/html");                   
             Transport.send(message);
             System.out.println("Email enviado com sucesso");
             
