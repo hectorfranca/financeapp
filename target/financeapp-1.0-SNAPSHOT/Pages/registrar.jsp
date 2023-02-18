@@ -31,7 +31,7 @@
                 <span>(<span class="required-field-titulo">*</span>) são campos obrigatórios.</span><br>              
                 <div>
                     <p>1- O nome de usuário deve conter de 4 a 20 caracteres.</p>
-                    <p>2- A senha deve deve conter de 6 a 16 caracteres.</p>
+                    <p>2- A senha deve conter de 6 a 16 caracteres.</p>
                 </div>               
                 <% if (request.getAttribute("registrationMessage") != null) { %>
                     <span class="message"><%= request.getAttribute("registrationMessage") %></span>
